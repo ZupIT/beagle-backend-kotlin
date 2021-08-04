@@ -26,7 +26,7 @@ import br.com.zup.beagle.core.ServerDrivenComponent
  */
 @Suppress("FunctionNaming")
 fun <T : ServerDrivenComponent> Platform(platform: BeaglePlatform,
-                                         self: T): BeaglePlatformWrapper<T> {
+                                                                                                                    self: T): BeaglePlatformWrapper<T> {
     return self.setPlatform(platform)
 }
 
@@ -46,12 +46,12 @@ enum class BeaglePlatform {
 
     fun isMobilePlatform() = this == MOBILE || this == ANDROID || this == IOS
 
-    fun allowToSendComponentToPlatform(beaglePlatform: BeaglePlatform) =
+    fun allowToSendComponentToPlatform(beaglePlatform:                                                                              BeaglePlatform) =
         when (this) {
             ALL -> true
             MOBILE -> beaglePlatform.isMobilePlatform()
             ANDROID -> beaglePlatform == ANDROID
-            IOS -> beaglePlatform == IOS
+                                                                                                                                                       IOS -> beaglePlatform == IOS
             WEB -> beaglePlatform == WEB
         }
 }
