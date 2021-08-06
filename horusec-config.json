@@ -1,0 +1,8 @@
+{
+    "horusecCliFilesOrPathsToIgnore": [
+        "**/sample/**",
+        "**/.gradle/**",
+        "**/Gemfile.lock",
+        "**/gradlew.bat"
+    ]
+}
