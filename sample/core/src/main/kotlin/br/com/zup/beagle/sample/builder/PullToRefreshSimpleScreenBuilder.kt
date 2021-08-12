@@ -28,7 +28,7 @@ import br.com.zup.beagle.widget.ui.Button
 import br.com.zup.beagle.widget.ui.PullToRefresh
 import br.com.zup.beagle.widget.ui.Text
 
-object PullToRefreshFlutterScreenBuilder : ScreenBuilder {
+object PullToRefreshSimpleScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
         navigationBar = NavigationBar(
             title = "Beagle PullToRefresh",

@@ -16,12 +16,12 @@
 
 package br.com.zup.beagle.sample.micronaut.service
 
-import br.com.zup.beagle.sample.builder.PullToRefreshFlutterScreenBuilder
+import br.com.zup.beagle.sample.builder.PullToRefreshSimpleScreenBuilder
 import br.com.zup.beagle.sample.builder.PullToRefreshScreenBuilder
 import javax.inject.Singleton
 
 @Singleton
 class SamplePullToRefreshService {
     fun createPullToRefreshView() = PullToRefreshScreenBuilder
-    fun createPullToRefreshFlutterView() = PullToRefreshFlutterScreenBuilder
+    fun createPullToRefreshFlutterView() = PullToRefreshSimpleScreenBuilder
 }

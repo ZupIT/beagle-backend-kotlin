@@ -16,12 +16,12 @@
 
 package br.com.zup.beagle.sample.spring.service
 
-import br.com.zup.beagle.sample.builder.PullToRefreshFlutterScreenBuilder
+import br.com.zup.beagle.sample.builder.PullToRefreshSimpleScreenBuilder
 import br.com.zup.beagle.sample.builder.PullToRefreshScreenBuilder
 import org.springframework.stereotype.Service
 
 @Service
 class SamplePullToRefreshService {
     fun createPullToRefreshView() = PullToRefreshScreenBuilder
-    fun createPullToRefreshFlutterView() = PullToRefreshFlutterScreenBuilder
+    fun createPullToRefreshFlutterView() = PullToRefreshSimpleScreenBuilder
 }

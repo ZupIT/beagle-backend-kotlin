@@ -47,7 +47,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
-import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH_FLUTTER
+import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH_SIMPLE
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_FALSE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_TRUE_ENDPOINT
@@ -243,6 +243,6 @@ class ScreenController(
     @Get(SCREEN_PULL_TO_REFRESH)
     fun getSamplePullToRefreshService() = this.samplePullToRefreshService.createPullToRefreshView()
 
-    @Get(SCREEN_PULL_TO_REFRESH_FLUTTER)
+    @Get(SCREEN_PULL_TO_REFRESH_SIMPLE)
     fun getSamplePullToRefreshFlutterService() = this.samplePullToRefreshService.createPullToRefreshFlutterView()
 }
