@@ -19,9 +19,12 @@ package br.com.zup.beagle.sample.builder
 import kotlin.random.Random
 
 object SampleDataBuilder {
-    fun getStringArray(): List<String> =
-        (1..Random.nextInt(100))
+    fun getStringArray(delay: Long = 0): List<String> {
+        if(delay > 0)
+            Thread.sleep(delay)
+        return (1..Random.nextInt(100))
             .map { randomString() }
+    }
 
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 

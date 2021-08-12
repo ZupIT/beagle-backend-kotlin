@@ -21,5 +21,5 @@ import org.springframework.stereotype.Service
 
 @Service
 class SampleDataService {
-    fun getSampleStringList() = SampleDataBuilder.getStringArray()
+    fun getSampleStringList() = SampleDataBuilder.getStringArray(delay = 5000)
 }

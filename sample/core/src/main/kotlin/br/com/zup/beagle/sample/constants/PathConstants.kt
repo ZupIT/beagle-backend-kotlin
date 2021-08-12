@@ -63,6 +63,7 @@ const val SCREEN_SIMPLE_FORM_ENDPOINT = "/simple-form"
 const val DSL_BUILDER_ENDPOINT = "/dsl-builder"
 const val SCREEN_ACTION_ADD_CHILDREN = "/add-children"
 const val SCREEN_PULL_TO_REFRESH = "/pull-to-refresh"
+const val SCREEN_PULL_TO_REFRESH_SIMPLE = "/pull-to-refresh-simple"
 
 const val CUSTOM_WIDGET_ENDPOINT = "/custom"
 
