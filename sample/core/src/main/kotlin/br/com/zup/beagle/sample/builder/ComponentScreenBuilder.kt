@@ -40,6 +40,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
+import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH_FLUTTER
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SCROLL_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SIMPLE_FORM_ENDPOINT
@@ -97,6 +98,7 @@ object ComponentScreenBuilder : ScreenBuilder {
                 createMenu("Simple Form", SCREEN_SIMPLE_FORM_ENDPOINT),
                 createMenu("Add Children", SCREEN_ACTION_ADD_CHILDREN),
                 createMenu("Pull to Refresh", SCREEN_PULL_TO_REFRESH),
+                createMenu("Pull to Refresh Flutter", SCREEN_PULL_TO_REFRESH_FLUTTER),
             )
         )
     )
