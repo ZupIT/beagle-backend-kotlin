@@ -68,7 +68,11 @@ object PullToRefreshFlutterScreenBuilder : ScreenBuilder {
                                     contextId = "listContext",
                                     value = "@{onSuccess.data}"
                                 )
-                            )
+                            ),
+                            onError = listOf(SetContext(
+                                contextId = "refreshContext",
+                                value = false
+                            ))
                         )
                     ),
                     isRefreshing = expressionOf("@{refreshContext}"),
