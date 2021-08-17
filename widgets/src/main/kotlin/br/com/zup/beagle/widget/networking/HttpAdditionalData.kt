@@ -23,8 +23,8 @@ package br.com.zup.beagle.widget.networking
  * @param body Content that will be delivered with the request.
  */
 data class HttpAdditionalData(
-    val method: HttpMethod? = HttpMethod.GET,
-    val headers: Map<String, String>? = hashMapOf(),
+    val method: HttpMethod? = null,
+    val headers: Map<String, String>? = null,
     val body: Any? = null,
 )
 
