@@ -17,7 +17,6 @@
 package br.com.zup.beagle.sample.spring.service
 
 import br.com.zup.beagle.core.CornerRadius
-import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE_APPEARANCE
 import br.com.zup.beagle.sample.constants.CYAN_BLUE

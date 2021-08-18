@@ -17,7 +17,6 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.core.Accessibility
-import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE_TITLE
 import br.com.zup.beagle.sample.constants.NAVIGATION_BAR_STYLE_DEFAULT
