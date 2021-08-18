@@ -19,7 +19,7 @@ package br.com.zup.beagle.utils
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.platform.BeaglePlatform
 import br.com.zup.beagle.platform.BeaglePlatformUtil
-import br.com.zup.beagle.platform.forPlatform
+import br.com.zup.beagle.platform.setPlatform
 import br.com.zup.beagle.serialization.jackson.BeagleSerializationUtil
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
@@ -94,7 +94,7 @@ internal class BeaglePlatformUtilTest {
             listOf(
                 CustomButton(
                     text = mobileText
-                ).forPlatform(BeaglePlatform.MOBILE),
+                ).setPlatform(BeaglePlatform.MOBILE),
                 Button(
                     text = freeForAllText,
                     onPress = listOf(
@@ -103,7 +103,7 @@ internal class BeaglePlatformUtilTest {
                                 Screen(
                                     child = CustomButton(
                                         text = webText
-                                    ).forPlatform(BeaglePlatform.WEB)
+                                    ).setPlatform(BeaglePlatform.WEB)
                                 )
                             )
                         )

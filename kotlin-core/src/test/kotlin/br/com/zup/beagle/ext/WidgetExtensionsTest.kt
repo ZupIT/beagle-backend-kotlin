@@ -16,10 +16,7 @@
 
 package br.com.zup.beagle.ext
 
-import br.com.zup.beagle.core.Accessibility
-import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.widget.Widget
-import br.com.zup.beagle.widget.core.Flex
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -30,103 +27,6 @@ import kotlin.test.assertNotNull
 class WidgetExtensionsTest {
 
     private val widget: Widget = object : Widget() {}
-
-    @DisplayName("When call applyStyle")
-    @Nested
-    inner class StyleTest {
-
-        @Test
-        @DisplayName("Then should return the current widget with instance of style")
-        fun testWidgetApplyStyle() {
-            // Given
-            val backgroundColor = "#fafafa"
-            val style = Style(backgroundColor = backgroundColor)
-
-            // When
-            val result = widget.applyStyle(style)
-
-            // Then
-            assertNotNull(result)
-            assertEquals(style, result.style)
-        }
-    }
-
-    @DisplayName("When call applyStyle and applyFlex")
-    @Nested
-    inner class StyleAndFlexTest {
-
-        @Test
-        @DisplayName("Then should return the current widget with instance of style")
-        fun testWidgetApplyStyleAndApplyFlex() {
-            // Given
-            val backgroundColor = "#fafafa"
-            val grow = 1.0
-            val flex = Flex(grow = grow)
-            val style = Style(backgroundColor = backgroundColor)
-            val styleResult = Style(backgroundColor = backgroundColor, flex = flex)
-
-            // When
-            val result = widget.applyFlex(flex).applyStyle(style)
-
-            // Then
-            assertNotNull(result)
-            assertEquals(styleResult, result.style)
-        }
-    }
-
-    @DisplayName("When call applyFlex")
-    @Nested
-    inner class StyleWithFlexTest {
-
-        @Test
-        @DisplayName("Then should return the current widget with instance of style")
-        fun testWidgetApplyFlex() {
-            // Given
-            val grow = 1.0
-            val flex = Flex(grow = grow)
-            val styleResult = Style(flex = flex)
-
-            // When
-            val result = widget.applyFlex(flex)
-
-            // Then
-            assertNotNull(result)
-            assertEquals(styleResult, result.style)
-        }
-    }
-
-    @DisplayName("")
-    @Nested
-    inner class AccessibilityTest {
-
-        @Test
-        @DisplayName("Then should return the current widget with instance of accessibility")
-        fun testWidgetApplyAccessibility() {
-            // Given
-            val accessibility = Accessibility(accessible = true, accessibilityLabel = "", isHeader = true)
-
-            // When
-            val result = widget.applyAccessibility(accessibility)
-
-            // Then
-            assertNotNull(result)
-            assertEquals(accessibility, result.accessibility)
-        }
-
-        @Test
-        @DisplayName("Then should return the current widget with instance of accessibility")
-        fun testWidgetApplyAccessibilityDefault() {
-            // Given
-            val accessibility = Accessibility()
-
-            // When
-            val result = widget.applyAccessibility(accessibility)
-
-            // Then
-            assertNotNull(result)
-            assertEquals(accessibility, result.accessibility)
-        }
-    }
 
     @DisplayName("When call id")
     @Nested
@@ -140,21 +40,6 @@ class WidgetExtensionsTest {
 
             // WHEN
             val result = widget.setId(id)
-
-
-            // THEN
-            assertNotNull(result)
-            assertEquals(id, result.id)
-        }
-
-        @Test
-        @DisplayName("Then should return widget")
-        fun testWidgetId() {
-            // GIVEN
-            val id = "id"
-
-            // WHEN
-            val result = widget.id { id }
 
 
             // THEN

@@ -16,9 +16,7 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.BEACH_NETWORK_IMAGE
 import br.com.zup.beagle.sample.constants.LOGO_BEAGLE
 import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
@@ -35,6 +33,7 @@ import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.ScrollAxis
 import br.com.zup.beagle.widget.core.Size
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -99,15 +98,13 @@ object TouchableScreenBuilder : ScreenBuilder {
                         )
                     )
                 ),
-                child = item.applyStyle(Style(
-                    flex = Flex(
-                        alignSelf = AlignSelf.CENTER
-                    ),
+                child = item.setStyle {
+                    flex = Flex(alignSelf = AlignSelf.CENTER)
                     margin = EdgeValue(
-                        top = 8.unitReal(),
-                        bottom = 8.unitReal()
-                    ))
-                )
+                        top = UnitValue.real(8),
+                        bottom = UnitValue.real(8)
+                    )
+                }
             )
         )
     )
@@ -115,13 +112,12 @@ object TouchableScreenBuilder : ScreenBuilder {
     private fun buildTitle(text: String) = Text(
         text = text,
         styleId = SCREEN_TEXT_STYLE
-    ).applyStyle(Style(
-        flex = Flex(
-            alignSelf = AlignSelf.CENTER),
+    ).setStyle {
+        flex = Flex(alignSelf = AlignSelf.CENTER)
         margin = EdgeValue(
-            top = 8.unitReal()
-        ))
-    )
+            top = UnitValue.real(8)
+        )
+    }
 
     private fun networkImageTouchable() = Container(
         children = listOf(
@@ -129,16 +125,15 @@ object TouchableScreenBuilder : ScreenBuilder {
             Touchable(
                 child = Image(
                     Remote(BEACH_NETWORK_IMAGE)
-                ).applyStyle(Style(
+                ).setStyle {
                     size = Size(
-                        width = 150.unitReal(),
-                        height = 130.unitReal()
-                    ),
+                        width = UnitValue.real(150),
+                        height = UnitValue.real(130)
+                    )
                     flex = Flex(
                         alignSelf = AlignSelf.CENTER
                     )
-                )
-                ),
+                },
                 onPress = listOf(Navigate.PushView(Route.Remote(SCREEN_ACTION_CLICK_ENDPOINT)))
             )
         )

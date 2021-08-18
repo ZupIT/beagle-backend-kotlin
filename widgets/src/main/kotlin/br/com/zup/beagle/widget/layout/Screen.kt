@@ -16,8 +16,6 @@
 
 package br.com.zup.beagle.widget.layout
 
-import br.com.zup.beagle.analytics.ScreenAnalytics
-import br.com.zup.beagle.analytics.ScreenEvent
 import br.com.zup.beagle.core.Accessibility
 import br.com.zup.beagle.core.IdentifierComponent
 import br.com.zup.beagle.core.ServerDrivenComponent
@@ -96,7 +94,6 @@ data class NavigationBar(
  * @see NavigationBar
  * @see ServerDrivenComponent
  * @see Style
- * @see ScreenEvent
  *
  * @param identifier
  *                      identifies your screen globally inside your
@@ -110,7 +107,6 @@ data class NavigationBar(
  *                  define the child elements on this screen.
  *                  It could be any visual component that extends the ServerDrivenComponent.1
  * @param style enable a few visual options to be changed.
- * @param screenAnalyticsEvent send event when screen appear/disappear
  * @param context define the contextData that be set to screen.
  *
  */
@@ -120,27 +116,5 @@ data class Screen(
     val navigationBar: NavigationBar? = null,
     val child: ServerDrivenComponent,
     val style: Style? = null,
-
-    @Deprecated("It was deprecated in version 1.10.0 and will be removed in a future version." +
-        " Use the new analytics.")
-    override val screenAnalyticsEvent: ScreenEvent? = null,
     override val context: ContextData? = null
-) : ScreenAnalytics, ContextComponent {
-
-    constructor(
-        identifier: String? = null,
-        safeArea: SafeArea? = null,
-        navigationBar: NavigationBar? = null,
-        style: Style? = null,
-        child: ServerDrivenComponent,
-        context: ContextData? = null
-    ) : this(
-        identifier,
-        safeArea,
-        navigationBar,
-        child,
-        style,
-        null,
-        context,
-    )
-}
+) : ContextComponent

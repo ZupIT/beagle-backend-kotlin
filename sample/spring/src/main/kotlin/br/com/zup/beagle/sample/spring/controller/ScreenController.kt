@@ -39,7 +39,6 @@ import br.com.zup.beagle.sample.constants.SCREEN_COMPONENTS_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_EXAMPLE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_FORM_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
@@ -54,7 +53,6 @@ import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_TRUE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SCROLL_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SIMPLE_FORM_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TAB_BAR_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_TAB_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TEXT_INPUT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TOUCHABLE_ENDPOINT
@@ -68,7 +66,6 @@ import br.com.zup.beagle.sample.spring.service.SampleButtonService
 import br.com.zup.beagle.sample.spring.service.SampleComponentsService
 import br.com.zup.beagle.sample.spring.service.SampleComposeComponentService
 import br.com.zup.beagle.sample.spring.service.SampleContextService
-import br.com.zup.beagle.sample.spring.service.SampleFormService
 import br.com.zup.beagle.sample.spring.service.SampleImageLocalService
 import br.com.zup.beagle.sample.spring.service.SampleImageRemoteService
 import br.com.zup.beagle.sample.spring.service.SampleLazyComponentService
@@ -82,7 +79,6 @@ import br.com.zup.beagle.sample.spring.service.SampleScreenBuilderService
 import br.com.zup.beagle.sample.spring.service.SampleScrollViewService
 import br.com.zup.beagle.sample.spring.service.SampleSimpleFormService
 import br.com.zup.beagle.sample.spring.service.SampleTabBarService
-import br.com.zup.beagle.sample.spring.service.SampleTabViewService
 import br.com.zup.beagle.sample.spring.service.SampleTextService
 import br.com.zup.beagle.sample.spring.service.SampleTouchableService
 import br.com.zup.beagle.sample.spring.service.SampleViewService
@@ -100,13 +96,11 @@ class ScreenController(
     private val sampleButtonService: SampleButtonService,
     private val sampleTextService: SampleTextService,
     private val sampleImageService: SampleImageLocalService,
-    private val sampleTabViewService: SampleTabViewService,
     private val sampleTabBarService: SampleTabBarService,
     private val sampleListViewService: SampleListViewService,
     private val sampleScrollViewService: SampleScrollViewService,
     private val samplePageViewService: SamplePageViewService,
     private val sampleActionService: SampleActionService,
-    private val sampleFormService: SampleFormService,
     private val sampleLazyComponentService: SampleLazyComponentService,
     private val sampleNavigationBarService: SampleNavigationBarService,
     private val sampleNavigationTypeService: SampleNavigationTypeService,
@@ -144,9 +138,6 @@ class ScreenController(
     @GetMapping(SCREEN_IMAGE_ENDPOINT)
     fun getSampleImageView() = this.sampleImageService.createImageLocal()
 
-    @GetMapping(SCREEN_TAB_VIEW_ENDPOINT)
-    fun getSampleTabViewView() = this.sampleTabViewService.createTabView()
-
     @GetMapping(SCREEN_TAB_BAR_ENDPOINT)
     fun getSampleTabBar() = this.sampleTabBarService.createTabBar()
 
@@ -161,9 +152,6 @@ class ScreenController(
 
     @GetMapping(SCREEN_ACTION_ENDPOINT)
     fun getShowDialogAction() = this.sampleActionService.createAction()
-
-    @GetMapping(SCREEN_FORM_ENDPOINT)
-    fun getSampleFormView() = this.sampleFormService.createFormView()
 
     @GetMapping(SCREEN_LAZY_COMPONENT_ENDPOINT)
     fun getSampleLazyComponentController() = this.sampleLazyComponentService.createLazyComponent()

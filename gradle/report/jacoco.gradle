@@ -14,9 +14,19 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.builder
+apply plugin: 'jacoco'
 
+jacoco {
+    toolVersion = "0.8.7"
+}
 
-@Deprecated("It was deprecated in version 1.7.0 and will be removed in a future version.")
-@DslMarker
-annotation class BeagleDsl
+tasks.withType(Test) {
+    useJUnitPlatform()
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+}
+
+afterEvaluate { project ->
+
+    apply from: "$rootDir/gradle/report/jacoco-config-kotlin.gradle"
+}

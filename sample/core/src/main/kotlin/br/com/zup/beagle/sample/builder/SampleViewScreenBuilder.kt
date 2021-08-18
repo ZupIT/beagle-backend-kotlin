@@ -16,10 +16,9 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.ext.applyFlex
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.sample.constants.PATH_SAMPLE_VIEW_ENDPOINT
 import br.com.zup.beagle.widget.action.Navigate
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.JustifyContent
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -46,6 +45,6 @@ object SampleViewScreenBuilder : ScreenBuilder {
                 )
             )
         ),
-        child = Button("").applyFlex(Flex(justifyContent = JustifyContent.CENTER))
+        child = Button("").setFlex { justifyContent = JustifyContent.CENTER }
     )
 }

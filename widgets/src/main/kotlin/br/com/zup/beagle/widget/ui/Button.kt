@@ -16,8 +16,6 @@
 
 package br.com.zup.beagle.widget.ui
 
-import br.com.zup.beagle.analytics.ClickEvent
-import br.com.zup.beagle.analytics.TouchableAnalytics
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
@@ -31,32 +29,14 @@ import br.com.zup.beagle.widget.context.valueOfNullable
  * @param styleId reference a native style in your local styles file to be applied on this button.
  * @param onPress attribute to define action when onPress
  * @param enabled attribute to define button enabled or disabled
- * @property clickAnalyticsEvent attribute to define click event name
  *
  */
 data class Button(
     val text: Bind<String>,
     val styleId: String? = null,
     val onPress: List<Action>? = null,
-    override val clickAnalyticsEvent: ClickEvent? = null,
     val enabled: Bind<Boolean>? = null
-) : Widget(), TouchableAnalytics {
-
-    @Deprecated("It was deprecated in version 1.10.0 and will be removed in a future version." +
-        " Use the new analytics.")
-    constructor(
-        text: String,
-        styleId: String? = null,
-        onPress: List<Action>? = null,
-        clickAnalyticsEvent: ClickEvent? = null,
-        enabled: Boolean? = null
-    ) : this(
-        valueOf(text),
-        styleId,
-        onPress,
-        clickAnalyticsEvent,
-        valueOfNullable(enabled)
-    )
+) : Widget() {
 
     constructor(
         text: String,
@@ -67,20 +47,6 @@ data class Button(
         valueOf(text),
         styleId,
         onPress,
-        null,
-        valueOfNullable(enabled)
-    )
-
-    constructor(
-        text: Bind<String>,
-        styleId: String? = null,
-        onPress: List<Action>? = null,
-        enabled: Boolean? = null
-    ) : this(
-        text,
-        styleId,
-        onPress,
-        null,
         valueOfNullable(enabled)
     )
 }

@@ -16,7 +16,7 @@
 
 package br.com.zup.beagle.widget.action
 
-import br.com.zup.beagle.newanalytics.ActionAnalyticsConfig
+import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 
 /**
  * Interface that represents analytics actions in Beagle
