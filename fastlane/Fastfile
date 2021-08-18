@@ -7,8 +7,11 @@
 platform :backend do
     desc "Pull Request verification"
     lane :pull_request_verification do
+      gradle(task: "clean")
       gradle(task: "detekt")
-      gradle(tasks:["clean", "assemble", "generateMergedReport"])
+      gradle(task: "jacocoDebugTestReport")
+      gradle(task: "jacocoRootReport")
+      gradle(task: "assemble")
       publish_sonarcloud_gradle
     end
   
