@@ -18,15 +18,14 @@ jacoco {
     toolVersion = "0.8.7"
 }
 
-task generateMergedReport(type: JacocoReport) {
-    dependsOn = subprojects.test
-
-    additionalSourceDirs.setFrom files(subprojects.sourceSets.main.allSource.srcDirs)
-    sourceDirectories.setFrom files(subprojects.sourceSets.main.allSource.srcDirs)
-    classDirectories.setFrom files(subprojects.sourceSets.main.output)
+task combineJaCoCoReports(type: JacocoReport) {
+    dependsOn(jacocoTestReport)
+    executionData fileTree(project.buildDir.absolutePath).include("jacoco/*.exec")
+    classDirectories.setFrom files(project.sourceSets.main.output)
+    sourceDirectories.setFrom files(project.sourceSets.main.allSource.srcDirs)
 
     reports {
-        xml.enabled true
-        html.enabled false
+        xml.enabled(true)
+        html.enabled(true)
     }
 }

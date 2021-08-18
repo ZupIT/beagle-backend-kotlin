@@ -16,10 +16,9 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.ext.applyFlex
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.sample.constants.PATH_URL_WEB_VIEW_ENDPOINT
 import br.com.zup.beagle.widget.action.Alert
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
@@ -45,8 +44,9 @@ object WebViewScreenBuilder : ScreenBuilder {
                 )
             )
         ),
-        child = WebView(url = PATH_URL_WEB_VIEW_ENDPOINT).applyFlex(
-                    flex = Flex(grow = 1.0)
-            )
+        child = WebView(url = PATH_URL_WEB_VIEW_ENDPOINT)
+            .setFlex {
+                grow = 1.0
+            }
     )
 }

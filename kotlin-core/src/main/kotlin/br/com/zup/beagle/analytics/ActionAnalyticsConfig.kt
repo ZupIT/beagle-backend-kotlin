@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.newanalytics
+package br.com.zup.beagle.analytics
 
 /**
 * This class is used to pass some properties for analytics

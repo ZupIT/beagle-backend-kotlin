@@ -16,11 +16,11 @@
 
 package br.com.zup.beagle.widget.ui
 
+import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.valueOfNullable
 import br.com.zup.beagle.widget.core.TextInputType
-import br.com.zup.beagle.widget.form.InputWidget
 
 /**
  * Input is a component that displays an editable text area for the user. These text fields are used to collect
@@ -30,11 +30,9 @@ import br.com.zup.beagle.widget.form.InputWidget
  * Text Input component.
  * @param placeholder The Placeholder is a text that is displayed when nothing has been entered in the editable
  * text field.
- * @param disabled Enables or disables the field.
  * @param readOnly Check if the Input will be editable or read only.
  * @param type This attribute identifies the type of text that we will receive in the editable text area.
  * On Android and iOS, this field also assigns the type of keyboard that will be displayed to the us.
- * @param hidden Enables the component to be visible or not.
  * @param error is a text that should be rendered, below the text input. It tells the user about the error.
  * This text is visible only if showError is true
  * @param showError controls weather to make the error of the input visible or not.
@@ -50,14 +48,8 @@ import br.com.zup.beagle.widget.form.InputWidget
 data class TextInput(
     val value: Bind<String>? = null,
     val placeholder: Bind<String>? = null,
-    @Deprecated("It was deprecated in version 1.7.0 and will be removed in a future version." +
-        " Use field enabled to control is enabled or not in this layout.")
-    val disabled: Bind<Boolean>? = null,
     val readOnly: Bind<Boolean>? = null,
     val type: Bind<TextInputType>? = null,
-    @Deprecated("It was deprecated in version 1.6.0 and will be removed in a future version." +
-        " Use field display to control visibility.")
-    val hidden: Bind<Boolean>? = null,
     val error: Bind<String>? = null,
     val showError: Bind<Boolean>? = null,
     val styleId: String? = null,
@@ -65,7 +57,7 @@ data class TextInput(
     val onFocus: List<Action>? = null,
     val onBlur: List<Action>? = null,
     val enabled: Bind<Boolean>? = null,
-) : InputWidget() {
+) : Widget() {
 
     constructor(
         value: String? = null,
@@ -91,64 +83,5 @@ data class TextInput(
         onFocus = onFocus,
         onBlur = onBlur,
         enabled = valueOfNullable(enabled)
-    )
-
-    @Deprecated("It was deprecated in version 1.7.0 and will be removed in a future version. " +
-        "Use field enabled to control layout.")
-    constructor(
-        value: String? = null,
-        placeholder: String? = null,
-        disabled: Boolean,
-        readOnly: Boolean? = null,
-        type: TextInputType? = null,
-        error: String? = null,
-        showError: Boolean? = null,
-        styleId: String? = null,
-        onChange: List<Action>? = null,
-        onFocus: List<Action>? = null,
-        onBlur: List<Action>? = null
-    ) : this(
-        value = valueOfNullable(value),
-        placeholder = valueOfNullable(placeholder),
-        disabled = valueOfNullable(disabled),
-        readOnly = valueOfNullable(readOnly),
-        hidden = null,
-        type = valueOfNullable(type),
-        error = valueOfNullable(error),
-        showError = valueOfNullable(showError),
-        styleId = styleId,
-        onChange = onChange,
-        onFocus = onFocus,
-        onBlur = onBlur
-    )
-
-    @Deprecated("It was deprecated in version 1.6.0 and will be removed in a future version. " +
-        "Use field display to control visibility.")
-    constructor(
-        value: String? = null,
-        placeholder: String? = null,
-        disabled: Boolean? = null,
-        readOnly: Boolean? = null,
-        type: TextInputType? = null,
-        hidden: Boolean,
-        error: String? = null,
-        showError: Boolean? = null,
-        styleId: String? = null,
-        onChange: List<Action>? = null,
-        onFocus: List<Action>? = null,
-        onBlur: List<Action>? = null
-    ) : this(
-        value = valueOfNullable(value),
-        placeholder = valueOfNullable(placeholder),
-        disabled = valueOfNullable(disabled),
-        readOnly = valueOfNullable(readOnly),
-        type = valueOfNullable(type),
-        hidden = valueOfNullable(hidden),
-        error = valueOfNullable(error),
-        showError = valueOfNullable(showError),
-        styleId = styleId,
-        onChange = onChange,
-        onFocus = onFocus,
-        onBlur = onBlur
     )
 }

@@ -16,11 +16,10 @@
 
 package br.com.zup.beagle.sample.builder
 
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.widget.action.Alert
-import br.com.zup.beagle.ext.applyFlex
 import br.com.zup.beagle.sample.constants.PATH_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.widget.core.AlignSelf
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.JustifyContent
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -49,12 +48,10 @@ object LazyComponentScreenBuilder : ScreenBuilder {
         ),
         child = LazyComponent(
             path = PATH_LAZY_COMPONENT_ENDPOINT,
-            initialState = Text("Loading...").applyFlex(
-                flex = Flex(
-                    justifyContent = JustifyContent.CENTER,
-                    alignSelf = AlignSelf.CENTER
-                )
-            )
+            initialState = Text("Loading...").setFlex {
+                justifyContent = JustifyContent.CENTER
+                alignSelf = AlignSelf.CENTER
+            }
         )
     )
 }

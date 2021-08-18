@@ -16,34 +16,18 @@
 
 package br.com.zup.beagle.widget.navigation
 
-import br.com.zup.beagle.analytics.ClickEvent
-import br.com.zup.beagle.analytics.TouchableAnalytics
 import br.com.zup.beagle.core.GhostComponent
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.action.Action
+
 /**
  *   The Touchable component defines a click listener.
  *
  * @param onPress define an Action to be executed when the child component is clicked.
  * @param child define the widget that will trigger the Action.
- * @param clickAnalyticsEvent define the event will triggered when click
  *
  */
 data class Touchable(
     val onPress: List<Action>,
     override val child: ServerDrivenComponent,
-
-    @Deprecated("It was deprecated in version 1.10.0 and will be removed in a future version." +
-        " Use the new analytics.")
-    override val clickAnalyticsEvent: ClickEvent? = null
-) : ServerDrivenComponent, GhostComponent, TouchableAnalytics {
-
-    constructor(
-        onPress: List<Action> = listOf(),
-        child: ServerDrivenComponent,
-    ) : this(
-        onPress,
-        child,
-        null
-    )
-}
+) : ServerDrivenComponent, GhostComponent

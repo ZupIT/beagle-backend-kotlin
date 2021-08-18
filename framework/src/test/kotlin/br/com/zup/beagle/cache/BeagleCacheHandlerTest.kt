@@ -182,41 +182,6 @@ internal class BeagleCacheHandlerTest {
         ) { this.verifySentCachedResponse(it, DURATION) }
     }
 
-    @Test
-    fun `Test legacy handleCache when endpoint is excluded`() {
-        this.testLegacyHandleCache(endpoint = IMAGE_ENDPOINT) { verifySequence { it.callController(Response.START) } }
-    }
-
-    @Test
-    fun `Test legacy handleCache when endpoint is not included`() {
-        this.testLegacyHandleCache(endpoint = "") { verifySequence { it.callController(Response.START) } }
-    }
-
-    @Test
-    fun `Test legacy handleCache when no previous cache`() {
-        this.testLegacyHandleCache(endpoint = HOME_ENDPOINT, verify = this::verifySentControllerResponse)
-    }
-
-    @Test
-    fun `Test legacy handleCache when previous cache is outdated`() {
-        this.testLegacyHandleCache(
-            endpoint = HOME_ENDPOINT,
-            hash = "",
-            prepare = this::preparePreviousCache,
-            verify = this::verifySentControllerResponse
-        )
-    }
-
-    @Test
-    fun `Test legacy handleCache when previous cache is up to date`() {
-        this.testLegacyHandleCache(endpoint = HOME_ENDPOINT, hash = BUTTON_JSON_HASH, prepare = this::preparePreviousCache) {
-            verifySequence {
-                it.addStatus(Response.START, HttpURLConnection.HTTP_NOT_MODIFIED)
-                it.addHashHeader(Response.STATUS, BUTTON_JSON_HASH)
-            }
-        }
-    }
-
     private fun testHandleCache(
         endpoint: String,
         hash: String? = null,
@@ -247,46 +212,12 @@ internal class BeagleCacheHandlerTest {
         verify(httpCacheHandler)
     }
 
-    private fun testLegacyHandleCache(
-        endpoint: String,
-        hash: String? = null,
-        prepare: (BeagleCacheHandler) -> Unit = {},
-        verify: (RestCacheHandler<Response>) -> Unit
-    ) {
-        val restCache = mockk<RestCacheHandler<Response>>()
-        val cacheHandler = BeagleCacheHandler(excludeEndpoints = this.imageEndpoints, includeEndpoints = this.allEndpoints)
-
-        prepare(cacheHandler)
-        every { restCache.callController(this.any()) } returns Response.CONTROLLER
-        every { restCache.addHashHeader(this.any(), this.any()) } returns Response.HEADER
-        every { restCache.addStatus(this.any(), this.any()) } returns Response.STATUS
-        every { restCache.getBody(this.any()) } returns BUTTON_JSON
-
-        cacheHandler.handleCache(
-            endpoint = endpoint,
-            receivedHash = hash,
-            currentPlatform = BeaglePlatform.IOS.name,
-            initialResponse = Response.START,
-            restHandler = restCache
-        )
-
-        verify(restCache)
-    }
-
     private fun preparePreviousCache(handler: BeagleCacheHandler) {
         handler.generateAndAddHash(
             endpoint = HOME_ENDPOINT,
             currentPlatform = BeaglePlatform.IOS.name,
             json = BUTTON_JSON
         )
-    }
-
-    private fun verifySentControllerResponse(handler: RestCacheHandler<Response>) {
-        verifySequence {
-            handler.callController(Response.START)
-            handler.getBody(Response.CONTROLLER)
-            handler.addHashHeader(Response.CONTROLLER, BUTTON_JSON_HASH)
-        }
     }
 
     private fun verifySentControllerResponse(handler: HttpCacheHandler<Response>, seconds: Long = 30L) {

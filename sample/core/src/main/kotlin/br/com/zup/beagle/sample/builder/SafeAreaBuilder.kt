@@ -16,9 +16,7 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.LOGO_BEAGLE
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_FALSE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_TRUE_ENDPOINT
@@ -29,6 +27,7 @@ import br.com.zup.beagle.widget.core.AlignItems
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.SafeArea
@@ -39,7 +38,7 @@ import br.com.zup.beagle.widget.ui.Image
 import br.com.zup.beagle.widget.ui.ImagePath
 import br.com.zup.beagle.widget.ui.Text
 
-object SafeAreaBuilder: ScreenBuilder {
+object SafeAreaBuilder : ScreenBuilder {
     override fun build() = Screen(
         navigationBar = NavigationBar(
             title = "Beagle Safe Area",
@@ -68,35 +67,29 @@ object SafeAreaBuilder: ScreenBuilder {
     )
 
     fun createScreen(safeArea: Boolean): Screen = Screen(
-            navigationBar = NavigationBar(
-                title = "Beagle Safe Area",
-                showBackButton = true
-            ),
-            child = Container(
-                listOf(
-                    Text("Safe area $safeArea").applyStyle(
-                        Style(
-                            margin = EdgeValue(top = 100.unitReal()),
-                            flex = Flex(
-                                alignSelf = AlignSelf.CENTER
-                            )
-                        )
-                    ),
-                    Image(ImagePath.Local.justMobile(LOGO_BEAGLE)).applyStyle(
-                        Style(
-                            margin = EdgeValue(top = 100.unitReal())
-                        )
-                    )
-                )
-        ).applyStyle(
-            Style(
-                backgroundColor = "#b7efcd",
-                flex = Flex(
-                    grow = 1.0,
-                    alignItems = AlignItems.CENTER
-                )
-            )
+        navigationBar = NavigationBar(
+            title = "Beagle Safe Area",
+            showBackButton = true
         ),
+        child = Container(
+            listOf(
+                Text("Safe area $safeArea").setStyle {
+                    margin = EdgeValue(top = UnitValue.real(100))
+                    flex = Flex(
+                        alignSelf = AlignSelf.CENTER
+                    )
+                },
+                Image(ImagePath.Local.justMobile(LOGO_BEAGLE)).setStyle {
+                    margin = EdgeValue(top = UnitValue.real(100))
+                }
+            )
+        ).setStyle {
+            backgroundColor = "#b7efcd"
+            flex = Flex(
+                grow = 1.0,
+                alignItems = AlignItems.CENTER
+            )
+        },
         safeArea = SafeArea(
             top = safeArea,
             bottom = safeArea,

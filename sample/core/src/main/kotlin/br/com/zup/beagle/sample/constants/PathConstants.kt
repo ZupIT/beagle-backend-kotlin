@@ -16,9 +16,6 @@
 
 package br.com.zup.beagle.sample.constants
 
-
-const val SUBMIT_FORM_ENDPOINT = "/form"
-
 const val PAGE_VIEW_ENDPOINT = "/page-view"
 const val SCROLL_VIEW_ENDPOINT = "/scroll-view"
 
@@ -60,7 +57,6 @@ const val SCREEN_SAFE_AREA_TRUE_ENDPOINT = "/safe-area/true"
 const val SCREEN_SAFE_AREA_FALSE_ENDPOINT = "/safe-area/false"
 const val SCREEN_TEXT_INPUT_ENDPOINT = "/text-input"
 const val SCREEN_SIMPLE_FORM_ENDPOINT = "/simple-form"
-const val DSL_BUILDER_ENDPOINT = "/dsl-builder"
 const val SCREEN_ACTION_ADD_CHILDREN = "/add-children"
 const val SCREEN_PULL_TO_REFRESH = "/pull-to-refresh"
 const val SCREEN_PULL_TO_REFRESH_SIMPLE = "/pull-to-refresh-simple"

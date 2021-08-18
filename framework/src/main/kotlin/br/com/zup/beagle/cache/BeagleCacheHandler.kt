@@ -63,29 +63,6 @@ class BeagleCacheHandler(properties: BeagleCacheProperties) {
             this.generateHashForJson(json)
         }
 
-    @Deprecated("Please use the new signature.")
-    fun <T> handleCache(
-        endpoint: String,
-        receivedHash: String?,
-        currentPlatform: String?,
-        initialResponse: T,
-        restHandler: RestCacheHandler<T>
-    ) = this.handleCache(
-        endpoint,
-        receivedHash,
-        currentPlatform,
-        object : HttpCacheHandler<T> {
-            override fun createResponseFromController() = restHandler.callController(initialResponse)
-
-            override fun createResponse(status: Int) = restHandler.addStatus(initialResponse, status)
-
-            override fun getBody(response: T) = restHandler.getBody(response)
-
-            override fun addHeader(response: T, key: String, value: String) =
-                if (key == CACHE_HEADER) restHandler.addHashHeader(response, value) else response
-        }
-    )
-
     fun <T> handleCache(
         endpoint: String,
         receivedHash: String?,

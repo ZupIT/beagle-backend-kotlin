@@ -68,7 +68,6 @@ import br.com.zup.beagle.sample.micronaut.service.SampleButtonService
 import br.com.zup.beagle.sample.micronaut.service.SampleComponentsService
 import br.com.zup.beagle.sample.micronaut.service.SampleComposeComponentService
 import br.com.zup.beagle.sample.micronaut.service.SampleContextService
-import br.com.zup.beagle.sample.micronaut.service.SampleFormService
 import br.com.zup.beagle.sample.micronaut.service.SampleImageLocalService
 import br.com.zup.beagle.sample.micronaut.service.SampleImageRemoteService
 import br.com.zup.beagle.sample.micronaut.service.SampleLazyComponentService
@@ -82,7 +81,6 @@ import br.com.zup.beagle.sample.micronaut.service.SampleScreenBuilderService
 import br.com.zup.beagle.sample.micronaut.service.SampleScrollViewService
 import br.com.zup.beagle.sample.micronaut.service.SampleSimpleFormService
 import br.com.zup.beagle.sample.micronaut.service.SampleTabBarService
-import br.com.zup.beagle.sample.micronaut.service.SampleTabViewService
 import br.com.zup.beagle.sample.micronaut.service.SampleTextService
 import br.com.zup.beagle.sample.micronaut.service.SampleTouchableService
 import br.com.zup.beagle.sample.micronaut.service.SampleViewService
@@ -100,13 +98,11 @@ class ScreenController(
     private val sampleButtonService: SampleButtonService,
     private val sampleTextService: SampleTextService,
     private val sampleImageService: SampleImageLocalService,
-    private val sampleTabViewService: SampleTabViewService,
     private val sampleTabBarService: SampleTabBarService,
     private val sampleListViewService: SampleListViewService,
     private val sampleScrollViewService: SampleScrollViewService,
     private val samplePageViewService: SamplePageViewService,
     private val sampleActionService: SampleActionService,
-    private val sampleFormService: SampleFormService,
     private val sampleLazyComponentService: SampleLazyComponentService,
     private val sampleNavigationBarService: SampleNavigationBarService,
     private val sampleNavigationTypeService: SampleNavigationTypeService,
@@ -144,9 +140,6 @@ class ScreenController(
     @Get(SCREEN_IMAGE_ENDPOINT)
     fun getSampleImageView() = this.sampleImageService.createImageLocal()
 
-    @Get(SCREEN_TAB_VIEW_ENDPOINT)
-    fun getSampleTabViewView() = this.sampleTabViewService.createTabView()
-
     @Get(SCREEN_TAB_BAR_ENDPOINT)
     fun getSampleTabBar() = this.sampleTabBarService.createTabBar()
 
@@ -161,9 +154,6 @@ class ScreenController(
 
     @Get(SCREEN_ACTION_ENDPOINT)
     fun getShowDialogAction() = this.sampleActionService.createAction()
-
-    @Get(SCREEN_FORM_ENDPOINT)
-    fun getSampleFormView() = this.sampleFormService.createFormView()
 
     @Get(SCREEN_LAZY_COMPONENT_ENDPOINT)
     fun getSampleLazyComponentController() = this.sampleLazyComponentService.createLazyComponent()
