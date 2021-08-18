@@ -211,7 +211,6 @@ fun makeObjectLazyComponent() = LazyComponent(
 fun makeListViewJson() = """
     {
        "_beagleComponent_":"beagle:listView",
-       "children": [${makeTextJson()}],
        "direction":"VERTICAL",
        "context": ${makeContextWithPrimitiveValueJson()},
        "onInit": [${makeActionAlertJson()}],
@@ -265,9 +264,6 @@ fun makeScreenComponentJson() = """
             "showBackButton": true
         },
         "child": ${makeContainerJson()},
-        "screenAnalyticsEvent": {
-            "screenName": "Test"
-        },
         "context": ${makeContextWithPrimitiveValueJson()}
     }
 """
@@ -463,12 +459,7 @@ fun makeTouchableJson() = """
     {
         "_beagleComponent_": "beagle:touchable",
         "onPress": [${makeActionAlertJson()}],
-        "child": ${makeTextJson()},
-        "clickAnalyticsEvent": {
-            "category": "category",
-            "label": "label",
-            "value": "value"
-        }
+        "child": ${makeTextJson()}
     }
 """
 
