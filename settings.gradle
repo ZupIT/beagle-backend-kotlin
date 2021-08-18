@@ -20,8 +20,6 @@ include ":sample:micronaut"
 include ":framework"
 include ":starters:spring"
 include ":starters:micronaut"
-include ":widgets"
-include ":kotlin-core"
 include ":annotation"
 
 
