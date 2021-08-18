@@ -35,7 +35,6 @@ class Dependencies : Plugin<Project> {
 
     object Modules {
         const val widgets = ":widgets"
-        const val processor = ":processor"
         const val framework = ":framework"
 
         const val sampleCore = ":sample:core"
@@ -48,7 +47,6 @@ class Dependencies : Plugin<Project> {
         const val schemaKotlinCore = ":kotlin-core"
 
         const val commonAnnotation = ":annotation"
-        const val commonProcessorUtils = ":processor-utils"
     }
 
     object Releases {
