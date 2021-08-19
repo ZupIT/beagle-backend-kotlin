@@ -120,7 +120,7 @@ fun makeActionNavigationPopToViewJson() =
     """
         {
           "_beagleAction_": "beagle:popToView",
-          "route": "1"
+          "route": "1",
           "context": {
             "id": "idSelected",
             "value": 1
