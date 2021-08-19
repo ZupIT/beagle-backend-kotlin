@@ -168,7 +168,7 @@ fun makeObjectNavigationResetApplication() = Navigate.ResetApplication(
 fun makeActionNavigationResetStackJson() =
     """
         {
-          "_beagleAction_": "beagle:resetApplication",
+          "_beagleAction_": "beagle:resetStack",
           "route": {
             "screen": {
               "_beagleComponent_": "beagle:screenComponent",
