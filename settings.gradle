@@ -22,5 +22,4 @@ include ":starters:spring"
 include ":starters:micronaut"
 include ":annotation"
 
-
 rootProject.name = "Beagle"
