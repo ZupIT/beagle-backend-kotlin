@@ -17,15 +17,9 @@
 include ":sample:core"
 include ":sample:spring"
 include ":sample:micronaut"
-include ":processor"
 include ":framework"
-include ":widgets-dsl"
 include ":starters:spring"
 include ":starters:micronaut"
-include ":widgets"
-include ":kotlin-core"
-include ":processor-utils"
 include ":annotation"
-
 
 rootProject.name = "Beagle"

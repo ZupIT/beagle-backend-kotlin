@@ -7,9 +7,12 @@
 platform :backend do
     desc "Pull Request verification"
     lane :pull_request_verification do
+      gradle(task: "clean")
       gradle(task: "detekt")
-      gradle(tasks:["clean", "assemble", "generateMergedReport"])
-      publish_sonarcloud_gradle
+      gradle(task: "jacocoDebugTestReport")
+      gradle(task: "jacocoRootReport")
+      gradle(task: "assemble")
+      gradle(task: "sonarqube")
     end
   
     desc "Sync Spring BFF sample to Micronaut BFF sample"
@@ -148,13 +151,3 @@ end
     version = lastVersion
     "#{version}"
   end
-  
-  desc "Publishing Sonarcloud reports via gradle"
-  private_lane :publish_sonarcloud_gradle do |params|
-     # Setup java 11
-     ENV["JAVA_HOME"] = ENV["JAVA_HOME_11_X64"]
-     gradle(task: "sonarqube")
-     # Rollback to java 8
-     ENV["JAVA_HOME"] = ENV["JAVA_HOME_8_X64"]
-  end
-  

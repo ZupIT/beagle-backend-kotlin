@@ -16,17 +16,15 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
 import br.com.zup.beagle.ext.setId
-import br.com.zup.beagle.ext.unitPercent
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.SetContext
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.expressionOf
 import br.com.zup.beagle.widget.core.ListDirection
 import br.com.zup.beagle.widget.core.Size
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -73,11 +71,12 @@ object ListViewScreenBuilder : ScreenBuilder {
                 Text(text = expressionOf("@{item}")),
                 list
             )
-        ).applyStyle(
-            Style(
-                size = Size(width = 100.unitPercent(), height = 600.unitReal())
+        ).setStyle {
+            size = Size(
+                width = UnitValue.percent(100),
+                height = UnitValue.real(600),
             )
-        )
+        }
     )
 
     data class Person(
@@ -169,16 +168,12 @@ object ListViewScreenBuilder : ScreenBuilder {
                             value = "Updated John"
                         )
                     )
-                ).applyStyle(
-                    Style(
-                        size = Size(width = 300.unitReal(), height = 80.unitReal())
-                    )
-                ).setId("button")
+                ).setStyle {
+                    size = Size(width = UnitValue.real(300), height = UnitValue.real(80))
+                }.setId("button")
             )
         ).setId("container")
-    ).applyStyle(
-        Style(
-            backgroundColor = "#CCC"
-        )
-    )
+    ).setStyle {
+        backgroundColor = "#CCC"
+    }
 }

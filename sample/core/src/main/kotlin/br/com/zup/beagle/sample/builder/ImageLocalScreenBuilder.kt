@@ -16,7 +16,7 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.ext.applyFlex
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.sample.constants.LOGO_BEAGLE
 import br.com.zup.beagle.sample.constants.TITLE_SCREEN
@@ -24,7 +24,6 @@ import br.com.zup.beagle.widget.action.SetContext
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.expressionOf
 import br.com.zup.beagle.widget.core.AlignSelf
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.ImageContentMode
 import br.com.zup.beagle.widget.core.ScrollAxis
 import br.com.zup.beagle.widget.layout.NavigationBar
@@ -59,7 +58,7 @@ object ImageLocalScreenBuilder : ScreenBuilder {
         child = ScrollView(
             scrollDirection = ScrollAxis.VERTICAL,
             children = listOf(
-                createText("Image").applyFlex(Flex(alignSelf = AlignSelf.CENTER)),
+                createText("Image").setFlex { alignSelf = AlignSelf.CENTER },
                 Image(Local.justMobile(LOGO_BEAGLE))) +
                 ImageContentMode.values().flatMap(this::createImageWithModeAndText) +
                 Button(text = "Change icon menu", onPress = listOf(
@@ -75,7 +74,7 @@ object ImageLocalScreenBuilder : ScreenBuilder {
 
     private fun createImageWithModeAndText(mode: ImageContentMode) =
         listOf(
-            createText("Image with Mode = $mode").applyFlex(Flex(alignSelf = AlignSelf.CENTER)),
+            createText("Image with Mode = $mode").setFlex { alignSelf = AlignSelf.CENTER },
             Image(Local.justMobile(LOGO_BEAGLE), mode)
         )
 }

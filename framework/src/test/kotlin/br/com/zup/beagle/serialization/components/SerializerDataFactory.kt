@@ -16,15 +16,8 @@
 
 package br.com.zup.beagle.serialization.components
 
-import br.com.zup.beagle.analytics.ClickEvent
-import br.com.zup.beagle.analytics.ScreenEvent
 import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.widget.action.Alert
-import br.com.zup.beagle.widget.action.Condition
-import br.com.zup.beagle.widget.action.Confirm
-import br.com.zup.beagle.widget.action.FormLocalAction
-import br.com.zup.beagle.widget.action.FormMethodType
-import br.com.zup.beagle.widget.action.FormRemoteAction
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.action.SetContext
@@ -36,8 +29,6 @@ import br.com.zup.beagle.widget.core.ListDirection
 import br.com.zup.beagle.widget.core.ScrollAxis
 import br.com.zup.beagle.widget.core.TextAlignment
 import br.com.zup.beagle.widget.core.TextInputType
-import br.com.zup.beagle.widget.form.Form
-import br.com.zup.beagle.widget.form.FormSubmit
 import br.com.zup.beagle.widget.form.SimpleForm
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
@@ -46,9 +37,6 @@ import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.lazy.LazyComponent
 import br.com.zup.beagle.widget.navigation.Touchable
-import br.com.zup.beagle.widget.networking.HttpAdditionalData
-import br.com.zup.beagle.widget.networking.HttpMethod
-import br.com.zup.beagle.widget.pager.PageIndicator
 import br.com.zup.beagle.widget.ui.Button
 import br.com.zup.beagle.widget.ui.GridView
 import br.com.zup.beagle.widget.ui.GridViewDirection
@@ -58,8 +46,6 @@ import br.com.zup.beagle.widget.ui.ListView
 import br.com.zup.beagle.widget.ui.PullToRefresh
 import br.com.zup.beagle.widget.ui.TabBar
 import br.com.zup.beagle.widget.ui.TabBarItem
-import br.com.zup.beagle.widget.ui.TabItem
-import br.com.zup.beagle.widget.ui.TabView
 import br.com.zup.beagle.widget.ui.Template
 import br.com.zup.beagle.widget.ui.Text
 import br.com.zup.beagle.widget.ui.TextInput
@@ -103,29 +89,6 @@ fun makeContextWithPrimitiveValueJson() = """
     {
         "id": "contextId",
         "value": true
-    }
-"""
-
-fun makeFormJson() = """
-    {
-        "_beagleComponent_": "beagle:form",
-        "child": ${makeButtonJson()},
-        "onSubmit": [{
-            "_beagleAction_": "beagle:formRemoteAction",
-            "path": "$TEST_URL",
-            "method": "POST"
-        }],
-        "group": "A group",
-        "additionalData":{"test" : "test"},
-        "shouldStoreFields": true
-    }
-    """
-
-fun makeFormSubmitJson() = """
-    {
-        "_beagleComponent_": "beagle:formSubmit",
-        "child": ${makeButtonJson()},
-        "enabled": true
     }
 """
 
@@ -207,25 +170,6 @@ fun makeObjectContainer() = Container(
     styleId = "style"
 )
 
-fun makeObjectForm() = Form(
-    child = makeObjectButton(),
-    onSubmit = listOf(
-        FormRemoteAction(
-            path = TEST_URL,
-            method = FormMethodType.POST
-        )
-    ),
-    group = "A group",
-    additionalData = mapOf("test" to "test"),
-    shouldStoreFields = true
-)
-
-fun makeObjectFormSubmit() = FormSubmit(
-    enabled = true,
-    child = Button(
-        text = "Test"
-    )
-)
 
 fun makeObjectGridView() = GridView(
     context = makeObjectContextWithPrimitiveValue(),
@@ -269,7 +213,6 @@ fun makeObjectLazyComponent() = LazyComponent(
 fun makeListViewJson() = """
     {
        "_beagleComponent_":"beagle:listView",
-       "children": [${makeTextJson()}],
        "direction":"VERTICAL",
        "context": ${makeContextWithPrimitiveValueJson()},
        "onInit": [${makeActionAlertJson()}],
@@ -290,7 +233,6 @@ fun makeListViewJson() = """
 """
 
 fun makeObjectListView() = ListView(
-    children = listOf(makeObjectText()),
     direction = ListDirection.VERTICAL,
     context = makeObjectContextWithPrimitiveValue(),
     onInit = listOf(makeActionAlertObject()),
@@ -324,9 +266,6 @@ fun makeScreenComponentJson() = """
             "showBackButton": true
         },
         "child": ${makeContainerJson()},
-        "screenAnalyticsEvent": {
-            "screenName": "Test"
-        },
         "context": ${makeContextWithPrimitiveValueJson()}
     }
 """
@@ -444,42 +383,6 @@ fun makeObjectTabBarItem() = TabBarItem(
     icon = ImagePath.Local.justMobile("beagle")
 )
 
-fun makeTabViewJson() = """
-    {
-        "_beagleComponent_": "beagle:tabView",
-        "children":[${makeTabItemJson()},${makeTabItemJson()},${makeTabItemJson()}],
-        "styleId": "style",
-        "context": ${makeContextWithPrimitiveValueJson()}
-    }
-"""
-
-fun makeObjectTabView() = TabView(
-    children = listOf(
-        makeObjectTabItem(),
-        makeObjectTabItem(),
-        makeObjectTabItem(),
-    ),
-    styleId = "style",
-    context = makeObjectContextWithPrimitiveValue()
-)
-
-fun makeTabItemJson() = """
-    {
-       "title":"Tab 1",
-       "child":${makeButtonJson()},
-       "icon":{
-          "_beagleImagePath_":"local",
-          "mobileId":"beagle"
-       }
-    }
-"""
-
-fun makeObjectTabItem() = TabItem(
-    title = "Tab 1",
-    child = makeObjectButton(),
-    icon = ImagePath.Local.justMobile("beagle")
-)
-
 fun makeTextInputJson() = """
     {
         "_beagleComponent_": "beagle:textInput",
@@ -558,23 +461,13 @@ fun makeTouchableJson() = """
     {
         "_beagleComponent_": "beagle:touchable",
         "onPress": [${makeActionAlertJson()}],
-        "child": ${makeTextJson()},
-        "clickAnalyticsEvent": {
-            "category": "category",
-            "label": "label",
-            "value": "value"
-        }
+        "child": ${makeTextJson()}
     }
 """
 
 fun makeObjectTouchable() = Touchable(
     onPress = listOf(makeActionAlertObject()),
     child = makeObjectText(),
-    clickAnalyticsEvent = ClickEvent(
-        category = "category",
-        label = "label",
-        value = "value"
-    )
 )
 
 fun makeWebViewJson() = """
@@ -673,6 +566,5 @@ fun makeObjectScreenComponent() = Screen(
         showBackButton = true,
     ),
     child = makeObjectContainer(),
-    screenAnalyticsEvent = ScreenEvent("Test"),
     context = makeObjectContextWithPrimitiveValue()
 )

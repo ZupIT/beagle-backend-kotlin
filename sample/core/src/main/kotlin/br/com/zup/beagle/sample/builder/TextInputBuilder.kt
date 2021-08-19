@@ -16,11 +16,10 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.core.EdgeValue
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -30,8 +29,13 @@ import br.com.zup.beagle.widget.ui.ImagePath
 import br.com.zup.beagle.widget.ui.Text
 import br.com.zup.beagle.widget.ui.TextInput
 
-object TextInputBuilder: ScreenBuilder {
-    val styleTextInput = Style(margin = EdgeValue(top = 10.unitReal(),left = 25.unitReal(),right = 25.unitReal()))
+private val MARGIN = EdgeValue(
+    top = UnitValue.real(10),
+    left = UnitValue.real(25),
+    right = UnitValue.real(25),
+)
+
+object TextInputBuilder : ScreenBuilder {
 
     override fun build() = Screen(
         navigationBar = NavigationBar(
@@ -60,11 +64,15 @@ object TextInputBuilder: ScreenBuilder {
 
     private fun createTextInput(text: String, styleId: String? = null) = Container(
         listOf(
-            Text(text).applyStyle(styleTextInput),
+            Text(text).setStyle {
+                margin = MARGIN
+            },
             TextInput(
                 placeholder = "Your text",
                 styleId = styleId
-            ).applyStyle(styleTextInput)
+            ).setStyle {
+                margin = MARGIN
+            }
         )
     )
 }

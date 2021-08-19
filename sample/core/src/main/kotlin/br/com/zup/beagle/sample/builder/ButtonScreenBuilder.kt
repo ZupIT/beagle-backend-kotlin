@@ -18,8 +18,6 @@ package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.core.CornerRadius
 import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE_APPEARANCE
 import br.com.zup.beagle.sample.constants.CYAN_BLUE
@@ -29,6 +27,7 @@ import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.core.EdgeValue
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -61,7 +60,7 @@ object ButtonScreenBuilder : ScreenBuilder {
                     text = "Button",
                     style = Style(
                         margin = EdgeValue(
-                            top = 15.unitReal()
+                            top = UnitValue.real(15)
                         )
                     )
                 ),
@@ -71,7 +70,7 @@ object ButtonScreenBuilder : ScreenBuilder {
                     styleId = BUTTON_STYLE,
                     style = Style(
                         margin = EdgeValue(
-                            top = 15.unitReal()
+                            top = UnitValue.real(15)
                         )
                     )
                 ),
@@ -92,9 +91,9 @@ object ButtonScreenBuilder : ScreenBuilder {
             backgroundColor = CYAN_BLUE,
             cornerRadius = CornerRadius(radius = 16.0),
             margin = EdgeValue(
-                left = 25.unitReal(),
-                right = 25.unitReal(),
-                top = 15.unitReal()
+                left = UnitValue.real(25),
+                right = UnitValue.real(25),
+                top = UnitValue.real(15)
             )
         )
     )
@@ -111,7 +110,7 @@ object ButtonScreenBuilder : ScreenBuilder {
         )
 
         if (style != null) {
-            button.applyStyle(style)
+            button.style = style
         }
 
         return button

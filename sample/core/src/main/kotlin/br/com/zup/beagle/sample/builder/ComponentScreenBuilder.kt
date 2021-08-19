@@ -16,9 +16,7 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.ACCESSIBILITY_SCREEN_ENDPOINT
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE
 import br.com.zup.beagle.sample.constants.CUSTOM_PLATFORM_SAMPLE_ENDPOINT
@@ -32,7 +30,6 @@ import br.com.zup.beagle.sample.constants.SCREEN_BUILDER_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_BUTTON_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_FORM_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
@@ -54,6 +51,7 @@ import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.ScrollAxis
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
@@ -81,7 +79,6 @@ object ComponentScreenBuilder : ScreenBuilder {
                 createMenu("PageView", SCREEN_PAGE_VIEW_ENDPOINT),
                 createMenu("Action", SCREEN_ACTION_ENDPOINT),
                 createMenu("ScreenBuilder", SCREEN_BUILDER_ENDPOINT),
-                createMenu("Form", SCREEN_FORM_ENDPOINT),
                 createMenu("LazyComponent", SCREEN_LAZY_COMPONENT_ENDPOINT),
                 createMenu("NavigationBar", SCREEN_NAVIGATION_BAR_ENDPOINT),
                 createMenu("NavigationType", NAVIGATION_TYPE_ENDPOINT),
@@ -108,10 +105,9 @@ object ComponentScreenBuilder : ScreenBuilder {
         onPress = listOf(Navigate.PushView(Route.Remote(path))
         ),
         styleId = BUTTON_STYLE
-    ).applyStyle(Style(
+    ).setStyle {
         margin = EdgeValue(
-            top = 8.unitReal()
+            top = UnitValue.real(8)
         )
-    )
-    )
+    }
 }
