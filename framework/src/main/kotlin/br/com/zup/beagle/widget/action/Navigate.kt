@@ -17,6 +17,7 @@ package br.com.zup.beagle.widget.action
 
 import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.valueOf
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.networking.HttpAdditionalData
@@ -120,15 +121,23 @@ sealed class Navigate : AnalyticsAction {
      * deserialize the content or to a local screen already built.
      * @param controllerId in this field passes the id created in the custom activity for beagle to create the flow,
      * if not the beagle passes default activity.
+     * @param context define the contextData that be set to next screen.
      */
-    data class PushStack(val route: Route,
-                         val controllerId: String? = null,
-                         override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class PushStack(
+        val route: Route,
+        val controllerId: String? = null,
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
+    ) : Navigate()
 
     /**
      * This action closes the current view stack.
+     * @param context define the contextData that be set to previous screen.
      */
-    data class PopStack(override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class PopStack(
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null,
+    ) : Navigate()
 
     /**
      * This type means the action to be performed is the opening
@@ -137,30 +146,43 @@ sealed class Navigate : AnalyticsAction {
      *
      * @param route this defines navigation type, it can be a navigation to a remote route in which Beagle will
      * deserialize the content or to a local screen already built.
+     * @param context define the contextData that be set to next screen.
      */
-    data class PushView(val route: Route, override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class PushView(
+        val route: Route,
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
+    ) : Navigate()
 
     /**
      * Action that closes the current view.
+     * @param context define the contextData that be set to previous screen.
      */
-    data class PopView(override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class PopView(
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
+    ) : Navigate()
 
     /**
      * It is responsible for returning the stack of screens in the application flow to a specific screen.
      *
      * @param route route of a screen that it's on the pile.
+     * @param context define the contextData that be set to previous screen.
      */
     data class PopToView(
         val route: Bind<String>,
         override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
     ) : Navigate() {
 
         constructor(
             route: String,
             analytics: ActionAnalyticsConfig? = null,
+            context: ContextData? = null
         ) : this(
             route = valueOf(route),
-            analytics = analytics
+            analytics = analytics,
+            context = context
         )
     }
 
@@ -172,10 +194,14 @@ sealed class Navigate : AnalyticsAction {
      * deserialize the content or to a local screen already built.
      * @param controllerId in this field passes the id created in the custom activity for beagle to create the flow,
      * if not the beagle passes default activity.
+     * @param context define the contextData that be set to next screen.
      */
-    data class ResetApplication(val route: Route,
-                                val controllerId: String? = null,
-                                override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class ResetApplication(
+        val route: Route,
+        val controllerId: String? = null,
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
+    ) : Navigate()
 
     /**
      * This attribute, when selected, opens a screen with the route informed
@@ -185,9 +211,13 @@ sealed class Navigate : AnalyticsAction {
      * deserialize the content or to a local screen already built.
      * @param controllerId in this field passes the id created in the custom activity for beagle to create the flow,
      * if not the beagle passes default activity.
+     * @param context define the contextData that be set to next screen.
      */
-    data class ResetStack(val route: Route,
-                          val controllerId: String? = null,
-                          override var analytics: ActionAnalyticsConfig? = null) : Navigate()
+    data class ResetStack(
+        val route: Route,
+        val controllerId: String? = null,
+        override var analytics: ActionAnalyticsConfig? = null,
+        val context: ContextData? = null
+    ) : Navigate()
 
 }
