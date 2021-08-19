@@ -34,8 +34,6 @@ class Dependencies : Plugin<Project> {
     }
 
     object Modules {
-        const val widgets = ":widgets"
-        const val processor = ":processor"
         const val framework = ":framework"
 
         const val sampleCore = ":sample:core"
@@ -45,39 +43,24 @@ class Dependencies : Plugin<Project> {
         const val springStarter = ":starters:spring"
         const val micronautStarter = ":starters:micronaut"
 
-        const val schemaKotlinCore = ":kotlin-core"
-
         const val commonAnnotation = ":annotation"
-        const val commonProcessorUtils = ":processor-utils"
-    }
-
-    object Releases {
-        const val beagleVersionName = "0.0.1-SNAPSHOT"
     }
 
     object Versions {
         const val kotlin = "1.5.10"
         const val kotlinPoet = "1.7.2"
         const val junit5 = "5.7.0"
-        const val googleAutoService = "1.0-rc7"
         const val mockk = "1.11.0"
         const val jacksonKotlin = "2.11.3"
         const val guava = "30.0-jre"
         const val slf4j = "1.7.30"
         const val springBoot = "2.3.5.RELEASE"
         const val micronaut = "2.1.3"
-        const val incap = "0.3"
     }
 
     object BackendLibraries {
         const val guava = "com.google.guava:guava:${Versions.guava}"
         const val slf4jJUL = "org.slf4j:slf4j-jdk14:${Versions.slf4j}"
-    }
-
-    object ProcessorLibraries {
-        const val autoService = "com.google.auto.service:auto-service:${Versions.googleAutoService}"
-        const val incap = "net.ltgt.gradle.incap:incap:${Versions.incap}"
-        const val incapPrcessor = "net.ltgt.gradle.incap:incap-processor:${Versions.incap}"
     }
 
     object GeneralLibraries {
