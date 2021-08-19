@@ -17,6 +17,13 @@
 package br.com.zup.beagle.serialization.components.widgets
 
 import br.com.zup.beagle.serialization.components.DefaultSerializerTest
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopStackJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopToViewJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopViewJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPushStackJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPushViewJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationResetApplicationJson
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationResetStackJson
 import br.com.zup.beagle.serialization.components.makeButtonJson
 import br.com.zup.beagle.serialization.components.makeContainerJson
 import br.com.zup.beagle.serialization.components.makeImageWithLocalPathJson
@@ -31,6 +38,13 @@ import br.com.zup.beagle.serialization.components.makeObjectImageWithLocalPath
 import br.com.zup.beagle.serialization.components.makeObjectImageWithRemotePath
 import br.com.zup.beagle.serialization.components.makeObjectLazyComponent
 import br.com.zup.beagle.serialization.components.makeObjectListView
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopStack
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopToView
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopView
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPushStack
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPushView
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationResetApplication
+import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationResetStack
 import br.com.zup.beagle.serialization.components.makeObjectScreenComponent
 import br.com.zup.beagle.serialization.components.makeObjectScrollView
 import br.com.zup.beagle.serialization.components.makeObjectSimpleForm
@@ -83,5 +97,12 @@ internal class DefaultWidgetSerializerTest : DefaultSerializerTest<Widget>() {
         Arguments.of(makeWebViewWithExpressionJson(), makeObjectWebViewWithExpression()),
         Arguments.of(makePullToRefreshJson(), makePullToRefreshObject()),
         Arguments.of(makePullToRefreshWithoutExpressionJson(), makePullToRefreshWithoutExpressionObject()),
+        Arguments.of(makeActionNavigationPushViewJson(), makeObjectNavigationPushView()),
+        Arguments.of(makeActionNavigationPushStackJson(), makeObjectNavigationPushStack()),
+        Arguments.of(makeActionNavigationPopStackJson(), makeObjectNavigationPopStack()),
+        Arguments.of(makeActionNavigationPopViewJson(), makeObjectNavigationPopView()),
+        Arguments.of(makeActionNavigationPopToViewJson(), makeObjectNavigationPopToView()),
+        Arguments.of(makeActionNavigationResetApplicationJson(), makeObjectNavigationResetApplication()),
+        Arguments.of(makeActionNavigationResetStackJson(), makeObjectNavigationResetStack()),
     )
 }
