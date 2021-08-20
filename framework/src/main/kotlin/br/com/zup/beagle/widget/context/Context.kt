@@ -14,16 +14,8 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.widget.context
 
-apply plugin: 'kotlin-kapt'
-
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
+interface Context {
+    val id: String
 }
