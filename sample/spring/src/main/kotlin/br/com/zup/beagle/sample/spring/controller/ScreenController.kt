@@ -20,6 +20,7 @@ package br.com.zup.beagle.sample.spring.controller
 
 import br.com.zup.beagle.sample.constants.ACCESSIBILITY_SCREEN_ENDPOINT
 import br.com.zup.beagle.sample.constants.NAVIGATION_TYPE_ENDPOINT
+import br.com.zup.beagle.sample.constants.OPERATIONS_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_STYLE_ENDPOINT
@@ -72,6 +73,7 @@ import br.com.zup.beagle.sample.spring.service.SampleLazyComponentService
 import br.com.zup.beagle.sample.spring.service.SampleListViewService
 import br.com.zup.beagle.sample.spring.service.SampleNavigationBarService
 import br.com.zup.beagle.sample.spring.service.SampleNavigationTypeService
+import br.com.zup.beagle.sample.spring.service.SampleOperationService
 import br.com.zup.beagle.sample.spring.service.SamplePageViewService
 import br.com.zup.beagle.sample.spring.service.SamplePullToRefreshService
 import br.com.zup.beagle.sample.spring.service.SampleSafeAreaService
@@ -116,6 +118,7 @@ class ScreenController(
     private val sampleSimpleFormService: SampleSimpleFormService,
     private val sampleAddChildrenService: AddChildrenService,
     private val samplePullToRefreshService: SamplePullToRefreshService,
+    private val sampleOperations: SampleOperationService,
 ) {
     @GetMapping(ACCESSIBILITY_SCREEN_ENDPOINT)
     fun getAccessibilityView() = this.accessibilityService.createAccessibilityView()
@@ -233,4 +236,7 @@ class ScreenController(
 
     @GetMapping(SCREEN_PULL_TO_REFRESH_SIMPLE)
     fun getSamplePullToRefreshFlutterService() = this.samplePullToRefreshService.createPullToRefreshFlutterView()
+
+    @GetMapping(OPERATIONS_ENDPOINT)
+    fun getOperations() = this.sampleOperations.createOperations()
 }

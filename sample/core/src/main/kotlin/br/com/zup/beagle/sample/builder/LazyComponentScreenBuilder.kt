@@ -17,8 +17,8 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.ext.setFlex
-import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.sample.constants.PATH_LAZY_COMPONENT_ENDPOINT
+import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.JustifyContent
 import br.com.zup.beagle.widget.layout.NavigationBar
@@ -26,7 +26,6 @@ import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.lazy.LazyComponent
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.Text
 
 object LazyComponentScreenBuilder : ScreenBuilder {
@@ -37,7 +36,7 @@ object LazyComponentScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Lazy Component",
                         message = "A widget that implements loading.",

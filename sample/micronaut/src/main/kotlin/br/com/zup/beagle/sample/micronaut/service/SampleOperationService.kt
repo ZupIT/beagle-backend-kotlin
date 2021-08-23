@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.widget.layout.extensions
+package br.com.zup.beagle.sample.micronaut.service
 
-import br.com.zup.beagle.widget.layout.NavigationBarItem
+import br.com.zup.beagle.sample.builder.OperationScreenBuilder
+import javax.inject.Singleton
 
-/**
- * Add an identifier to this widget.
- * @return the current navigation bar item
- */
-fun NavigationBarItem.setId(id: String) = this.apply { this.id = id }
+@Singleton
+class SampleOperationService {
+    fun createOperations() = OperationScreenBuilder
+}
