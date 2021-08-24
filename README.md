@@ -13,6 +13,19 @@ This framework allow teams to build and alter layouts and data directly through 
 
 It is also possible to create, test and update native application components and screen paths without the need update the mobile application at the store (App Store or Play Store).
 
+## Running
+You can use either an IDE or the cmd to run the sample project. If you decide to use the cmd, the commands are:
+
+```
+./gradlew sample:spring:bootRun
+```
+
+or
+
+```
+./gradlew sample:micronaut:bootRun
+```
+
 ## Contents
 
 - [Requirements](#-requirements)
