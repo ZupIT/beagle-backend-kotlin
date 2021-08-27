@@ -18,6 +18,10 @@ package br.com.zup.beagle.sample
 
 import br.com.zup.beagle.annotation.ContextObject
 import br.com.zup.beagle.annotation.GlobalContext
+import br.com.zup.beagle.annotation.ImplicitContext
+import br.com.zup.beagle.annotation.RegisterWidget
+import br.com.zup.beagle.widget.Widget
+import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Context
 
 @ContextObject
@@ -53,7 +57,8 @@ data class Model2(
 @ContextObject
 data class Model3(
     override val id: String,
-    val names: List<String>?
+    val names: List<String>? = null,
+    val obj: Widget? = null
 ): Context {
     constructor(id: String): this(id = id, names = null)
 }
@@ -65,3 +70,20 @@ data class Global(
     val orders: List<String>,
     val child: Model3
 )
+
+@RegisterWidget
+class SampleTextField(
+    val placeholder: String?,
+    @ImplicitContext(input = SampleOnChange::class)
+    val onChange: List<Action>? = null)
+    : Widget()
+
+//fun sampleTextField(placeholder: String, onChange: ((SampleOnChange) -> List<Action>)? = null): SampleTextField {
+//    return SampleTextField(placeholder, onChange = onChange?.invoke(SampleOnChange(id = "onChange")))
+//}
+
+@ContextObject
+data class SampleOnChange(
+    val value: String? = null,
+    override val id: String)
+    : Context
