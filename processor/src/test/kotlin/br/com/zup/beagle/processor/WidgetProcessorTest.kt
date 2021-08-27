@@ -36,7 +36,7 @@ class SampleWidget(
 @ContextObject
 data class SampleOnChange(override val id: String, val value: String? = null): Context
 
-class SampleAction(): Action
+class SampleAction: Action
 
 @DisplayName("Given a widget annotated with RegisterWidget")
 class WidgetProcessorTest {
@@ -46,14 +46,7 @@ class WidgetProcessorTest {
     fun test_widget_fun() {
         val onChangeActions = listOf(SampleAction())
         val expectedWidget = SampleWidget(placeholder = "placeholder", onChange = onChangeActions)
-        val widgetFunResult = sampleWidget(placeholder = "placeholder", onChange = {
-            Assertions.assertEquals(
-                it.id,
-                SampleWidget::onChange.name,
-                "Implicit context id must be the name of the attribute annotated with @ImplicitContext"
-            )
-            onChangeActions
-        })
+        val widgetFunResult = sampleWidget(placeholder = "placeholder", onChange = { onChangeActions })
 
         Assertions.assertEquals(expectedWidget.placeholder, widgetFunResult.placeholder)
         Assertions.assertEquals(expectedWidget.onChange, widgetFunResult.onChange)
