@@ -16,22 +16,15 @@
 
 package br.com.zup.beagle.sample.widget
 
-import br.com.zup.beagle.annotation.ContextObject
 import br.com.zup.beagle.annotation.ImplicitContext
 import br.com.zup.beagle.annotation.RegisterWidget
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
-import br.com.zup.beagle.widget.context.Context
+import br.com.zup.beagle.widget.context.Bind
 
 @RegisterWidget
-class SampleTextField(
-    val placeholder: String,
-    @ImplicitContext(input = SampleOnChange::class)
-    val onChange: List<Action>? = null)
-    : Widget()
-
-@ContextObject
-data class SampleOnChange(
-    val value: String? = null,
-    override val id: String)
-    : Context
+class Input(
+    val hint: Bind<String>,
+    @ImplicitContext
+    val onTextChange: List<Action>? = null
+) : Widget()

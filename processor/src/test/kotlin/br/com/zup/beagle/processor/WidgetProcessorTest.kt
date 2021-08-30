@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test
 @RegisterWidget
 class SampleWidget(
     val placeholder: String? = null,
-    @ImplicitContext(input = TestOnChange::class)
+    @ImplicitContext(inputClass = TestOnChange::class)
     val onChange: List<Action>? = null)
     : Widget()
 

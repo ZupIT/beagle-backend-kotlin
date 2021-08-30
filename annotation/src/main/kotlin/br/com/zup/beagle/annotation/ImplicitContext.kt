@@ -20,4 +20,4 @@ import kotlin.reflect.KClass
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.FIELD)
-annotation class ImplicitContext(val id: String = "", val input: KClass<*>)
+annotation class ImplicitContext(val name: String = "", val inputClass: KClass<*> = String::class)

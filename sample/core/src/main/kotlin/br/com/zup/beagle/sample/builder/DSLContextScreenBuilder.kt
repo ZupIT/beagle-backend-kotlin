@@ -8,12 +8,12 @@ import br.com.zup.beagle.sample.change
 import br.com.zup.beagle.sample.changeValue
 import br.com.zup.beagle.sample.firstNameExpression
 import br.com.zup.beagle.sample.lastNameExpression
-import br.com.zup.beagle.sample.normalize
 import br.com.zup.beagle.sample.streetExpression
 import br.com.zup.beagle.sample.valueExpression
-import br.com.zup.beagle.sample.widget.sampleTextField
-import br.com.zup.beagle.sample.widget.valueExpression
+import br.com.zup.beagle.sample.widget.input
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.expressionOf
+import br.com.zup.beagle.widget.context.valueOf
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
@@ -64,11 +64,11 @@ object DSLContextScreenBuilder : ScreenBuilder {
         children = listOf(
             createTitle("Local Context"),
             createText("Value"),
-            sampleTextField(
-                placeholder = "",
-                onChange = {
+            input(
+                hint = valueOf(""),
+                onTextChange = {
                     listOf(
-                        myContext.changeValue(it.valueExpression)
+                        myContext.changeValue(expressionOf("@{${it}}"))
                     )
                 }
             ),

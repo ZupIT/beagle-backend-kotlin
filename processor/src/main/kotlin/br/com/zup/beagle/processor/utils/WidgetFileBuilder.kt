@@ -84,28 +84,30 @@ class WidgetFileBuilder(
 
     private fun revolveImplicitContext(field: Element): String {
         return try {
-            resolveInvokeMethod(field, field.getAnnotation(ImplicitContext::class.java).input.asTypeName())
+            resolveInvokeMethod(field, field.getAnnotation(ImplicitContext::class.java).inputClass.asTypeName())
         } catch (e: MirroredTypeException) {
             resolveInvokeMethod(field, e.typeMirror.asTypeName())
         }
     }
 
     private fun resolveInvokeMethod(field: Element, typeName: TypeName): String {
-        val id = resolveImplicitId(field)
-        return (field.toString() + "${if (field.isNullable()) "?" else ""}.invoke(${typeName}(${Context::id.name} = \"${id}\"))")
+        val name = resolveImplicitName(field)
+        return (field.toString() +
+            (if (field.isNullable()) "?" else "") +
+            ".invoke(${typeName}(\"${name}\"))")
     }
 
-    private fun resolveImplicitId(field: Element): String {
+    private fun resolveImplicitName(field: Element): String {
         val annotation = field.getAnnotation(ImplicitContext::class.java)
-        return if (annotation != null && annotation.id.isNotEmpty())
-            annotation.id
+        return if (annotation.name.isNotEmpty())
+            annotation.name
         else
             field.simpleName.toString()
     }
 
     private fun addImplicitContextParameter(field: Element, annotation: ImplicitContext) {
         try {
-            addLambdaParameter(field, annotation.input.asTypeName())
+            addLambdaParameter(field, annotation.inputClass.asTypeName())
         } catch (e: MirroredTypeException) {
             addLambdaParameter(field, e.typeMirror.asTypeName())
         }
