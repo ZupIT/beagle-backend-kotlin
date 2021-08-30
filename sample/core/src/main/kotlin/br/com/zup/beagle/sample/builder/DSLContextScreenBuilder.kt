@@ -30,8 +30,8 @@ object DSLContextScreenBuilder : ScreenBuilder {
             id = "person",
             firstName = "firstName local",
             lastName = "lastName local")
-    ).normalize("myContext")
-    private var globalObject = GlobalObject().normalize()
+    )
+    private var globalObject = GlobalObject()
 
     override fun build() = Screen(
         child = ScrollView(

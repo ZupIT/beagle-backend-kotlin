@@ -32,6 +32,7 @@ class BeagleModule(
         this.setSerializerModifier(BeagleSerializerModifier(this.classLoader))
         this.addSerializer(Context::class.java, ContextObjectSerializer())
         this.addSerializer(SetContext::class.java, SetContextObjectSerializer())
+        this.addSerializer(ScreenBuilder::class.java, ScreenBuilderSerializer())
         this.setMixInAnnotation(
             getClass(ComposeComponent::class, this.classLoader),
             ComposeComponentMixin::class.java
