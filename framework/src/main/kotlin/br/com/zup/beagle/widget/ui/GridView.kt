@@ -19,8 +19,10 @@ package br.com.zup.beagle.widget.ui
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.context.ContextData
+import br.com.zup.beagle.widget.ui.GridViewDirection.HORIZONTAL
+import br.com.zup.beagle.widget.ui.GridViewDirection.VERTICAL
 
 /**
  * @param context define the contextData that be set to component.
@@ -39,7 +41,7 @@ import br.com.zup.beagle.widget.context.ContextData
  * @param direction define the grid direction.
  */
 data class GridView constructor(
-    override val context: ContextData? = null,
+    override val context: Context? = null,
     val onInit: List<Action>? = null,
     val dataSource: Bind<List<Any>>,
     val templates: List<Template>,

@@ -28,13 +28,13 @@ import br.com.zup.beagle.widget.context.Context
 data class Model(
     override val id: String,
     val counter: List<Int>?,
-    val post : String?,
+    val post: String?,
     val child: Model2?,
     val child2: Model3?,
     val childList: List<Model3>?,
     val childList2: List<Model2>
-): Context {
-    constructor(id: String): this(
+) : Context {
+    constructor(id: String) : this(
         id = id,
         counter = null,
         post = null,
@@ -50,8 +50,8 @@ data class Model2(
     override val id: String,
     val title: String?,
     val child: Model3?
-): Context {
-    constructor(id: String): this(id = id, title = null, child = null)
+) : Context {
+    constructor(id: String) : this(id = id, title = null, child = null)
 }
 
 @ContextObject
@@ -59,8 +59,8 @@ data class Model3(
     override val id: String,
     val names: List<String>? = null,
     val obj: Widget? = null
-): Context {
-    constructor(id: String): this(id = id, names = null)
+) : Context {
+    constructor(id: String) : this(id = id, names = null)
 }
 
 @GlobalContext

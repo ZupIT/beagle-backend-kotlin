@@ -17,8 +17,8 @@
 package br.com.zup.beagle.widget.layout
 
 import br.com.zup.beagle.core.ServerDrivenComponent
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.core.ScrollAxis
 
 /**
@@ -33,5 +33,5 @@ data class ScrollView(
     val children: List<ServerDrivenComponent>? = null,
     val scrollDirection: ScrollAxis? = null,
     val scrollBarEnabled: Boolean? = null,
-    override val context: ContextData? = null,
+    override val context: Context? = null,
 ) : ServerDrivenComponent, ContextComponent

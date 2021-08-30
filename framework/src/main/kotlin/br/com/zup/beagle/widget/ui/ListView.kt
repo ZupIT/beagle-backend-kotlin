@@ -20,8 +20,8 @@ import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.core.ListDirection
 
 /**
@@ -43,7 +43,7 @@ import br.com.zup.beagle.widget.core.ListDirection
  */
 data class ListView(
     val direction: ListDirection = ListDirection.VERTICAL,
-    override val context: ContextData? = null,
+    override val context: Context? = null,
     val onInit: List<Action>? = null,
     val dataSource: Bind<List<Any>>? = null,
     val template: ServerDrivenComponent? = null,

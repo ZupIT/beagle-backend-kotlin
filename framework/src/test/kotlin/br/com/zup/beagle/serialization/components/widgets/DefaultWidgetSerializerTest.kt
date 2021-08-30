@@ -26,6 +26,7 @@ import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNaviga
 import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationResetStackJson
 import br.com.zup.beagle.serialization.components.makeButtonJson
 import br.com.zup.beagle.serialization.components.makeContainerJson
+import br.com.zup.beagle.serialization.components.makeContainerWithCustomContextJson
 import br.com.zup.beagle.serialization.components.makeImageWithLocalPathJson
 import br.com.zup.beagle.serialization.components.makeImageWithRemotePathJson
 import br.com.zup.beagle.serialization.components.makeJsonGridView
@@ -33,6 +34,7 @@ import br.com.zup.beagle.serialization.components.makeLazyComponentJson
 import br.com.zup.beagle.serialization.components.makeListViewJson
 import br.com.zup.beagle.serialization.components.makeObjectButton
 import br.com.zup.beagle.serialization.components.makeObjectContainer
+import br.com.zup.beagle.serialization.components.makeObjectContainerWithCustomContext
 import br.com.zup.beagle.serialization.components.makeObjectGridView
 import br.com.zup.beagle.serialization.components.makeObjectImageWithLocalPath
 import br.com.zup.beagle.serialization.components.makeObjectImageWithRemotePath
@@ -80,6 +82,7 @@ internal class DefaultWidgetSerializerTest : DefaultSerializerTest<Widget>() {
     override fun testArguments() = listOf(
         Arguments.of(makeButtonJson(), makeObjectButton()),
         Arguments.of(makeContainerJson(), makeObjectContainer()),
+        Arguments.of(makeContainerWithCustomContextJson(), makeObjectContainerWithCustomContext()),
         Arguments.of(makeJsonGridView(), makeObjectGridView()),
         Arguments.of(makeImageWithLocalPathJson(), makeObjectImageWithLocalPath()),
         Arguments.of(makeImageWithRemotePathJson(), makeObjectImageWithRemotePath()),

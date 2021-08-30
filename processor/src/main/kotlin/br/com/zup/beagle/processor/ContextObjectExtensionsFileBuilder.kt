@@ -166,7 +166,7 @@ class ContextObjectExtensionsFileBuilder(
                 false
             } else {
                 val elementTypeName =
-                    if(typeUtils.isIterable(element.asType()))
+                    if (typeUtils.isIterable(element.asType()))
                         typeUtils.getFinalElementType(element.asType()).toString()
                     else
                         element.asType().toString()
