@@ -17,44 +17,25 @@
 package br.com.zup.beagle.sample
 
 import br.com.zup.beagle.annotation.ContextObject
-import br.com.zup.beagle.widget.Widget
+import br.com.zup.beagle.annotation.GlobalContext
 import br.com.zup.beagle.widget.context.Context
 
-@ContextObject
-data class Model(
-    override val id: String,
-    val counter: List<Int>?,
-    val post: String?,
-    val child: Model2?,
-    val child2: Model3?,
-    val childList: List<Model3>?,
-    val childList2: List<Model2>
-) : Context {
-    constructor(id: String) : this(
-        id = id,
-        counter = null,
-        post = null,
-        child = null,
-        child2 = null,
-        childList = listOf(),
-        childList2 = listOf()
-    )
-}
+@GlobalContext
+data class GlobalObject(
+    val street: String = "",
+    val person: Person = Person("")
+)
 
 @ContextObject
-data class Model2(
+data class Person(
     override val id: String,
-    val title: String?,
-    val child: Model3?
-) : Context {
-    constructor(id: String) : this(id = id, title = null, child = null)
-}
+    val firstName: String = "",
+    val lastName: String = ""
+) : Context
 
 @ContextObject
-data class Model3(
+data class MyContext(
     override val id: String,
-    val names: List<String>? = null,
-    val obj: Widget? = null
-) : Context {
-    constructor(id: String) : this(id = id, names = null)
-}
+    val value: String = "",
+    val person: Person = Person("")
+) : Context

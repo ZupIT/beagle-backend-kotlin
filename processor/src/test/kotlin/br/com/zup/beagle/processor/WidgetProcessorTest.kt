@@ -28,12 +28,12 @@ import org.junit.jupiter.api.Test
 @RegisterWidget
 class SampleWidget(
     val placeholder: String? = null,
-    @ImplicitContext(input = SampleOnChange::class)
+    @ImplicitContext(input = TestOnChange::class)
     val onChange: List<Action>? = null)
     : Widget()
 
 @ContextObject
-data class SampleOnChange(override val id: String, val value: String? = null): br.com.zup.beagle.widget.context.Context
+data class TestOnChange(override val id: String, val value: String? = null): br.com.zup.beagle.widget.context.Context
 
 class SampleAction: Action
 

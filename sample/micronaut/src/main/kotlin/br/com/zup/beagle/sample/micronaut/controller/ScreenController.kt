@@ -38,6 +38,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_BUTTON_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPONENTS_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_DSL_CONTEXT
 import br.com.zup.beagle.sample.constants.SCREEN_EXAMPLE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
@@ -59,6 +60,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_TOUCHABLE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_WEB_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.micronaut.service.AccessibilityService
 import br.com.zup.beagle.sample.micronaut.service.AddChildrenService
+import br.com.zup.beagle.sample.micronaut.service.DSLContextService
 import br.com.zup.beagle.sample.micronaut.service.SampleActionClickService
 import br.com.zup.beagle.sample.micronaut.service.SampleActionService
 import br.com.zup.beagle.sample.micronaut.service.SampleAnalyticsService
@@ -116,6 +118,7 @@ class ScreenController(
     private val sampleSimpleFormService: SampleSimpleFormService,
     private val sampleAddChildrenService: AddChildrenService,
     private val samplePullToRefreshService: SamplePullToRefreshService,
+    private val dslContextService: DSLContextService
 ) {
     @Get(ACCESSIBILITY_SCREEN_ENDPOINT)
     fun getAccessibilityView() = this.accessibilityService.createAccessibilityView()
@@ -233,4 +236,7 @@ class ScreenController(
 
     @Get(SCREEN_PULL_TO_REFRESH_SIMPLE)
     fun getSamplePullToRefreshFlutterService() = this.samplePullToRefreshService.createPullToRefreshFlutterView()
+
+    @Get(SCREEN_DSL_CONTEXT)
+    fun getDSLContextScreen() = this.dslContextService.createDSLContextScreen()
 }
