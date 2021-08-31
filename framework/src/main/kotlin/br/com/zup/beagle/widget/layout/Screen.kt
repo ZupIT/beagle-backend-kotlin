@@ -17,7 +17,6 @@
 package br.com.zup.beagle.widget.layout
 
 import br.com.zup.beagle.core.Accessibility
-import br.com.zup.beagle.core.IdentifierComponent
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.widget.action.Action
@@ -25,7 +24,6 @@ import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.valueOfNullable
-import br.com.zup.beagle.widget.ui.ImagePath
 
 /**
  * The SafeArea will enable Safe areas to help you place your views within the visible portion of the overall interface.
