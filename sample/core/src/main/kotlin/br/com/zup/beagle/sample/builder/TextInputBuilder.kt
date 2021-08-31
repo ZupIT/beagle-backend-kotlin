@@ -44,7 +44,7 @@ object TextInputBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = ImagePath.Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Text Input",
                         message = "This widget will define a Text Input view natively using the server driven " +

@@ -21,8 +21,10 @@ import br.com.zup.beagle.core.IdentifierComponent
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.widget.action.Action
+import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
+import br.com.zup.beagle.widget.context.valueOfNullable
 import br.com.zup.beagle.widget.ui.ImagePath
 
 /**
@@ -58,11 +60,16 @@ data class SafeArea(
 
 data class NavigationBarItem(
     val text: String,
-    val image: ImagePath.Local? = null,
+    val image: Bind<String>?,
     val action: Action,
     val accessibility: Accessibility? = null
-) : IdentifierComponent {
-    override var id: String? = null
+) {
+    constructor(
+        text: String,
+        image: String? = null,
+        action: Action,
+        accessibility: Accessibility? = null,
+    ) : this(text, valueOfNullable(image), action, accessibility)
 }
 
 /**

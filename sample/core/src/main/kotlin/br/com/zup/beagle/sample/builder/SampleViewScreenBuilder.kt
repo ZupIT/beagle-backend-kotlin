@@ -25,7 +25,6 @@ import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 
 object SampleViewScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
@@ -35,12 +34,12 @@ object SampleViewScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "First",
-                    image = Local.justMobile("delete"),
+                    image = "delete",
                     action = Navigate.PopToView(PATH_SAMPLE_VIEW_ENDPOINT)
                 ),
                 NavigationBarItem(
                     text = "Second",
-                    image = Local.justMobile("question"),
+                    image = "question",
                     action = Navigate.PopView()
                 )
             )
