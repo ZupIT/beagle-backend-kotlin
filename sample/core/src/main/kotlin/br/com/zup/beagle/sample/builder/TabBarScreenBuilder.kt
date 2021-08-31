@@ -62,7 +62,7 @@ object TabBarScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "TabBar",
                         message = " Is a component that will make the navigation between views. It may happen by " +

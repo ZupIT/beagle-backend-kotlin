@@ -17,13 +17,13 @@
 package br.com.zup.beagle.widget.layout
 
 import br.com.zup.beagle.core.Accessibility
-import br.com.zup.beagle.core.IdentifierComponent
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.widget.action.Action
+import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
-import br.com.zup.beagle.widget.ui.ImagePath
+import br.com.zup.beagle.widget.context.valueOfNullable
 
 /**
  * The SafeArea will enable Safe areas to help you place your views within the visible portion of the overall interface.
@@ -45,12 +45,12 @@ data class SafeArea(
 )
 
 /**
- *  Defines a List of navigation bar items.
+ *  Defines a list of navigation bar items.
  *
  * @see Accessibility
  *
- * @param text define the Title on the navigation bar
- * @param image defines an image for your navigation bar
+ * @param text define the navigation bar item description
+ * @param image defines the navigation bar item image
  * @param action defines an action to be called when the item is clicked on.
  * @param accessibility define Accessibility details for the item
  *
@@ -58,11 +58,16 @@ data class SafeArea(
 
 data class NavigationBarItem(
     val text: String,
-    val image: ImagePath.Local? = null,
+    val image: Bind<String>?,
     val action: Action,
     val accessibility: Accessibility? = null
-) : IdentifierComponent {
-    override var id: String? = null
+) {
+    constructor(
+        text: String,
+        image: String? = null,
+        action: Action,
+        accessibility: Accessibility? = null,
+    ) : this(text, valueOfNullable(image), action, accessibility)
 }
 
 /**

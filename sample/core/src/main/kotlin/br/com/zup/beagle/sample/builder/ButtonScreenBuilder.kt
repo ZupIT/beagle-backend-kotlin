@@ -34,7 +34,6 @@ import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 
 object ButtonScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
@@ -44,7 +43,7 @@ object ButtonScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Button",
                         message = "This is a widget that will define a button natively using the server " +

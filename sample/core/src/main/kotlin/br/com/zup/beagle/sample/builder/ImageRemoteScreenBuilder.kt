@@ -17,8 +17,8 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.ext.setStyle
-import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.sample.constants.TEXT_IMAGE_REMOTE
+import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
@@ -33,7 +33,6 @@ import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.ui.Image
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.ImagePath.Remote
 import br.com.zup.beagle.widget.ui.Text
 
@@ -46,7 +45,7 @@ class ImageRemoteScreenBuilder(private val imagePath: String) : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Image Remote",
                         message = "It is a widget that implements an image with a URL.",

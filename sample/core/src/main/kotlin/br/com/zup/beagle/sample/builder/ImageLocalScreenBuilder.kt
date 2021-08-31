@@ -17,9 +17,9 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.ext.setFlex
-import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.sample.constants.LOGO_BEAGLE
 import br.com.zup.beagle.sample.constants.TITLE_SCREEN
+import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.SetContext
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.expressionOf
@@ -45,7 +45,7 @@ object ImageLocalScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile(expressionOf("@{context}")),
+                    image = expressionOf("@{context}"),
                     action = Alert(
                         title = "Image",
                         message = "This widget will define a image view natively using the server driven " +

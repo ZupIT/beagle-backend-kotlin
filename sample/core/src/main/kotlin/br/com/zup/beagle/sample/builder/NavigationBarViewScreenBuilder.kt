@@ -34,9 +34,7 @@ import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
-import br.com.zup.beagle.widget.layout.extensions.setId
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 
 object NavigationBarViewScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
@@ -51,13 +49,13 @@ object NavigationBarViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "Ajuda",
                     accessibility = Accessibility(accessibilityLabel = "Content Description"),
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "NavigationBar",
                         message = "This component that allows to place titles and button action.",
                         labelOk = "OK"
                     )
-                ).setId("nbiInformation")
+                )
             )
         ),
         child = Container(

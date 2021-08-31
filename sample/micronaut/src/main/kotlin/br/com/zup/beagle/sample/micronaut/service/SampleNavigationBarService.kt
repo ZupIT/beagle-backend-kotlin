@@ -24,7 +24,6 @@ import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.layout.NavigationBarItem
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import javax.inject.Singleton
 
 @Singleton
@@ -59,7 +58,7 @@ class SampleNavigationBarService {
         navigationBarItems = listOf(
             NavigationBarItem(
                 text = "",
-                image = Local.justMobile(LOGO_BEAGLE),
+                image = LOGO_BEAGLE,
                 action = Navigate.PushView(Route.Remote(SCREEN_ACTION_CLICK_ENDPOINT))
             )
         )

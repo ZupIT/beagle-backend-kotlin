@@ -34,7 +34,6 @@ import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.navigation.Touchable
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.Text
 
 object ActionScreenBuilder : ScreenBuilder {
@@ -46,7 +45,7 @@ object ActionScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Action",
                         message = "This class handles transition actions between screens in the application. ",
