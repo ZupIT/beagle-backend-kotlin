@@ -21,6 +21,7 @@ import br.com.zup.beagle.annotation.ImplicitContext
 import br.com.zup.beagle.annotation.RegisterWidget
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
+import br.com.zup.beagle.widget.context.Context
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -33,9 +34,9 @@ class SampleWidget(
     : Widget()
 
 @ContextObject
-data class TestOnChange(override val id: String, val value: String? = null): br.com.zup.beagle.widget.context.Context
+data class TestOnChange(override val id: String, val value: String? = null) : Context
 
-class SampleAction: Action
+class SampleAction : Action
 
 @DisplayName("Given a widget annotated with RegisterWidget")
 class WidgetProcessorTest {

@@ -16,16 +16,22 @@
 
 package br.com.zup.beagle.processor
 
+import br.com.zup.beagle.annotation.ContextObject
+import br.com.zup.beagle.annotation.ImplicitContext
 import br.com.zup.beagle.annotation.RegisterWidget
 import br.com.zup.beagle.processor.utils.WidgetFileBuilder
 import com.google.auto.service.AutoService
+import com.squareup.kotlinpoet.asTypeName
 import java.io.File
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.Processor
 import javax.annotation.processing.RoundEnvironment
 import javax.lang.model.SourceVersion
 import javax.lang.model.element.Element
+import javax.lang.model.element.ElementKind
 import javax.lang.model.element.TypeElement
+import javax.lang.model.type.MirroredTypeException
+import javax.tools.Diagnostic
 
 @AutoService(Processor::class)
 class WidgetProcessor : AbstractProcessor() {
@@ -40,7 +46,10 @@ class WidgetProcessor : AbstractProcessor() {
     override fun getSupportedSourceVersion(): SourceVersion = SourceVersion.latest()
 
     override fun process(annotations: MutableSet<out TypeElement>?, roundEnv: RoundEnvironment): Boolean {
-        roundEnv.getElementsAnnotatedWith(RegisterWidget::class.java).forEach { processAnnotation(it) }
+        roundEnv.getElementsAnnotatedWith(RegisterWidget::class.java).forEach {
+            if (isValidImplicitContext(it))
+                processAnnotation(it)
+        }
         return false
     }
 
@@ -50,5 +59,37 @@ class WidgetProcessor : AbstractProcessor() {
         val file = builder.build()
         val kaptKotlinGeneratedDir = processingEnv.options[KAPT_KOTLIN_GENERATED_OPTION_NAME]
         file.writeTo(File(kaptKotlinGeneratedDir))
+    }
+
+    private fun isValidImplicitContext(element: Element): Boolean {
+        val fields = element.enclosedElements.filter { it.kind == ElementKind.FIELD }
+
+        fields.forEach { field ->
+            val annotation = field.getAnnotation(ImplicitContext::class.java)
+            try {
+                annotation?.inputClass
+            } catch (e: MirroredTypeException) {
+                if (annotation != null && e.typeMirror.asTypeName().toString() != "java.lang.String") {
+                    try {
+                        if (processingEnv.typeUtils.asElement(e.typeMirror).getAnnotation(ContextObject::class.java) == null) {
+                            return errorImplicitContext(field)
+                        }
+                    } catch (e: Exception) {
+                        return errorImplicitContext(field)
+                    }
+                }
+            }
+        }
+
+        return true
+    }
+
+    private fun errorImplicitContext(element: Element): Boolean {
+        processingEnv.messager.printMessage(
+            Diagnostic.Kind.ERROR,
+            "Only classes that inherit from Context can be used for implicit context",
+            element
+        )
+        return false
     }
 }
