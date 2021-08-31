@@ -32,6 +32,7 @@ import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.ui.Button
 import br.com.zup.beagle.widget.ui.ListView
+import br.com.zup.beagle.widget.ui.Template
 import br.com.zup.beagle.widget.ui.Text
 
 object ListViewScreenBuilder : ScreenBuilder {
@@ -65,17 +66,21 @@ object ListViewScreenBuilder : ScreenBuilder {
         ),
         dataSource = expressionOf("@{outsideContext}"),
         direction = ListDirection.VERTICAL,
-        template = Container(
-            children = listOf(
-                Text(text = expressionOf("@{item}")),
-                list
+        templates = listOf(
+            Template(
+                view = Container(
+                    children = listOf(
+                        Text(text = expressionOf("@{item}")),
+                        list
+                    )
+                ).setStyle {
+                    size = Size(
+                        width = UnitValue.percent(100),
+                        height = UnitValue.real(600),
+                    )
+                }
             )
-        ).setStyle {
-            size = Size(
-                width = UnitValue.percent(100),
-                height = UnitValue.real(600),
-            )
-        }
+        )
     )
 
     data class Person(
@@ -156,22 +161,26 @@ object ListViewScreenBuilder : ScreenBuilder {
         key = "cpf",
         dataSource = expressionOf("@{insideContext}"),
         direction = ListDirection.HORIZONTAL,
-        template = Container(
-            children = listOf(
-                Button(
-                    text = expressionOf("@{item.name} - @{item.cpf}"),
-                    onPress = listOf(
-                        SetContext(
-                            contextId = "insideContext",
-                            path = "[0].name",
-                            value = "Updated John"
-                        )
+        templates = listOf(
+            Template(
+                view = Container(
+                    children = listOf(
+                        Button(
+                            text = expressionOf("@{item.name} - @{item.cpf}"),
+                            onPress = listOf(
+                                SetContext(
+                                    contextId = "insideContext",
+                                    path = "[0].name",
+                                    value = "Updated John"
+                                )
+                            )
+                        ).setStyle {
+                            size = Size(width = UnitValue.real(300), height = UnitValue.real(80))
+                        }.setId("button")
                     )
-                ).setStyle {
-                    size = Size(width = UnitValue.real(300), height = UnitValue.real(80))
-                }.setId("button")
+                ).setId("container")
             )
-        ).setId("container")
+        )
     ).setStyle {
         backgroundColor = "#CCC"
     }
