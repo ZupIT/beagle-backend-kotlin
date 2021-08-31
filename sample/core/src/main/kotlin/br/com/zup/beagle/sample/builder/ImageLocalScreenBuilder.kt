@@ -66,7 +66,7 @@ object ImageLocalScreenBuilder : ScreenBuilder {
                         contextId = "context",
                         value = "beagle"
                     )
-                )).setFlex { shrink = 0.0 }
+                ))
         )
     )
 
