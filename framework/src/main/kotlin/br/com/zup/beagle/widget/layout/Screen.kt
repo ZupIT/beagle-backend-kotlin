@@ -49,10 +49,10 @@ data class SafeArea(
  *
  * @see Accessibility
  *
- * @param text define the navigation bar item description
- * @param image defines the navigation bar item image
- * @param action defines an action to be called when the item is clicked on.
- * @param accessibility define Accessibility details for the item
+ * @param text defines the description for the item
+ * @param image defines the local image for the item
+ * @param action defines an action to be called when the item is clicked on
+ * @param accessibility defines the accessibility details for the item
  *
  */
 
