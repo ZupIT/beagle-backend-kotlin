@@ -47,12 +47,12 @@ data class SafeArea(
 )
 
 /**
- *  Defines a List of navigation bar items.
+ *  Defines a list of navigation bar items.
  *
  * @see Accessibility
  *
- * @param text define the Title on the navigation bar
- * @param image defines an image for your navigation bar
+ * @param text define the navigation bar item description
+ * @param image defines the navigation bar item image
  * @param action defines an action to be called when the item is clicked on.
  * @param accessibility define Accessibility details for the item
  *
