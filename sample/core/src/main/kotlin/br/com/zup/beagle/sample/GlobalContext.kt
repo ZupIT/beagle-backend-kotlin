@@ -16,26 +16,11 @@
 
 package br.com.zup.beagle.sample
 
-import br.com.zup.beagle.annotation.ContextObject
 import br.com.zup.beagle.annotation.GlobalContext
-import br.com.zup.beagle.widget.context.Context
+import br.com.zup.beagle.sample.builder.Person
 
 @GlobalContext
 data class GlobalObject(
     val street: String = "",
     val person: Person = Person("")
 )
-
-@ContextObject
-data class Person(
-    override val id: String,
-    val firstName: String = "",
-    val lastName: String = ""
-) : Context
-
-@ContextObject
-data class MyContext(
-    override val id: String,
-    val value: String = "",
-    val person: Person = Person("")
-) : Context

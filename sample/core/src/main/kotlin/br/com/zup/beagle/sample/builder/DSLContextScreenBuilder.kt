@@ -1,17 +1,13 @@
 package br.com.zup.beagle.sample.builder
 
+import br.com.zup.beagle.annotation.ContextObject
 import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.GlobalObject
-import br.com.zup.beagle.sample.MyContext
-import br.com.zup.beagle.sample.Person
 import br.com.zup.beagle.sample.change
-import br.com.zup.beagle.sample.changeValue
-import br.com.zup.beagle.sample.firstNameExpression
-import br.com.zup.beagle.sample.lastNameExpression
 import br.com.zup.beagle.sample.streetExpression
-import br.com.zup.beagle.sample.valueExpression
 import br.com.zup.beagle.sample.widget.input
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.expressionOf
 import br.com.zup.beagle.widget.context.valueOf
 import br.com.zup.beagle.widget.core.AlignSelf
@@ -23,6 +19,20 @@ import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.ui.Text
+
+@ContextObject
+data class Person(
+    override val id: String,
+    val firstName: String = "",
+    val lastName: String = ""
+) : Context
+
+@ContextObject
+data class MyContext(
+    override val id: String,
+    val value: String = "",
+    val person: Person = Person("")
+) : Context
 
 object DSLContextScreenBuilder : ScreenBuilder {
     private var myContext = MyContext("myContext",

@@ -124,6 +124,8 @@ class ContextObjectExtensionsFileBuilder(
                 val propertyName = if (contextObject.isNullable()) "$name?" else name
                 val contextIdStatement = if (isGlobal) "global" else "\${id}"
 
+                resolveNormalizeImport(contextObject)
+
                 if (typeUtils.isIterable(contextObject.asType())) {
                     "$acc,\n    $name = $propertyName.mapIndexed { index, contextObject ->\n" +
                         "        contextObject.normalize(id = \"$contextIdStatement.$name[\$index]\")\n" +
@@ -145,6 +147,21 @@ class ContextObjectExtensionsFileBuilder(
         } else {
             "return this.copy(id = id)"
         }
+    }
+
+    private fun resolveNormalizeImport(contextObject: Element) {
+        if (getPackage(element) != getPackage(contextObject)) {
+            fileBuilder.addImport(
+                getPackage(contextObject),
+                "normalize"
+            )
+        }
+    }
+
+    private fun getPackage(element: Element): String {
+        val mutableList = typeUtils.getFinalElementType(element.asType()).asTypeName().toString().split(".") as MutableList
+        mutableList.removeLast()
+        return mutableList.joinToString(".")
     }
 
     private fun buildListAccessFun(parameterName: String, elementType: TypeName, isNullable: Boolean): FunSpec {
