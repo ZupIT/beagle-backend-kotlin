@@ -20,6 +20,8 @@ package br.com.zup.beagle.operations.builtin
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.expressionOf
 
+const val REMOVE_AT_SIGN_AND_OPEN_KEYS = 2
+const val REMOVE_KEYS_END = 1
 /** Number **/
 fun sum(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("sum", params)
 fun subtract(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("subtract", params)
@@ -89,7 +91,7 @@ private fun <O> createOperation(operationType: String, params: Array<out Any?>):
 private fun <I> resolveParam(param: Bind<I>?): Any? {
     return param?.let {
         if (param is Bind.Expression && param.value.isNotEmpty()) {
-            param.value.drop(2).dropLast(1)
+            param.value.drop(REMOVE_AT_SIGN_AND_OPEN_KEYS).dropLast(REMOVE_KEYS_END)
         } else {
             val resultValue = (param as Bind.Value).value
             if (resultValue is String) {
