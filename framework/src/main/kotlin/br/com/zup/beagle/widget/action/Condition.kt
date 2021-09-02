@@ -18,7 +18,7 @@ package br.com.zup.beagle.widget.action
 
 import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.valueOf
+import br.com.zup.beagle.widget.context.constant
 
 /**
  * Action to resolve condition and call onTrue if return true and onFalse if return is false.
@@ -40,7 +40,7 @@ data class Condition(
         onFalse: List<Action>? = null,
         analytics: ActionAnalyticsConfig? = null
     ) : this(
-        condition = valueOf(condition),
+        condition = constant(condition),
         onTrue = onTrue,
         onFalse = onFalse,
         analytics = analytics

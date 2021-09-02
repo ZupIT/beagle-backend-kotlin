@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.ui
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.valueOf
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.context.valueOfNullable
 
 /**
@@ -44,7 +44,7 @@ data class Button(
         onPress: List<Action>? = null,
         enabled: Boolean? = null
     ) : this(
-        valueOf(text),
+        constant(text),
         styleId,
         onPress,
         valueOfNullable(enabled)

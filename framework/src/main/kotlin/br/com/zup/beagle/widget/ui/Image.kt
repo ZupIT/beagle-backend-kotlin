@@ -18,7 +18,7 @@ package br.com.zup.beagle.widget.ui
 
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.valueOf
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.context.valueOfNullable
 import br.com.zup.beagle.widget.core.ImageContentMode
 
@@ -63,7 +63,7 @@ sealed class ImagePath(val url: Bind<String>?, val placeholder: Local? = null) {
      * @param placeholder reference an image natively in your mobile app local styles file to be used as placeholder.
      * */
     class Remote(remoteUrl: Bind<String>, placeholder: Local? = null) : ImagePath(remoteUrl, placeholder) {
-        constructor(remoteUrl: String, placeholder: Local? = null) : this(valueOf(remoteUrl), placeholder)
+        constructor(remoteUrl: String, placeholder: Local? = null) : this(constant(remoteUrl), placeholder)
     }
 }
 
