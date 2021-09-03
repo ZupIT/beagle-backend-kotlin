@@ -18,7 +18,6 @@ package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import io.mockk.mockk
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -95,6 +94,7 @@ internal class StringOperationsTest {
         @Test
         fun checkLowercaseOperation() = run {
             val result = lowercase(constant(STRING_TEST))
+
             val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
@@ -104,6 +104,7 @@ internal class StringOperationsTest {
         @Test
         fun checkLowercaseOperationWithExtFunction() = run {
             val result = constant(STRING_TEST).toLowerCase()
+
             val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
@@ -113,6 +114,7 @@ internal class StringOperationsTest {
         @Test
         fun checkLowercaseOperationWithEmptyInput() = run {
             val result = lowercase(constant(EMPTY_STRING_TEST))
+
             val expected = Bind.expression<String>("@{lowercase(\'$EMPTY_STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
@@ -125,9 +127,20 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with uppercase operation")
         @Test
-        fun checUppercaseOperation() = run {
+        fun checkUppercaseOperation() = run {
             val result = uppercase(constant(STRING_TEST))
+
             val expected = Bind.expression<String>("@{uppercase(\'$STRING_TEST\')}")
+
+            Assertions.assertEquals(result, expected)
+        }
+
+        @DisplayName("Then should return expression with lowerCase operation")
+        @Test
+        fun checkUppercaseOperationWithExtFunction() = run {
+            val result = constant(STRING_TEST).toUpperCase()
+
+            val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
         }
@@ -136,6 +149,7 @@ internal class StringOperationsTest {
         @Test
         fun checkUppercaseOperationWithEmptyInput() = run {
             val result = uppercase(constant(EMPTY_STRING_TEST))
+
             val expected = Bind.expression<String>("@{uppercase(\'$EMPTY_STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
@@ -151,6 +165,7 @@ internal class StringOperationsTest {
         fun checkUppercaseOperation() = run {
             val startIndex = 2
             val result = substring(constant(STRING_TEST), constant(startIndex))
+
             val expected = Bind.expression<String>("@{substr(\'$STRING_TEST\',${startIndex})}")
 
             Assertions.assertEquals(result, expected)
