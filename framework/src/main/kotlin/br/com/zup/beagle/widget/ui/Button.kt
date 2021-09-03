@@ -20,7 +20,7 @@ import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.widget.context.valueOfNullable
+import br.com.zup.beagle.widget.context.constantNullable
 
 /**
  * Define a button natively using the server driven information received through Beagle
@@ -47,6 +47,6 @@ data class Button(
         constant(text),
         styleId,
         onPress,
-        valueOfNullable(enabled)
+        constantNullable(enabled)
     )
 }

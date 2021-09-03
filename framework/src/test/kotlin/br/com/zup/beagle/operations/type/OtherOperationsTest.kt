@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.operations
+package br.com.zup.beagle.operations.type
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.expressionOf

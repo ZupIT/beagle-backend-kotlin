@@ -31,7 +31,7 @@ object BeaglePlatformUtil {
         if (jsonNode is ObjectNode) {
             if (currentPlatform != null && BeaglePlatform.ALL.name != currentPlatform) {
                 removeObjectFromTreeWhenPlatformIsDifferToCurrentPlatform(
-                    BeaglePlatform.valueOf(currentPlatform),
+                    BeaglePlatform.constant(currentPlatform),
                     jsonNode
                 )
             }
@@ -140,6 +140,6 @@ object BeaglePlatformUtil {
         node: MutableMap.MutableEntry<String, JsonNode>
     ) =
         node.key == BEAGLE_PLATFORM_FIELD
-            && !BeaglePlatform.valueOf((node.value as TextNode).asText())
+            && !BeaglePlatform.constant((node.value as TextNode).asText())
             .allowToSendComponentToPlatform(currentPlatform)
 }
