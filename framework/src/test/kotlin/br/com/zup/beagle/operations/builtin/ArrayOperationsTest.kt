@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.operations.type
+package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.operations.builtin.contains
-import br.com.zup.beagle.operations.builtin.insert
-import br.com.zup.beagle.operations.builtin.remove
-import br.com.zup.beagle.operations.builtin.removeIndex
-import br.com.zup.beagle.operations.builtin.union
+import br.com.zup.beagle.widget.context.expressionOf
+import io.mockk.verify
+import kotlin.test.assertEquals
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -53,10 +51,32 @@ internal class ArrayOperationsTest {
         @Test
         fun test_contains_operation_empty_list() = run {
             val result = contains(constant(EMPTY_ARRAY_TEST))
+
             val expected = Bind.expression<String>("@{contains($EMPTY_ARRAY_TEST)}")
 
             Assertions.assertEquals(result, expected)
         }
+
+        @Test
+        @DisplayName("Then should return correct expression with contains operation")
+        fun checkIfContainsValue() {
+            val expected = Bind.Expression<Boolean>(value = "@{contains($ARRAY_TEST,2)}")
+
+            val result = contains(expressionOf("@{$ARRAY_TEST}"), constant(2))
+
+            Assertions.assertEquals(expected, result)
+        }
+
+        @Test
+        @DisplayName("Then should return correct expression with contains operation")
+        fun checkIfContainsNotValue() {
+            val expected = Bind.Expression<Boolean>(value = "@{contains($ARRAY_TEST,0)}")
+
+            val result = contains(expressionOf("@{$ARRAY_TEST}"), constant(0))
+
+            Assertions.assertEquals(expected, result)
+        }
+
     }
 
     @DisplayName("When use insert operation")

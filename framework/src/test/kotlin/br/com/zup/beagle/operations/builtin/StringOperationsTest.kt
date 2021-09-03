@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.operations.type
+package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.operations.builtin.capitalize
-import br.com.zup.beagle.operations.builtin.concat
-import br.com.zup.beagle.operations.builtin.lowercase
-import br.com.zup.beagle.operations.builtin.substring
-import br.com.zup.beagle.operations.builtin.uppercase
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested

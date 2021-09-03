@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.operations.type
+package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.operations.builtin.divide
-import br.com.zup.beagle.operations.builtin.multiply
-import br.com.zup.beagle.operations.builtin.subtract
-import br.com.zup.beagle.operations.builtin.sum
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

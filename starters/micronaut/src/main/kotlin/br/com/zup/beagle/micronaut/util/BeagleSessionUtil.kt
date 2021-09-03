@@ -25,7 +25,7 @@ object BeagleSessionUtil {
     fun getBeaglePlatformFromSession(): BeaglePlatform {
         var currentPlatform = BeaglePlatform.ALL
         ServerRequestContext.currentRequest<Any>().ifPresent {
-            currentPlatform = BeaglePlatform.constant(
+            currentPlatform = BeaglePlatform.valueOf(
                 it.getAttribute(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER).orElse(BeaglePlatform.ALL.name) as String
             )
         }

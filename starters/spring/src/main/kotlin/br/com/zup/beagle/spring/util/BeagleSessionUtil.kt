@@ -29,7 +29,7 @@ object BeagleSessionUtil {
             RequestAttributes.SCOPE_REQUEST
         )
         return if (currentPlatform != null) {
-            BeaglePlatform.constant(currentPlatform as String)
+            BeaglePlatform.valueOf(currentPlatform as String)
         } else {
             BeaglePlatform.ALL
         }

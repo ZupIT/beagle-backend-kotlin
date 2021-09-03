@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.operations.type
+package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.expressionOf
-import br.com.zup.beagle.operations.builtin.isEmpty
-import br.com.zup.beagle.operations.builtin.isNull
-import br.com.zup.beagle.operations.builtin.length
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
