@@ -18,6 +18,7 @@ package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
+import io.mockk.mockk
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -37,7 +38,16 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with capitalize operation")
         @Test
-        fun test_capitalize_operation() = run {
+        fun checkCapitalizeOperation() = run {
+            val result = constant(STRING_TEST).capitalize()
+            val expected = Bind.expression<String>("@{capitalize(\'$STRING_TEST\')}")
+
+            Assertions.assertEquals(result, expected)
+        }
+
+        @DisplayName("Then should return expression with capitalize operation")
+        @Test
+        fun checkCapitalizeOperationWithExtFunction() = run {
             val result = capitalize(constant(STRING_TEST))
             val expected = Bind.expression<String>("@{capitalize(\'$STRING_TEST\')}")
 
@@ -46,7 +56,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with capitalize operation")
         @Test
-        fun test_capitalize_operation_with_empty_input() = run {
+        fun checkCapitalizeOperationWithEmptyInput() = run {
             val result = capitalize(constant(EMPTY_STRING_TEST))
             val expected = Bind.expression<String>("@{capitalize(\'$EMPTY_STRING_TEST\')}")
 
@@ -60,7 +70,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression of one string with concat operation")
         @Test
-        fun test_concat_operation_with_one_parameter() = run {
+        fun checkConcatOperationWithOneParameter() = run {
             val result = concat(constant(STRING_TEST))
             val expected = Bind.expression<String>("@{concat(\'$STRING_TEST\')}")
 
@@ -69,7 +79,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression of two strings with concat operation")
         @Test
-        fun test_concat_operation_with_two_parameters() = run {
+        fun checkConcatOperationWithTwoParameters() = run {
             val result = concat(constant(STRING_TEST), constant(STRING_TEST))
             val expected = Bind.expression<String>("@{concat(\'$STRING_TEST\','$STRING_TEST')}")
 
@@ -83,7 +93,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with lowerCase operation")
         @Test
-        fun test_lowercase_operation() = run {
+        fun checkLowercaseOperation() = run {
             val result = lowercase(constant(STRING_TEST))
             val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
 
@@ -92,7 +102,16 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with lowerCase operation")
         @Test
-        fun test_lowercase_operation_with_empty_input() = run {
+        fun checkLowercaseOperationWithExtFunction() = run {
+            val result = constant(STRING_TEST).toLowerCase()
+            val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
+
+            Assertions.assertEquals(result, expected)
+        }
+
+        @DisplayName("Then should return expression with lowerCase operation")
+        @Test
+        fun checkLowercaseOperationWithEmptyInput() = run {
             val result = lowercase(constant(EMPTY_STRING_TEST))
             val expected = Bind.expression<String>("@{lowercase(\'$EMPTY_STRING_TEST\')}")
 
@@ -106,7 +125,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with uppercase operation")
         @Test
-        fun test_uppercase_operation() = run {
+        fun checUppercaseOperation() = run {
             val result = uppercase(constant(STRING_TEST))
             val expected = Bind.expression<String>("@{uppercase(\'$STRING_TEST\')}")
 
@@ -115,7 +134,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with uppercase operation")
         @Test
-        fun test_uppercase_operation_with_empty_input() = run {
+        fun checkUppercaseOperationWithEmptyInput() = run {
             val result = uppercase(constant(EMPTY_STRING_TEST))
             val expected = Bind.expression<String>("@{uppercase(\'$EMPTY_STRING_TEST\')}")
 
@@ -129,7 +148,7 @@ internal class StringOperationsTest {
 
         @DisplayName("Then should return expression with substring operation")
         @Test
-        fun test_uppercase_operation() = run {
+        fun checkUppercaseOperation() = run {
             val startIndex = 2
             val result = substring(constant(STRING_TEST), constant(startIndex))
             val expected = Bind.expression<String>("@{substr(\'$STRING_TEST\',${startIndex})}")

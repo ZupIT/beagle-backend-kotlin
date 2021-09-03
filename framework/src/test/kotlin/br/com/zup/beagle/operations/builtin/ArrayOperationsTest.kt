@@ -40,7 +40,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with contains operation")
         @Test
-        fun test_contains_operation() = run {
+        fun checkContainsOperation() = run {
             val result = contains(constant(ARRAY_TEST))
             val expected = Bind.expression<String>("@{contains($ARRAY_TEST)}")
 
@@ -49,7 +49,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with contains operation")
         @Test
-        fun test_contains_operation_empty_list() = run {
+        fun checkContainsOperationEmptyList() = run {
             val result = contains(constant(EMPTY_ARRAY_TEST))
 
             val expected = Bind.expression<String>("@{contains($EMPTY_ARRAY_TEST)}")
@@ -85,7 +85,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with insert operation")
         @Test
-        fun test_insert_operation_with_one_parameter() = run {
+        fun checkInsertOperationWithOneParameter() = run {
             val result = insert(constant(ARRAY_TEST), constant(5), constant(0))
             val expected = Bind.expression<String>("@{insert($ARRAY_TEST,5,0)}")
 
@@ -94,7 +94,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with insert operation")
         @Test
-        fun test_insert_operation_without_index() = run {
+        fun checkInsertOperationWithoutIndex() = run {
             val result = insert(constant(ARRAY_TEST), constant(5))
             val expected = Bind.expression<String>("@{insert($ARRAY_TEST,5)}")
 
@@ -108,7 +108,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with remove operation")
         @Test
-        fun test_remove_operation_with_one_parameter() = run {
+        fun checkRemoveOperationWithOneParameter() = run {
             val result = remove(constant(ARRAY_TEST), constant(5))
             val expected = Bind.expression<String>("@{remove($ARRAY_TEST,5)}")
 
@@ -122,7 +122,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with removeIndex operation")
         @Test
-        fun test_removeIndex_operation_with_one_parameter() = run {
+        fun checkRemoveIndexOperationWithOneParameter() = run {
             val result = removeIndex(constant(ARRAY_TEST), constant(5))
             val expected = Bind.expression<String>("@{removeIndex($ARRAY_TEST,5)}")
 
@@ -136,7 +136,7 @@ internal class ArrayOperationsTest {
 
         @DisplayName("Then should return expression with union operation")
         @Test
-        fun test_union_operation_with_one_parameter() = run {
+        fun checkUnionOperationWithOneParameter() = run {
             val result = union(constant(ARRAY_TEST), constant(ARRAY_TEST))
             val expected = Bind.expression<String>("@{union($ARRAY_TEST,$ARRAY_TEST)}")
 
