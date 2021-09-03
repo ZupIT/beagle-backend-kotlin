@@ -28,7 +28,6 @@ import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.TextInput
 
 object SimpleFormScreenBuilder : ScreenBuilder {
@@ -40,7 +39,7 @@ object SimpleFormScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "SimpleForm",
                         message = "A SubmitForm action will define a submit handler in a form.",
