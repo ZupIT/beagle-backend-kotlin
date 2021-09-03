@@ -48,7 +48,7 @@ sealed class Bind<T> : Serializable {
         /**
          * Checks if the value is null. Returns if the value is not null.
          */
-        fun <T : Any> valueNullable(value: T?) = constantNullable(value)
+        fun <T : Any> valueNullable(value: T?) = valueOfNullable(value)
     }
 }
 
@@ -65,6 +65,6 @@ fun <T : Any> constant(value: T) = Bind.Value(value)
 /**
  * Checks if the value is null. Returns if the value is not null.
  */
-fun <T : Any> constantNullable(value: T?) = value?.let { constant(it) }
+fun <T : Any> valueOfNullable(value: T?) = value?.let { constant(it) }
 
 
