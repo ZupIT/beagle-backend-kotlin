@@ -140,7 +140,7 @@ internal class StringOperationsTest {
         fun checkUppercaseOperationWithExtFunction() = run {
             val result = constant(STRING_TEST).toUpperCase()
 
-            val expected = Bind.expression<String>("@{lowercase(\'$STRING_TEST\')}")
+            val expected = Bind.expression<String>("@{uppercase(\'$STRING_TEST\')}")
 
             Assertions.assertEquals(result, expected)
         }
