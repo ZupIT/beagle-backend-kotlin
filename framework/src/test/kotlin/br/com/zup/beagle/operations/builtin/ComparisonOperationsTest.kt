@@ -256,12 +256,12 @@ internal class ComparisonOperationTest {
 
             @Test
             @DisplayName("Then should return correct expression")
-            fun checkLteInteger() {
+            fun checkLtInteger() {
                 // GIVEN
-                val expected = Bind.Expression<Boolean>(value = "@{lte(2,5)}")
+                val expected = Bind.Expression<Boolean>(value = "@{lt(2,5)}")
 
                 // WHEN
-                val result = lte(constant(2), constant(5))
+                val result = lt(constant(2), constant(5))
 
                 // THEN
                 assertEquals(expected, result)
@@ -271,7 +271,7 @@ internal class ComparisonOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkNotLteInteger() {
                 // GIVEN
-                val expected = Bind.Expression<Boolean>(value = "@{lte(5,2)}")
+                val expected = Bind.Expression<Boolean>(value = "@{lt(5,2)}")
 
                 // WHEN
                 val result = lt(constant(5), constant(2))
