@@ -36,7 +36,7 @@ internal class OperationTest {
 
         @Test
         @DisplayName("Then should return correct expression")
-        fun checkPlusWhenParamIsBindOfValue() {
+        fun checkPlusWhenValueAndParamAreBindOfValue() {
             // GIVEN
             val expected: Bind<String> = expressionOf("Sum 1 + 2 = @{sum(1,2)}")
 
@@ -49,7 +49,7 @@ internal class OperationTest {
 
         @Test
         @DisplayName("Then should return correct expression")
-        fun checkPlusWhenParamIsBindOfExpression() {
+        fun checkPlusWhenValueIsBindOfExpressionAndParamIsBindOfValue() {
             // GIVEN
             val expected: Bind<String> = expressionOf("@{test}@{sum(1,2)}")
 
@@ -63,13 +63,27 @@ internal class OperationTest {
 
         @Test
         @DisplayName("Then should return correct expression")
-        fun checkPlusWhenItIsBindOfExpression() {
+        fun checkPlusWhenValueIsBindOfValueAndParamIsBindOfExpression() {
             // GIVEN
-            val expected: Bind<String> = expressionOf("Sum 1 + 2 = @{sum(test,test)}")
+            val expected: Bind<String> = expressionOf("Sum = @{sum(number,number)}")
 
             // WHEN
-            val result = constant("Sum 1 + 2 = ")
-                .plus(sum(expressionOf("@{test}"), expressionOf("@{test}")).toBindString())
+            val result = constant("Sum = ")
+                .plus(sum(expressionOf("@{number}"), expressionOf("@{number}")).toBindString())
+
+            // THEN
+            assertEquals(expected, result)
+        }
+
+        @Test
+        @DisplayName("Then should return correct expression")
+        fun checkPlusWhenValueAndParamAreBindOfExpression() {
+            // GIVEN
+            val expected: Bind<String> = expressionOf("@{test}@{sum(number,number)}")
+
+            // WHEN
+            val result = expressionOf<String>("@{test}")
+                .plus(sum(expressionOf("@{number}"), expressionOf("@{number}")).toBindString())
 
             // THEN
             assertEquals(expected, result)
