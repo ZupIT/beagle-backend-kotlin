@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.ui
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.widget.context.constantNullable
+import br.com.zup.beagle.widget.context.valueOfNullable
 import br.com.zup.beagle.widget.core.TextAlignment
 
 /**
@@ -47,7 +47,7 @@ data class Text(
     ) : this(
         text = constant(text),
         styleId = styleId,
-        textColor = constantNullable(textColor),
-        alignment = constantNullable(alignment)
+        textColor = valueOfNullable(textColor),
+        alignment = valueOfNullable(alignment)
     )
 }

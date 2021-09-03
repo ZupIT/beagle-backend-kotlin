@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.ui
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.widget.context.constantNullable
+import br.com.zup.beagle.widget.context.valueOfNullable
 import br.com.zup.beagle.widget.core.ImageContentMode
 
 /**
@@ -37,7 +37,7 @@ data class Image(val path: ImagePath, val mode: ImageContentMode? = null) : Widg
  * @param placeholder the image that will used as placeholder when set a remote image.
  * */
 sealed class ImagePath(val url: Bind<String>?, val placeholder: Local? = null) {
-    constructor(url: String? = null, placeholder: Local? = null) : this(constantNullable(url), placeholder)
+    constructor(url: String? = null, placeholder: Local? = null) : this(valueOfNullable(url), placeholder)
 
     /**
      * Define an image whose data is local to the client app.
@@ -47,9 +47,9 @@ sealed class ImagePath(val url: Bind<String>?, val placeholder: Local? = null) {
      * */
     class Local internal constructor(webUrl: Bind<String>?, val mobileId: Bind<String>?) : ImagePath(webUrl) {
         companion object {
-            fun both(webUrl: String, mobileId: String) = Local(constantNullable(webUrl), constantNullable(mobileId))
-            fun justMobile(mobileId: String) = Local(null, constantNullable(mobileId))
-            fun justWeb(webUrl: String) = Local(constantNullable(webUrl), null)
+            fun both(webUrl: String, mobileId: String) = Local(valueOfNullable(webUrl), valueOfNullable(mobileId))
+            fun justMobile(mobileId: String) = Local(null, valueOfNullable(mobileId))
+            fun justWeb(webUrl: String) = Local(valueOfNullable(webUrl), null)
             fun both(webUrl: Bind<String>, mobileId: Bind<String>) = Local(webUrl, mobileId)
             fun justMobile(mobileId: Bind<String>) = Local(null, mobileId)
             fun justWeb(webUrl: Bind<String>) = Local(webUrl, null)

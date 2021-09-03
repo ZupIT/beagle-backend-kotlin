@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.action
 import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
-import br.com.zup.beagle.widget.context.constantNullable
+import br.com.zup.beagle.widget.context.valueOfNullable
 
 
 /**
@@ -45,7 +45,7 @@ data class Alert(
         labelOk: String? = null,
         analytics: ActionAnalyticsConfig? = null
     ) : this(
-        title = constantNullable(title),
+        title = valueOfNullable(title),
         message = constant(message),
         onPressOk = onPressOk,
         labelOk = labelOk,
