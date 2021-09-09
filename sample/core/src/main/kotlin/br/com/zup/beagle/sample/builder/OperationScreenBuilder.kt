@@ -179,7 +179,7 @@ object OperationScreenBuilder : ScreenBuilder {
                     Text(contains(expressionOf("@{array.array1}"), constant(0)).toBindString()),
                     Text(remove(expressionOf("@{array.array2}"), constant(4)).toBindString()),
                     Text(
-                        removeIndex<Number>(
+                        removeIndex<Int>(
                             expressionOf("@{array.array1}"),
                             constant(0)
                         ).toBindString()
