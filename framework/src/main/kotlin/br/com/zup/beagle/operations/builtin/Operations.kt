@@ -64,13 +64,13 @@ fun or(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation
 /** Array **/
 fun <I> contains(vararg params: Bind<I>): Bind.Expression<Boolean> = createOperation("contains", params)
 
-fun <I> insert(array: Bind<Array<I>>, element: Bind<I>, index: Bind<Number>? = null): Bind.Expression<Array<I>> =
+fun <I> insert(array: Bind<Array<I>>, element: Bind<I>, index: Bind<Int>? = null): Bind.Expression<Array<I>> =
     createOperation("insert", arrayOf(array, element, index))
 
 fun <I> remove(array: Bind<Array<I>>, element: Bind<I>): Bind.Expression<Array<I>> =
     createOperation("remove", arrayOf(array, element))
 
-fun <I> removeIndex(array: Bind<Array<I>>, index: Bind<Number>): Bind.Expression<Array<I>> =
+fun <I> removeIndex(array: Bind<Array<I>>, index: Bind<Int>): Bind.Expression<Array<I>> =
     createOperation("removeIndex", arrayOf(array, index))
 
 fun <I> union(firstArray: Bind<Array<I>>, secondArray: Bind<Array<I>>): Bind.Expression<Array<I>> =
