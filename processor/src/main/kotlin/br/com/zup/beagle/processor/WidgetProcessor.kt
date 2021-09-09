@@ -31,6 +31,7 @@ import javax.lang.model.element.Element
 import javax.lang.model.element.ElementKind
 import javax.lang.model.element.TypeElement
 import javax.lang.model.type.MirroredTypeException
+import javax.lang.model.type.TypeMirror
 import javax.tools.Diagnostic
 
 @AutoService(Processor::class)
@@ -65,13 +66,14 @@ class WidgetProcessor : AbstractProcessor() {
         val fields = element.enclosedElements.filter { it.kind == ElementKind.FIELD }
 
         fields.forEach { field ->
+
             val annotation = field.getAnnotation(ImplicitContext::class.java)
-            try {
-                annotation?.inputClass
-            } catch (e: MirroredTypeException) {
-                if (annotation != null && e.typeMirror.asTypeName().toString() != "java.lang.String") {
+            if (annotation != null) {
+                val typeMirror = getTypeMirror(annotation)
+                if (typeMirror?.asTypeName().toString() != "java.lang.String") {
                     try {
-                        if (processingEnv.typeUtils.asElement(e.typeMirror).getAnnotation(ContextObject::class.java) == null) {
+                        if (processingEnv.typeUtils.asElement(typeMirror)
+                                .getAnnotation(ContextObject::class.java) == null) {
                             return errorImplicitContext(field)
                         }
                     } catch (e: Exception) {
@@ -82,6 +84,16 @@ class WidgetProcessor : AbstractProcessor() {
         }
 
         return true
+    }
+
+    private fun getTypeMirror(annotation: ImplicitContext): TypeMirror? {
+        try {
+            annotation.inputClass
+        } catch (e: MirroredTypeException) {
+            return e.typeMirror
+        }
+
+        return null
     }
 
     private fun errorImplicitContext(element: Element): Boolean {

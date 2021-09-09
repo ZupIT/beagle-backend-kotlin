@@ -17,7 +17,6 @@
 package br.com.zup.beagle.processor.utils
 
 import br.com.zup.beagle.annotation.ImplicitContext
-import br.com.zup.beagle.widget.context.Context
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.LambdaTypeName

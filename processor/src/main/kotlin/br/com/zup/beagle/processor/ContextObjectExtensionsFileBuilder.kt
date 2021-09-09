@@ -159,7 +159,8 @@ class ContextObjectExtensionsFileBuilder(
     }
 
     private fun getPackage(element: Element): String {
-        val mutableList = typeUtils.getFinalElementType(element.asType()).asTypeName().toString().split(".") as MutableList
+        val mutableList = typeUtils.getFinalElementType(element.asType())
+            .asTypeName().toString().split(".") as MutableList
         mutableList.removeLast()
         return mutableList.joinToString(".")
     }

@@ -21,7 +21,6 @@ import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.ui.GridViewDirection.HORIZONTAL
 import br.com.zup.beagle.widget.ui.GridViewDirection.VERTICAL
 
 /**
@@ -51,7 +50,7 @@ data class GridView constructor(
     val iteratorName: String = "item",
     val key: String? = null,
     val spanCount: Int? = null,
-    val direction: GridViewDirection? = GridViewDirection.VERTICAL,
+    val direction: GridViewDirection? = VERTICAL,
 ) : Widget(), ContextComponent
 
 /**
