@@ -77,9 +77,9 @@ fun <I> union(firstArray: Bind<Array<I>>, secondArray: Bind<Array<I>>): Bind.Exp
     createOperation("union", arrayOf(firstArray, secondArray))
 
 /** other **/
-fun isEmpty(vararg params: Bind<*>): Bind.Expression<Boolean> = createOperation("isEmpty", params)
-fun isNull(vararg params: Bind<*>): Bind.Expression<Boolean> = createOperation("isNull", params)
-fun length(vararg params: Bind<Array<*>>): Bind.Expression<Number> = createOperation("length", params)
+fun isEmpty(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isEmpty", params)
+fun isNull(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isNull", params)
+fun length(vararg params: Bind<Array<*>>): Bind.Expression<Int> = createOperation("length", params)
 
 private fun <O> createOperation(operationType: String, params: Array<out Any?>): Bind.Expression<O> {
     val values = params.filterNotNull().map {

@@ -203,8 +203,8 @@ object OperationScreenBuilder : ScreenBuilder {
         context = ContextData("other", arrayOf(0, 1, 2, 3, 4)),
         children = listOf(
             Text("other", textColor = "#00c91b"),
-            Text(isEmpty(expressionOf<Boolean>("@{other}")).toBindString()),
-            Text(isNull(expressionOf<Boolean>("@{other}")).toBindString()),
+            Text(isEmpty(expressionOf("@{other}")).toBindString()),
+            Text(isNull(expressionOf("@{other}")).toBindString()),
             Text(length(expressionOf("@{other}")).toBindString())
         )
     ).setStyle { margin = EdgeValue(bottom = UnitValue.Companion.real(50)) }

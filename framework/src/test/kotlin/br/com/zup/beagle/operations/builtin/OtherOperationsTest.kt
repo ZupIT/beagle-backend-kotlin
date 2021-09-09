@@ -18,10 +18,10 @@ package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.expressionOf
+import kotlin.test.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 @DisplayName("Given a Operation")
 internal class OtherOperationsTest {
@@ -37,7 +37,7 @@ internal class OtherOperationsTest {
             val expected = Bind.Expression<Boolean>(value = "@{isEmpty(myArray)}")
 
             // WHEN
-            val result = isEmpty(expressionOf<Boolean>("@{myArray}"))
+            val result = isEmpty(expressionOf("@{myArray}"))
 
             // THEN
             assertEquals(expected, result)
@@ -55,7 +55,7 @@ internal class OtherOperationsTest {
             val expected = Bind.Expression<Boolean>(value = "@{isNull(myArray)}")
 
             // WHEN
-            val result = isNull(expressionOf<Boolean>("@{myArray}"))
+            val result = isNull(expressionOf("@{myArray}"))
 
             // THEN
             assertEquals(expected, result)
@@ -70,7 +70,7 @@ internal class OtherOperationsTest {
         @DisplayName("Then should return correct expression")
         fun checkLengthExpression() {
             // GIVEN
-            val expected = Bind.Expression<Number>(value = "@{length(myArray)}")
+            val expected = Bind.Expression<Int>(value = "@{length(myArray)}")
 
             // WHEN
             val result = length(expressionOf("@{myArray}"))
