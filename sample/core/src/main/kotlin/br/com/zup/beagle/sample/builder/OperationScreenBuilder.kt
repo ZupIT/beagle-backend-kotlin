@@ -118,7 +118,8 @@ object OperationScreenBuilder : ScreenBuilder {
                     Text(sum(expressionOf("@{number}"), expressionOf("@{number}")).toBindString()),
 
                     Text(sum(constant(1), constant(2)).toBindString()),
-                    Text(sum(constant(1),constant(2),sum(constant(2),constant(2),expressionOf("@{number}"))).toBindString()),
+                    Text(sum(constant(1),constant(2),sum(constant(2),
+                        constant(2),expressionOf("@{number}"))).toBindString()),
 
                     Text(subtract(constant(1), constant(2), expressionOf("@{number}")).toBindString()),
                     Text(multiply(constant(1), constant(2), expressionOf("@{number}")).toBindString()),
