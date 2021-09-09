@@ -66,21 +66,26 @@ class WidgetProcessor : AbstractProcessor() {
         val fields = element.enclosedElements.filter { it.kind == ElementKind.FIELD }
 
         fields.forEach { field ->
-
             val annotation = field.getAnnotation(ImplicitContext::class.java)
             if (annotation != null) {
                 val typeMirror = getTypeMirror(annotation)
                 if (typeMirror?.asTypeName().toString() != "java.lang.String") {
-                    try {
-                        if (processingEnv.typeUtils.asElement(typeMirror)
-                                .getAnnotation(ContextObject::class.java) == null) {
-                            return errorImplicitContext(field)
-                        }
-                    } catch (e: Exception) {
-                        return errorImplicitContext(field)
-                    }
+                    return isContextObject(field, typeMirror)
                 }
             }
+        }
+
+        return true
+    }
+
+    private fun isContextObject(field: Element, typeMirror: TypeMirror?): Boolean {
+        try {
+            if (processingEnv.typeUtils.asElement(typeMirror)
+                    .getAnnotation(ContextObject::class.java) == null) {
+                return errorImplicitContext(field)
+            }
+        } catch (e: Exception) {
+            return errorImplicitContext(field)
         }
 
         return true
