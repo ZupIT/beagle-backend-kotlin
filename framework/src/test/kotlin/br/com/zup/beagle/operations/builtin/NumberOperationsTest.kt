@@ -26,7 +26,7 @@ import kotlin.test.assertEquals
 @DisplayName("Given a Operation")
 internal class NumberOperationTest {
 
-    @DisplayName("When passing parameters to sum operation")
+    @DisplayName("When passing parameters to 'sum' operation")
     @Nested
     inner class SumOperationTest {
 
@@ -57,7 +57,7 @@ internal class NumberOperationTest {
         }
     }
 
-    @DisplayName("When passing parameters to subtract operation")
+    @DisplayName("When passing parameters to 'subtract' operation")
     @Nested
     inner class SubtractOperationTest {
 
@@ -87,7 +87,7 @@ internal class NumberOperationTest {
             assertEquals(expected, result)
         }
 
-        @DisplayName("When passing parameters to multiply operation")
+        @DisplayName("When passing parameters to 'multiply' operation")
         @Nested
         inner class MultiplyOperationTest {
 
@@ -118,7 +118,7 @@ internal class NumberOperationTest {
             }
         }
 
-        @DisplayName("When passing parameters to divide operation")
+        @DisplayName("When passing parameters to 'divide' operation")
         @Nested
         inner class DivideOperationTest {
             @Test

@@ -26,7 +26,7 @@ import kotlin.test.assertEquals
 @DisplayName("Given a Operation")
 internal class LogicOperationTest {
 
-    @DisplayName("When passing parameters to and operation")
+    @DisplayName("When passing parameters to 'and' operation")
     @Nested
     inner class AndOperationTest {
 
@@ -70,7 +70,7 @@ internal class LogicOperationTest {
         }
     }
 
-    @DisplayName("When passing parameters to condition operation")
+    @DisplayName("When passing parameters to 'condition' operation")
     @Nested
     inner class ConditionOperationTest {
 
@@ -102,7 +102,7 @@ internal class LogicOperationTest {
 
     }
 
-        @DisplayName("When passing parameters to not operation")
+        @DisplayName("When passing parameters to 'not' operation")
         @Nested
         inner class NotOperationTest {
 
@@ -133,7 +133,7 @@ internal class LogicOperationTest {
             }
         }
 
-        @DisplayName("When passing parameters to or operation")
+        @DisplayName("When passing parameters to 'or' operation")
         @Nested
         inner class OrOperationTest {
             @Test

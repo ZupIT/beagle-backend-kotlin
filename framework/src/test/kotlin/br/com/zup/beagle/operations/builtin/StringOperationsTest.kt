@@ -31,7 +31,7 @@ internal class StringOperationsTest {
         private const val EMPTY_STRING_TEST = ""
     }
 
-    @DisplayName("When use capitalize operation")
+    @DisplayName("When use 'capitalize' operation")
     @Nested
     inner class CapitalizeOperationTest {
 
@@ -63,7 +63,7 @@ internal class StringOperationsTest {
         }
     }
 
-    @DisplayName("When use concat operation")
+    @DisplayName("When use 'concat' operation")
     @Nested
     inner class ConcatOperationTest {
 
@@ -86,7 +86,7 @@ internal class StringOperationsTest {
         }
     }
 
-    @DisplayName("When use lowercase operation")
+    @DisplayName("When use 'lowercase' operation")
     @Nested
     inner class LowerCaseOperationTest {
 
@@ -121,7 +121,7 @@ internal class StringOperationsTest {
         }
     }
 
-    @DisplayName("When use uppercase operation")
+    @DisplayName("When use 'uppercase' operation")
     @Nested
     inner class UpperCaseOperationTest {
 
@@ -156,7 +156,7 @@ internal class StringOperationsTest {
         }
     }
 
-    @DisplayName("When use substring operation")
+    @DisplayName("When use 'substring' operation")
     @Nested
     inner class SubstringOperationTest {
 

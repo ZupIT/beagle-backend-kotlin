@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test
 @DisplayName("Given a Operation")
 internal class OtherOperationsTest {
 
-    @DisplayName("When passing parameters to isEmpty operation")
+    @DisplayName("When passing parameters to 'isEmpty' operation")
     @Nested
     inner class IsEmptyOperationTest {
 
@@ -44,7 +44,7 @@ internal class OtherOperationsTest {
         }
     }
 
-    @DisplayName("When passing parameters to isNull operation")
+    @DisplayName("When passing parameters to 'isNull' operation")
     @Nested
     inner class IsNullOperationTest {
 
@@ -62,7 +62,7 @@ internal class OtherOperationsTest {
         }
     }
 
-    @DisplayName("When passing parameters to length operation")
+    @DisplayName("When passing parameters to 'length' operation")
     @Nested
     inner class LengthOperationTest {
 

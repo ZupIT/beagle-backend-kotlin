@@ -32,7 +32,7 @@ internal class ArrayOperationsTest {
         private val EMPTY_ARRAY_TEST = arrayOf<Any>()
     }
 
-    @DisplayName("When use contains operation")
+    @DisplayName("When use 'contains' operation")
     @Nested
     inner class ContainsOperationTest {
 
@@ -77,7 +77,7 @@ internal class ArrayOperationsTest {
 
     }
 
-    @DisplayName("When use insert operation")
+    @DisplayName("When use 'insert' operation")
     @Nested
     inner class InsertOperationTest {
 
@@ -100,7 +100,7 @@ internal class ArrayOperationsTest {
         }
     }
 
-    @DisplayName("When use remove operation")
+    @DisplayName("When use 'remove' operation")
     @Nested
     inner class RemoveOperationTest {
 
@@ -114,7 +114,7 @@ internal class ArrayOperationsTest {
         }
     }
 
-    @DisplayName("When use removeIndex operation")
+    @DisplayName("When use 'removeIndex' operation")
     @Nested
     inner class RemoveIndexOperationTest {
 
@@ -128,7 +128,7 @@ internal class ArrayOperationsTest {
         }
     }
 
-    @DisplayName("When use union operation")
+    @DisplayName("When use 'union' operation")
     @Nested
     inner class UnionOperationTest {
 

@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test
 @DisplayName("Given a Operation")
 internal class ComparisonOperationTest {
 
-    @DisplayName("When passing parameters to eq operation")
+    @DisplayName("When passing parameters to 'eq' operation")
     @Nested
     inner class Eq {
 
@@ -83,7 +83,7 @@ internal class ComparisonOperationTest {
         }
     }
 
-    @DisplayName("When passing parameters to gt operation")
+    @DisplayName("When passing parameters to 'gt' operation")
     @Nested
     inner class GtOperationTest {
 
@@ -166,7 +166,7 @@ internal class ComparisonOperationTest {
         }
     }
 
-        @DisplayName("When passing parameters to gte operation")
+        @DisplayName("When passing parameters to 'gte' operation")
         @Nested
         inner class GteOperationTest {
 
@@ -250,7 +250,7 @@ internal class ComparisonOperationTest {
 
         }
 
-        @DisplayName("When passing parameters to lt operation")
+        @DisplayName("When passing parameters to 'lt' operation")
         @Nested
         inner class LtOperationTest {
 
@@ -333,7 +333,7 @@ internal class ComparisonOperationTest {
             }
         }
 
-        @DisplayName("When passing parameters to lte operation")
+        @DisplayName("When passing parameters to 'lte' operation")
         @Nested
         inner class LteOperationTest {
 
