@@ -22,7 +22,7 @@ import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
-import br.com.zup.beagle.widget.context.valueOfNullable
+import br.com.zup.beagle.widget.context.constantOfNullable
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class PullToRefresh(
@@ -43,7 +43,7 @@ data class PullToRefresh(
         context = context,
         onPull = onPull,
         isRefreshing = isRefreshing,
-        color = valueOfNullable(color),
+        color = constantOfNullable(color),
         child = child
     )
 }
