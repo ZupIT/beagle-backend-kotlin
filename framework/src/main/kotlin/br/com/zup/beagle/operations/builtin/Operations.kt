@@ -46,23 +46,33 @@ fun substring(param: Bind<String>, startIndex: Bind<Int>, endIndex: Bind<Int>? =
     createOperation("substr", arrayOf(param, startIndex, endIndex))
 
 /** comparison **/
-fun eq(vararg params: Bind<Number>): Bind.Expression<Boolean> = createOperation("eq", params)
-fun gt(vararg params: Bind<Number>): Bind.Expression<Boolean> = createOperation("gt", params)
-fun gte(vararg params: Bind<Number>): Bind.Expression<Boolean> = createOperation("gte", params)
-fun lt(vararg params: Bind<Number>): Bind.Expression<Boolean> = createOperation("lt", params)
-fun lte(vararg params: Bind<Number>): Bind.Expression<Boolean> = createOperation("lte", params)
+fun <I> eq(firstParam: Bind<I>, secondParam: Bind<I>): Bind.Expression<Boolean> =
+    createOperation("eq", arrayOf(firstParam, secondParam))
+
+fun gt(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+    createOperation("gt", arrayOf(firstParam, secondParam))
+
+fun gte(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+    createOperation("gte", arrayOf(firstParam, secondParam))
+
+fun lt(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+    createOperation("lt", arrayOf(firstParam, secondParam))
+
+fun lte(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+    createOperation("lte", arrayOf(firstParam, secondParam))
 
 /** logic **/
 fun and(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("and", params)
 
-fun <I> condition(condition: Bind<Boolean>, param1: Bind<I>, param2: Bind<I>): Bind.Expression<I> =
-    createOperation("condition", arrayOf(condition, param1, param2))
+fun <I> condition(condition: Bind<Boolean>, firstParam: Bind<I>, secondParam: Bind<I>): Bind.Expression<I> =
+    createOperation("condition", arrayOf(condition, firstParam, secondParam))
 
-fun not(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("not", params)
+fun not(param: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("not", arrayOf(param))
 fun or(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("or", params)
 
 /** Array **/
-fun <I> contains(vararg params: Bind<I>): Bind.Expression<Boolean> = createOperation("contains", params)
+fun <I> contains(array: Bind<Array<I>>, element: Bind<I>): Bind.Expression<Boolean> =
+    createOperation("contains", arrayOf(array, element))
 
 fun <I> insert(array: Bind<Array<I>>, element: Bind<I>, index: Bind<Int>? = null): Bind.Expression<Array<I>> =
     createOperation("insert", arrayOf(array, element, index))
@@ -77,11 +87,11 @@ fun <I> union(firstArray: Bind<Array<I>>, secondArray: Bind<Array<I>>): Bind.Exp
     createOperation("union", arrayOf(firstArray, secondArray))
 
 /** other **/
-fun isEmpty(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isEmpty", params)
-fun isNull(vararg params: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isNull", params)
-fun length(vararg params: Bind<Array<*>>): Bind.Expression<Int> = createOperation("length", params)
+fun isEmpty(param: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isEmpty", arrayOf(param))
+fun isNull(param: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isNull", arrayOf(param))
+fun length(param: Bind<Array<*>>): Bind.Expression<Int> = createOperation("length", arrayOf(param))
 
-private fun <O> createOperation(operationType: String, params: Array<out Any?>): Bind.Expression<O> {
+fun <O> createOperation(operationType: String, params: Array<out Any?>): Bind.Expression<O> {
     val values = params.filterNotNull().map {
         resolveParam(it as Bind<*>)
     }

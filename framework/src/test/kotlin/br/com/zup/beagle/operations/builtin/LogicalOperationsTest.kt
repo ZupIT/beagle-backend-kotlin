@@ -110,10 +110,10 @@ internal class LogicOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkOperationNotReturnFalse() {
                 // GIVEN
-                val expected = Bind.Expression<Boolean>(value = "@{not(true,false)}")
+                val expected = Bind.Expression<Boolean>(value = "@{not(true)}")
 
                 // WHEN
-                val result = not(constant(true), constant(false))
+                val result = not(constant(true))
 
                 // THEN
                 assertEquals(expected, result)
@@ -123,10 +123,10 @@ internal class LogicOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkOperationNotReturnTrue() {
                 // GIVEN
-                val expected = Bind.Expression<Boolean>(value = "@{not(false,true)}")
+                val expected = Bind.Expression<Boolean>(value = "@{not(false)}")
 
                 // WHEN
-                val result = not(constant(false), constant(true))
+                val result = not(constant(false))
 
                 // THEN
                 assertEquals(expected, result)

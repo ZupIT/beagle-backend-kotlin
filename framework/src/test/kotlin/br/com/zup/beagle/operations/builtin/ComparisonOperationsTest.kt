@@ -18,10 +18,10 @@ package br.com.zup.beagle.operations.builtin
 
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
+import kotlin.test.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 @DisplayName("Given a Operation")
 internal class ComparisonOperationTest {

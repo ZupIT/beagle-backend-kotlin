@@ -163,7 +163,7 @@ object OperationScreenBuilder : ScreenBuilder {
                     expressionOf("@{logic}")
                 ).toBindString()
             ),
-            Text(not(expressionOf("@{logic}"), constant(true)).toBindString()),
+            Text(not(expressionOf("@{logic}")).toBindString()),
             Text(or(constant(true), expressionOf("@{logic}")).toBindString())
         )
     ).setStyle { margin = EdgeValue(bottom = UnitValue.Companion.real(10)) }

@@ -19,8 +19,6 @@ package br.com.zup.beagle.operations.builtin
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.context.expressionOf
-import io.mockk.verify
-import kotlin.test.assertEquals
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -41,8 +39,8 @@ internal class ArrayOperationsTest {
         @DisplayName("Then should return expression with contains operation")
         @Test
         fun checkContainsOperation() = run {
-            val result = contains(constant(ARRAY_TEST))
-            val expected = Bind.expression<String>("@{contains($ARRAY_TEST)}")
+            val result = contains(constant(ARRAY_TEST), constant(0))
+            val expected = Bind.expression<String>("@{contains($ARRAY_TEST,0)}")
 
             Assertions.assertEquals(result, expected)
         }
@@ -50,9 +48,9 @@ internal class ArrayOperationsTest {
         @DisplayName("Then should return expression with contains operation")
         @Test
         fun checkContainsOperationEmptyList() = run {
-            val result = contains(constant(EMPTY_ARRAY_TEST))
+            val result = contains(constant(EMPTY_ARRAY_TEST), constant(0))
 
-            val expected = Bind.expression<String>("@{contains($EMPTY_ARRAY_TEST)}")
+            val expected = Bind.expression<String>("@{contains($EMPTY_ARRAY_TEST,0)}")
 
             Assertions.assertEquals(result, expected)
         }
