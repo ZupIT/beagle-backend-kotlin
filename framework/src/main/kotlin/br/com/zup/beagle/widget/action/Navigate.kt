@@ -115,7 +115,7 @@ sealed class Navigate : AnalyticsAction {
 
     /**
      * Action that closes the current view.
-     * @param context define the contextData that be set to previous screen.
+     * @param navigationContext is the same thing as a [ContextData], but it has a fixed id called navigationContext.
      */
     data class PopView(
         override var analytics: ActionAnalyticsConfig? = null,

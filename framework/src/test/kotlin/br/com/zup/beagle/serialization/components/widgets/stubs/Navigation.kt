@@ -34,8 +34,7 @@ fun makeActionNavigationPushViewJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -62,8 +61,7 @@ fun makeActionNavigationPushStackJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+            "navigationContext": {
             "value": 1
           }
         }
@@ -82,8 +80,7 @@ fun makeActionNavigationPopStackJson() =
     """
         {
           "_beagleAction_": "beagle:popStack",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -99,8 +96,7 @@ fun makeActionNavigationPopViewJson() =
     """
         {
           "_beagleAction_": "beagle:popView",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -117,8 +113,7 @@ fun makeActionNavigationPopToViewJson() =
         {
           "_beagleAction_": "beagle:popToView",
           "route": "1",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -143,8 +138,7 @@ fun makeActionNavigationResetApplicationJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -171,8 +165,7 @@ fun makeActionNavigationResetStackJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
