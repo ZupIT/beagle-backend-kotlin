@@ -223,6 +223,12 @@ sealed class Route {
 
 }
 
+/**
+ * The NavigationContext class is responsible for changing the value of a context inside a navigation of screen.
+ *
+ * @param value Required. New value to be applied in the context.
+ * @param path Specific context point to be changed in the case of arrays and maps <key, value>.
+ */
 data class NavigationContext(
     val value: Any,
     val path: String? = null,
