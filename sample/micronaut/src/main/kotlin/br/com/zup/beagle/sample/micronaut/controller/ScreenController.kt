@@ -20,6 +20,7 @@ package br.com.zup.beagle.sample.micronaut.controller
 
 import br.com.zup.beagle.sample.constants.ACCESSIBILITY_SCREEN_ENDPOINT
 import br.com.zup.beagle.sample.constants.NAVIGATION_TYPE_ENDPOINT
+import br.com.zup.beagle.sample.constants.OPERATIONS_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_STYLE_ENDPOINT
@@ -72,6 +73,7 @@ import br.com.zup.beagle.sample.micronaut.service.SampleLazyComponentService
 import br.com.zup.beagle.sample.micronaut.service.SampleListViewService
 import br.com.zup.beagle.sample.micronaut.service.SampleNavigationBarService
 import br.com.zup.beagle.sample.micronaut.service.SampleNavigationTypeService
+import br.com.zup.beagle.sample.micronaut.service.SampleOperationService
 import br.com.zup.beagle.sample.micronaut.service.SamplePageViewService
 import br.com.zup.beagle.sample.micronaut.service.SamplePullToRefreshService
 import br.com.zup.beagle.sample.micronaut.service.SampleSafeAreaService
@@ -84,8 +86,8 @@ import br.com.zup.beagle.sample.micronaut.service.SampleTouchableService
 import br.com.zup.beagle.sample.micronaut.service.SampleViewService
 import br.com.zup.beagle.sample.micronaut.service.SampleWebViewService
 import br.com.zup.beagle.sample.micronaut.service.TextInputService
-import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
 
 @Controller
 class ScreenController(
@@ -116,6 +118,7 @@ class ScreenController(
     private val sampleSimpleFormService: SampleSimpleFormService,
     private val sampleAddChildrenService: AddChildrenService,
     private val samplePullToRefreshService: SamplePullToRefreshService,
+    private val sampleOperations: SampleOperationService,
 ) {
     @Get(ACCESSIBILITY_SCREEN_ENDPOINT)
     fun getAccessibilityView() = this.accessibilityService.createAccessibilityView()
@@ -233,4 +236,7 @@ class ScreenController(
 
     @Get(SCREEN_PULL_TO_REFRESH_SIMPLE)
     fun getSamplePullToRefreshFlutterService() = this.samplePullToRefreshService.createPullToRefreshFlutterView()
+
+    @Get(OPERATIONS_ENDPOINT)
+    fun getOperations() = this.sampleOperations.createOperations()
 }

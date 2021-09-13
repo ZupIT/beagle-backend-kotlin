@@ -23,46 +23,49 @@ import java.io.Serializable
  */
 sealed class Bind<T> : Serializable {
 
+    abstract val value: Any
+
     /**
      * Represents the expression of bind
      */
-    data class Expression<T>(val value: String) : Bind<T>()
+    data class Expression<T>(override val value: String) : Bind<T>()
 
     /**
      * Represents the value of bind
      */
-    data class Value<T : Any>(val value: T) : Bind<T>()
+    data class Value<T : Any>(override val value: T) : Bind<T>()
 
     companion object {
 
         /**
          * Transform the reference value of the expression string to Bind.Expression<Type>
          */
-        fun <T> expression(expression: String) = expressionOf<T>(expression)
+        fun <T> expression(expression: String) = Expression<T>(expression)
 
         /**
          * Transform Type value to Bind<Type>.
          */
-        fun <T : Any> value(value: T) = valueOf(value)
+        fun <T : Any> constant(value: T) = Value(value)
 
         /**
          * Checks if the value is null. Returns if the value is not null.
          */
-        fun <T : Any> valueNullable(value: T?) = valueOfNullable(value)
+        fun <T : Any> constantNullable(value: T?) = value?.let { constant(it) }
     }
 }
 
 /**
  * Transform the reference value of the expression string to Bind.Expression<Type>
  */
-fun <T> expressionOf(expression: String) = Bind.Expression<T>(expression)
+fun <T> expressionOf(expression: String) = Bind.expression<T>(expression)
 
 /**
  * Transform Type value to Bind<Type>.
  */
-fun <T : Any> valueOf(value: T) = Bind.Value(value)
+fun <T : Any> constant(value: T) = Bind.constant(value)
 
 /**
  * Checks if the value is null. Returns if the value is not null.
  */
-fun <T : Any> valueOfNullable(value: T?) = value?.let { valueOf(it) }
+fun <T : Any> constantNullable(value: T?) = Bind.constantNullable(value)
+

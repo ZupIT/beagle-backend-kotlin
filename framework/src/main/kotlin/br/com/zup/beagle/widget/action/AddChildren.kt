@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.action
 import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.valueOf
+import br.com.zup.beagle.widget.context.constant
 
 /**
  * Defines the placement of where the children will be inserted in the list or if the contents
@@ -68,7 +68,7 @@ data class AddChildren(
         analytics: ActionAnalyticsConfig? = null
     ) : this(
         componentId = componentId,
-        value = valueOf(value),
+        value = constant(value),
         mode = mode,
         analytics = analytics
     )

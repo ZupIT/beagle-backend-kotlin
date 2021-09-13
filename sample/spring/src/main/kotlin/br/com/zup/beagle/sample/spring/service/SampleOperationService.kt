@@ -14,23 +14,12 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.widget.ui
+package br.com.zup.beagle.sample.spring.service
 
-import br.com.zup.beagle.widget.Widget
-import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.constant
+import br.com.zup.beagle.sample.builder.OperationScreenBuilder
+import org.springframework.stereotype.Service
 
-/**
- * A WebView widget will define a WebView natively using the server driven information received through Beagle.
- *
- * @param url
- *              define the initial page that the WebView will load when presented .
- *              This attribute must be declared and it cannot be null.
- *
- */
-
-data class WebView(
-    val url: Bind<String>
-) : Widget() {
-    constructor(url: String) : this(constant(url))
+@Service
+class SampleOperationService {
+    fun createOperations() = OperationScreenBuilder
 }

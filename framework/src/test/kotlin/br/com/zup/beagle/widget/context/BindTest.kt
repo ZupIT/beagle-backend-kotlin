@@ -52,7 +52,7 @@ internal class BindTest {
             val value = "@{test}"
 
             // When
-            val result = Bind.value(value)
+            val result = Bind.constant(value)
 
             // Then
             val actual = Bind.Value(value)
@@ -70,7 +70,7 @@ internal class BindTest {
             val value = null
 
             // When
-            val result = Bind.valueNullable(value)
+            val result = Bind.constantNullable(value)
 
             // Then
             assertEquals(null, result)

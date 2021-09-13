@@ -18,7 +18,7 @@ package br.com.zup.beagle.widget.action
 import br.com.zup.beagle.analytics.ActionAnalyticsConfig
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextData
-import br.com.zup.beagle.widget.context.valueOf
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.networking.HttpAdditionalData
 
@@ -48,7 +48,7 @@ sealed class Route {
             fallback: Screen? = null,
             httpAdditionalData: HttpAdditionalData? = null
         ) : this(
-            valueOf(url),
+            constant(url),
             shouldPrefetch,
             fallback,
             httpAdditionalData
@@ -81,7 +81,7 @@ sealed class Navigate : AnalyticsAction {
             url: String,
             analytics: ActionAnalyticsConfig? = null,
         ) : this(
-            url = valueOf(url),
+            url = constant(url),
             analytics = analytics
         )
     }
@@ -106,7 +106,7 @@ sealed class Navigate : AnalyticsAction {
             data: Map<String, String>? = null,
             analytics: ActionAnalyticsConfig? = null,
         ) : this(
-            route = valueOf(route),
+            route = constant(route),
             shouldResetApplication = shouldResetApplication,
             data = data,
             analytics = analytics
@@ -180,7 +180,7 @@ sealed class Navigate : AnalyticsAction {
             analytics: ActionAnalyticsConfig? = null,
             context: ContextData? = null
         ) : this(
-            route = valueOf(route),
+            route = constant(route),
             analytics = analytics,
             context = context
         )

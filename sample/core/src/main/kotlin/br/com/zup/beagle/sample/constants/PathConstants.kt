@@ -73,3 +73,5 @@ const val PATH_SAMPLE_VIEW_ENDPOINT = "http://localhost:8080/sample"
 const val PATH_URL_WEB_VIEW_ENDPOINT = "https://zup.com.br"
 
 const val DATA_STRING_LIST = "/generate-string-list"
+
+const val OPERATIONS_ENDPOINT = "/operations"
