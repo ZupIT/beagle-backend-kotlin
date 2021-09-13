@@ -19,7 +19,7 @@ package br.com.zup.beagle.widget.ui
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.constantOfNullable
+import br.com.zup.beagle.widget.context.constantNullable
 import br.com.zup.beagle.widget.core.TextInputType
 
 /**
@@ -72,16 +72,16 @@ data class TextInput(
         onBlur: List<Action>? = null,
         enabled: Boolean? = null
     ) : this(
-        value = constantOfNullable(value),
-        placeholder = constantOfNullable(placeholder),
-        readOnly = constantOfNullable(readOnly),
-        type = constantOfNullable(type),
-        error = constantOfNullable(error),
-        showError = constantOfNullable(showError),
+        value = constantNullable(value),
+        placeholder = constantNullable(placeholder),
+        readOnly = constantNullable(readOnly),
+        type = constantNullable(type),
+        error = constantNullable(error),
+        showError = constantNullable(showError),
         styleId = styleId,
         onChange = onChange,
         onFocus = onFocus,
         onBlur = onBlur,
-        enabled = constantOfNullable(enabled)
+        enabled = constantNullable(enabled)
     )
 }

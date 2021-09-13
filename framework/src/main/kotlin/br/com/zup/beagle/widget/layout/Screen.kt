@@ -23,7 +23,7 @@ import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
-import br.com.zup.beagle.widget.context.constantOfNullable
+import br.com.zup.beagle.widget.context.constantNullable
 
 /**
  * The SafeArea will enable Safe areas to help you place your views within the visible portion of the overall interface.
@@ -67,7 +67,7 @@ data class NavigationBarItem(
         image: String? = null,
         action: Action,
         accessibility: Accessibility? = null,
-    ) : this(text, constantOfNullable(image), action, accessibility)
+    ) : this(text, constantNullable(image), action, accessibility)
 }
 
 /**

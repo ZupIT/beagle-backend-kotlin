@@ -116,25 +116,7 @@ private fun <I> resolveParam(param: Bind<I>?): Any? {
 }
 
 operator fun Bind<String>.plus(param: Bind<String>): Bind<String> {
-    return if (param is Bind.Expression) {
-        resolvePlusWhenBindIsExpression(param)
-    } else {
-        resolvePlusWhenBindIsValue(param)
-    }
-}
-
-private fun Bind<String>.resolvePlusWhenBindIsExpression(param: Bind.Expression<String>): Bind<String> {
-    return when (this is Bind.Expression) {
-        true -> expressionOf(this.value + param.value)
-        else -> expressionOf((this as Bind.Value).value + param.value)
-    }
-}
-
-private fun Bind<String>.resolvePlusWhenBindIsValue(param: Bind<String>): Bind<String> {
-    return when (this is Bind.Expression) {
-        true -> expressionOf(this.value + (param as Bind.Value).value)
-        else -> expressionOf((this as Bind.Value).value + (param as Bind.Value).value)
-    }
+    return expressionOf(this.value.toString() + param.value.toString())
 }
 
 fun <T> Bind.Expression<T>.toBindString(): Bind<String> = expressionOf(this.value)

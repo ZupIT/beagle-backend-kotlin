@@ -18,7 +18,7 @@ package br.com.zup.beagle.widget.ui
 
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.context.Bind
-import br.com.zup.beagle.widget.context.constantOfNullable
+import br.com.zup.beagle.widget.context.constantNullable
 
 data class Template(
     /**
@@ -31,5 +31,5 @@ data class Template(
      */
     val view: ServerDrivenComponent,
 ) {
-    constructor(case: Boolean, view: ServerDrivenComponent) : this(constantOfNullable(case), view)
+    constructor(case: Boolean, view: ServerDrivenComponent) : this(constantNullable(case), view)
 }
