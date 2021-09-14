@@ -17,8 +17,8 @@
 package br.com.zup.beagle.serialization.components.widgets.stubs
 
 import br.com.zup.beagle.widget.action.Navigate
+import br.com.zup.beagle.widget.action.NavigationContext
 import br.com.zup.beagle.widget.action.Route
-import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.Screen
 
@@ -34,8 +34,7 @@ fun makeActionNavigationPushViewJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -45,8 +44,7 @@ fun makeObjectNavigationPushView() = Navigate.PushView(
     route = Route.Local(
         screen = Screen(child = Container()),
     ),
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -63,8 +61,7 @@ fun makeActionNavigationPushStackJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+            "navigationContext": {
             "value": 1
           }
         }
@@ -74,8 +71,7 @@ fun makeObjectNavigationPushStack() = Navigate.PushStack(
     route = Route.Local(
         screen = Screen(child = Container()),
     ),
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -84,16 +80,14 @@ fun makeActionNavigationPopStackJson() =
     """
         {
           "_beagleAction_": "beagle:popStack",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
     """
 
 fun makeObjectNavigationPopStack() = Navigate.PopStack(
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -102,16 +96,14 @@ fun makeActionNavigationPopViewJson() =
     """
         {
           "_beagleAction_": "beagle:popView",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
     """
 
 fun makeObjectNavigationPopView() = Navigate.PopView(
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -121,8 +113,7 @@ fun makeActionNavigationPopToViewJson() =
         {
           "_beagleAction_": "beagle:popToView",
           "route": "1",
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -130,8 +121,7 @@ fun makeActionNavigationPopToViewJson() =
 
 fun makeObjectNavigationPopToView() = Navigate.PopToView(
     route = "1",
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -148,8 +138,7 @@ fun makeActionNavigationResetApplicationJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -159,8 +148,7 @@ fun makeObjectNavigationResetApplication() = Navigate.ResetApplication(
     route = Route.Local(
         screen = Screen(child = Container()),
     ),
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
@@ -177,8 +165,7 @@ fun makeActionNavigationResetStackJson() =
               }
             }
           },
-          "context": {
-            "id": "idSelected",
+          "navigationContext": {
             "value": 1
           }
         }
@@ -188,8 +175,7 @@ fun makeObjectNavigationResetStack() = Navigate.ResetStack(
     route = Route.Local(
         screen = Screen(child = Container()),
     ),
-    context = ContextData(
-        id = "idSelected",
+    navigationContext = NavigationContext(
         value = 1,
     )
 )
