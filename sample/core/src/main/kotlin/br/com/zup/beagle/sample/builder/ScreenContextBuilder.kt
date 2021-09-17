@@ -189,10 +189,10 @@ object ScreenContextBuilder : ScreenBuilder {
                     "City: @{address.data.city}\n" +
                     "State: @{address.data.state}\n" +
                     "Complement: @{address.data.complement}",
-                onPressOk = Alert(
+                onPressOk = listOf(Alert(
                     title = "Address form",
                     message = "The form was successfully!",
-                    onPressOk = SetContext(
+                    onPressOk = listOf(SetContext(
                         contextId = "address",
                         path = "data",
                         value =
@@ -205,8 +205,8 @@ object ScreenContextBuilder : ScreenBuilder {
                             state = "",
                             complement = ""
                         )
-                    )
-                )
+                    ))
+                ))
             )
         )
     ).setStyle {
