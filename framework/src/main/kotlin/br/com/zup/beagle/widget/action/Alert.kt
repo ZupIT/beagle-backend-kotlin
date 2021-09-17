@@ -21,7 +21,6 @@ import br.com.zup.beagle.widget.context.Bind
 import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.context.constantNullable
 
-
 /**
  * will show dialogues natively, such as an error alert indicating alternative flows, business system errors and others.
  *
@@ -34,14 +33,14 @@ import br.com.zup.beagle.widget.context.constantNullable
 data class Alert(
     val title: Bind<String>? = null,
     val message: Bind<String>,
-    val onPressOk: Action? = null,
+    val onPressOk: List<Action>? = null,
     val labelOk: String? = null,
     override var analytics: ActionAnalyticsConfig? = null
 ) : AnalyticsAction {
     constructor(
         title: String? = null,
         message: String,
-        onPressOk: Action? = null,
+        onPressOk: List<Action>? = null,
         labelOk: String? = null,
         analytics: ActionAnalyticsConfig? = null
     ) : this(

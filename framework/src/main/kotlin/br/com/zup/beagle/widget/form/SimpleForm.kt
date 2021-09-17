@@ -17,6 +17,7 @@
 package br.com.zup.beagle.widget.form
 
 import br.com.zup.beagle.core.ServerDrivenComponent
+import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.ContextComponent
 import br.com.zup.beagle.widget.context.ContextData
@@ -38,4 +39,4 @@ class SimpleForm(
     val onSubmit: List<Action>,
     val children: List<ServerDrivenComponent>? = null,
     val onValidationError: List<Action>? = null,
-) : ServerDrivenComponent, ContextComponent
+) : Widget(), ContextComponent

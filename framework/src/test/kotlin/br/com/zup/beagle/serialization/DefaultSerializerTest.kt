@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.serialization.components
+package br.com.zup.beagle.serialization
 
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -23,7 +23,7 @@ import org.junit.jupiter.params.provider.MethodSource
 internal abstract class DefaultSerializerTest<T> : BaseSerializerTest<T>() {
     abstract fun testArguments(): List<Arguments>
 
-    @ParameterizedTest(name = "[{index}] When try to serialize component Then should return correct json {0}, {1}")
+    @ParameterizedTest(name = "[{index}] When try to serialize object Then should return correct json {0}, {1}")
     @MethodSource("testArguments")
     open fun executeDefaultSerializationTests(expectedJson: String, component: T) {
         testSerialization(component, expectedJson)

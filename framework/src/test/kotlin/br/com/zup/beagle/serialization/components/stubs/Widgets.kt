@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.serialization.components
+package br.com.zup.beagle.serialization.components.stubs
 
 import br.com.zup.beagle.ext.setFlex
-import br.com.zup.beagle.widget.action.Alert
-import br.com.zup.beagle.widget.action.Navigate
-import br.com.zup.beagle.widget.action.Route
+import br.com.zup.beagle.serialization.action.stubs.makeActionAlertJson
+import br.com.zup.beagle.serialization.action.stubs.makeActionAlertObject
 import br.com.zup.beagle.widget.action.SetContext
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.expressionOf
@@ -526,34 +525,6 @@ fun makePullToRefreshWithoutExpressionObject() = PullToRefresh(
     isRefreshing = expressionOf(TEST_EXPRESSION),
     color = "#FFFFFF",
     child = makeObjectContainer()
-)
-
-
-fun makeActionAlertJson() =
-    """
-    {
-        "_beagleAction_": "beagle:alert",
-        "title": "A title",
-        "message": "A message",
-        "onPressOk": {
-             "_beagleAction_": "beagle:alert",
-             "title": "Another title",
-             "message": "Another message",
-             "labelOk": "Ok"
-        },
-        "labelOk": "Ok"
-    }
-    """
-
-fun makeActionAlertObject() = Alert(
-    title = "A title",
-    message = "A message",
-    labelOk = "Ok",
-    onPressOk = Alert(
-        title = "Another title",
-        message = "Another message",
-        labelOk = "Ok"
-    )
 )
 
 fun makeObjectScreenComponent() = Screen(

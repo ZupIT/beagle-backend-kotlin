@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.serialization.components.widgets.stubs
+package br.com.zup.beagle.serialization.action.stubs
 
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.NavigationContext

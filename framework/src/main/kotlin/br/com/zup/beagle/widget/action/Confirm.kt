@@ -36,8 +36,8 @@ import br.com.zup.beagle.widget.context.constantNullable
 data class Confirm(
     val title: Bind<String>?,
     val message: Bind<String>,
-    val onPressOk: Action? = null,
-    val onPressCancel: Action? = null,
+    val onPressOk: List<Action>? = null,
+    val onPressCancel: List<Action>? = null,
     val labelOk: String? = null,
     val labelCancel: String? = null,
     override var analytics: ActionAnalyticsConfig? = null
@@ -45,8 +45,8 @@ data class Confirm(
     constructor(
         title: String?,
         message: String,
-        onPressOk: Action? = null,
-        onPressCancel: Action? = null,
+        onPressOk: List<Action>? = null,
+        onPressCancel: List<Action>? = null,
         labelOk: String? = null,
         labelCancel: String? = null,
         analytics: ActionAnalyticsConfig? = null
