@@ -251,7 +251,7 @@ fun makeObjectListView() = ListView(
 fun makeScreenComponentJson() = """
     {
         "_beagleComponent_": "beagle:screenComponent",
-        "identifier": "id",
+        "id": "id",
         "safeArea": {
             "top": true,
             "leading": true,
@@ -528,7 +528,7 @@ fun makePullToRefreshWithoutExpressionObject() = PullToRefresh(
 )
 
 fun makeObjectScreenComponent() = Screen(
-    identifier = "id",
+    id = "id",
     safeArea = SafeArea(top = true, leading = true, bottom = false, trailing = false),
     navigationBar = NavigationBar(
         title = "Screen Title",
