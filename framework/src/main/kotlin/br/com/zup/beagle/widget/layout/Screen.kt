@@ -100,9 +100,7 @@ data class NavigationBar(
  * @see ServerDrivenComponent
  * @see Style
  *
- * @param identifier
- *                      identifies your screen globally inside your
- *                      application so that it could have actions set on itself.
+ * @param id use to identifier the current view
  * @param safeArea
  *                      enable Safe areas to help you place your views within the visible
  *                      portion of the overall interface.
@@ -116,7 +114,7 @@ data class NavigationBar(
  *
  */
 data class Screen(
-    val identifier: String? = null,
+    val id: String? = null,
     val safeArea: SafeArea? = null,
     val navigationBar: NavigationBar? = null,
     val child: ServerDrivenComponent,
