@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package br.com.zup.beagle.serialization.components
+package br.com.zup.beagle.serialization
 
 import br.com.zup.beagle.serialization.jackson.BeagleSerializationUtil
 import br.com.zup.beagle.testutil.withoutWhiteSpaces

@@ -16,59 +16,45 @@
 
 package br.com.zup.beagle.serialization.components.widgets
 
-import br.com.zup.beagle.serialization.components.DefaultSerializerTest
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopStackJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopToViewJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPopViewJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPushStackJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationPushViewJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationResetApplicationJson
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeActionNavigationResetStackJson
-import br.com.zup.beagle.serialization.components.makeButtonJson
-import br.com.zup.beagle.serialization.components.makeContainerJson
-import br.com.zup.beagle.serialization.components.makeImageWithLocalPathJson
-import br.com.zup.beagle.serialization.components.makeImageWithRemotePathJson
-import br.com.zup.beagle.serialization.components.makeJsonGridView
-import br.com.zup.beagle.serialization.components.makeLazyComponentJson
-import br.com.zup.beagle.serialization.components.makeListViewJson
-import br.com.zup.beagle.serialization.components.makeObjectButton
-import br.com.zup.beagle.serialization.components.makeObjectContainer
-import br.com.zup.beagle.serialization.components.makeObjectGridView
-import br.com.zup.beagle.serialization.components.makeObjectImageWithLocalPath
-import br.com.zup.beagle.serialization.components.makeObjectImageWithRemotePath
-import br.com.zup.beagle.serialization.components.makeObjectLazyComponent
-import br.com.zup.beagle.serialization.components.makeObjectListView
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopStack
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopToView
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPopView
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPushStack
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationPushView
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationResetApplication
-import br.com.zup.beagle.serialization.components.widgets.stubs.makeObjectNavigationResetStack
-import br.com.zup.beagle.serialization.components.makeObjectScreenComponent
-import br.com.zup.beagle.serialization.components.makeObjectScrollView
-import br.com.zup.beagle.serialization.components.makeObjectSimpleForm
-import br.com.zup.beagle.serialization.components.makeObjectTabBar
-import br.com.zup.beagle.serialization.components.makeObjectText
-import br.com.zup.beagle.serialization.components.makeObjectTextInput
-import br.com.zup.beagle.serialization.components.makeObjectTextInputWithExpression
-import br.com.zup.beagle.serialization.components.makeObjectTouchable
-import br.com.zup.beagle.serialization.components.makeObjectWebView
-import br.com.zup.beagle.serialization.components.makeObjectWebViewWithExpression
-import br.com.zup.beagle.serialization.components.makePullToRefreshJson
-import br.com.zup.beagle.serialization.components.makePullToRefreshObject
-import br.com.zup.beagle.serialization.components.makePullToRefreshWithoutExpressionJson
-import br.com.zup.beagle.serialization.components.makePullToRefreshWithoutExpressionObject
-import br.com.zup.beagle.serialization.components.makeScreenComponentJson
-import br.com.zup.beagle.serialization.components.makeScrollViewJson
-import br.com.zup.beagle.serialization.components.makeSimpleFormJson
-import br.com.zup.beagle.serialization.components.makeTabBarJson
-import br.com.zup.beagle.serialization.components.makeTextInputJson
-import br.com.zup.beagle.serialization.components.makeTextInputWithExpressionJson
-import br.com.zup.beagle.serialization.components.makeTextJson
-import br.com.zup.beagle.serialization.components.makeTouchableJson
-import br.com.zup.beagle.serialization.components.makeWebViewJson
-import br.com.zup.beagle.serialization.components.makeWebViewWithExpressionJson
+import br.com.zup.beagle.serialization.DefaultSerializerTest
+import br.com.zup.beagle.serialization.components.stubs.makeButtonJson
+import br.com.zup.beagle.serialization.components.stubs.makeContainerJson
+import br.com.zup.beagle.serialization.components.stubs.makeImageWithLocalPathJson
+import br.com.zup.beagle.serialization.components.stubs.makeImageWithRemotePathJson
+import br.com.zup.beagle.serialization.components.stubs.makeJsonGridView
+import br.com.zup.beagle.serialization.components.stubs.makeLazyComponentJson
+import br.com.zup.beagle.serialization.components.stubs.makeListViewJson
+import br.com.zup.beagle.serialization.components.stubs.makeObjectButton
+import br.com.zup.beagle.serialization.components.stubs.makeObjectContainer
+import br.com.zup.beagle.serialization.components.stubs.makeObjectGridView
+import br.com.zup.beagle.serialization.components.stubs.makeObjectImageWithLocalPath
+import br.com.zup.beagle.serialization.components.stubs.makeObjectImageWithRemotePath
+import br.com.zup.beagle.serialization.components.stubs.makeObjectLazyComponent
+import br.com.zup.beagle.serialization.components.stubs.makeObjectListView
+import br.com.zup.beagle.serialization.components.stubs.makeObjectScreenComponent
+import br.com.zup.beagle.serialization.components.stubs.makeObjectScrollView
+import br.com.zup.beagle.serialization.components.stubs.makeObjectSimpleForm
+import br.com.zup.beagle.serialization.components.stubs.makeObjectTabBar
+import br.com.zup.beagle.serialization.components.stubs.makeObjectText
+import br.com.zup.beagle.serialization.components.stubs.makeObjectTextInput
+import br.com.zup.beagle.serialization.components.stubs.makeObjectTextInputWithExpression
+import br.com.zup.beagle.serialization.components.stubs.makeObjectTouchable
+import br.com.zup.beagle.serialization.components.stubs.makeObjectWebView
+import br.com.zup.beagle.serialization.components.stubs.makeObjectWebViewWithExpression
+import br.com.zup.beagle.serialization.components.stubs.makePullToRefreshJson
+import br.com.zup.beagle.serialization.components.stubs.makePullToRefreshObject
+import br.com.zup.beagle.serialization.components.stubs.makePullToRefreshWithoutExpressionJson
+import br.com.zup.beagle.serialization.components.stubs.makePullToRefreshWithoutExpressionObject
+import br.com.zup.beagle.serialization.components.stubs.makeScreenComponentJson
+import br.com.zup.beagle.serialization.components.stubs.makeScrollViewJson
+import br.com.zup.beagle.serialization.components.stubs.makeSimpleFormJson
+import br.com.zup.beagle.serialization.components.stubs.makeTabBarJson
+import br.com.zup.beagle.serialization.components.stubs.makeTextInputJson
+import br.com.zup.beagle.serialization.components.stubs.makeTextInputWithExpressionJson
+import br.com.zup.beagle.serialization.components.stubs.makeTextJson
+import br.com.zup.beagle.serialization.components.stubs.makeTouchableJson
+import br.com.zup.beagle.serialization.components.stubs.makeWebViewJson
+import br.com.zup.beagle.serialization.components.stubs.makeWebViewWithExpressionJson
 import br.com.zup.beagle.widget.Widget
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.TestInstance
@@ -97,12 +83,5 @@ internal class DefaultWidgetSerializerTest : DefaultSerializerTest<Widget>() {
         Arguments.of(makeWebViewWithExpressionJson(), makeObjectWebViewWithExpression()),
         Arguments.of(makePullToRefreshJson(), makePullToRefreshObject()),
         Arguments.of(makePullToRefreshWithoutExpressionJson(), makePullToRefreshWithoutExpressionObject()),
-        Arguments.of(makeActionNavigationPushViewJson(), makeObjectNavigationPushView()),
-        Arguments.of(makeActionNavigationPushStackJson(), makeObjectNavigationPushStack()),
-        Arguments.of(makeActionNavigationPopStackJson(), makeObjectNavigationPopStack()),
-        Arguments.of(makeActionNavigationPopViewJson(), makeObjectNavigationPopView()),
-        Arguments.of(makeActionNavigationPopToViewJson(), makeObjectNavigationPopToView()),
-        Arguments.of(makeActionNavigationResetApplicationJson(), makeObjectNavigationResetApplication()),
-        Arguments.of(makeActionNavigationResetStackJson(), makeObjectNavigationResetStack()),
     )
 }
