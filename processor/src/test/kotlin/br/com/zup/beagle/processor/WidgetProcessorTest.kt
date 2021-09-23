@@ -43,7 +43,7 @@ class WidgetProcessorTest {
 
     @Test
     @DisplayName("Then should generate widget dsl fun")
-    fun test_widget_fun() {
+    fun testWidgetFun() {
         val onChangeActions = listOf(SampleAction())
         val expectedWidget = SampleWidget(placeholder = "placeholder", onChange = onChangeActions)
         val widgetFunResult = sampleWidget(placeholder = "placeholder", onChange = { onChangeActions })
@@ -54,7 +54,7 @@ class WidgetProcessorTest {
 
     @Test
     @DisplayName("Then should generate widget dsl fun with default values for the parameters")
-    fun test_widget_fun_default_values() {
+    fun testWidgetFunDefaultValues() {
         val widgetFunResult = sampleWidget()
 
         Assertions.assertNull(widgetFunResult.placeholder)

@@ -66,7 +66,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should updated context ids")
         @Test
-        fun test_generated_normalize() {
+        fun testGeneratedNormalize() {
             val expectedAddressContextId = "$contextId.${Person::address.name}"
             val expectedContactContextId = "$contextId.${Person::address.name}.${Address::contact.name}"
             val expectedOrderContextId = "$contextId.${Person::orders.name}[0]"
@@ -84,7 +84,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return correct expressions with correct types")
         @Test
-        fun test_generated_root_expression() {
+        fun testGeneratedRootExpression() {
             val expectedPersonExpression: Bind.Expression<Int> = expressionOf("@{${person.id}}")
             val expectedAddressExpression: Bind.Expression<String> = expressionOf("@{${person.address.id}}")
             val expectedContactExpression: Bind.Expression<String> = expressionOf("@{${person.address.contact.id}}")
@@ -102,7 +102,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return correct expressions with correct types")
         @Test
-        fun test_generated_expressions() {
+        fun testGeneratedExpressions() {
             val expectedAgeExpression: Bind.Expression<Int> = expressionOf("@{${person.id}.${Person::age.name}}")
             val expectedStreetExpression: Bind.Expression<String> = expressionOf("@{${person.address.id}.${Address::street.name}}")
             val expectedEmailExpression: Bind.Expression<String> = expressionOf("@{${person.address.contact.id}.${Contact::email.name}}")
@@ -121,7 +121,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext action with correct attributes")
         @Test
-        fun test_generated_root_change_functions() {
+        fun testGeneratedRootChangeFunctions() {
             val newAddress = Address(id = contextId)
             val newPerson = Person(id = contextId)
             val newContact = Contact(id = contextId)
@@ -135,7 +135,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext action with correct attributes")
         @Test
-        fun test_generated_root_change_functions_bind() {
+        fun testGeneratedRootChangeFunctionsBind() {
             val newAddressBind = expressionOf<Address>("@{context.address}")
             val newPersonBind = expressionOf<Person>("@{context.person}")
             val newContactBind = expressionOf<Contact>("@{context.contact}")
@@ -149,7 +149,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext action with correct attributes")
         @Test
-        fun test_generated_change_functions() {
+        fun testGeneratedChangeFunctions() {
             val newName = "pocas"
             val newStreet = "Av Joao Naves"
             val newEmail = "pocas@mail.com"
@@ -163,7 +163,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext action with correct attributes")
         @Test
-        fun test_generated_change_functions_bind() {
+        fun testGeneratedChangeFunctionsBind() {
             val newName = expressionOf<String>("context.name")
             val newStreet = expressionOf<String>("context.street")
             val newEmail = expressionOf<String>("context.email")
@@ -182,7 +182,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a element with correct contextId")
         @Test
-        fun test_generated_get_element_functions() {
+        fun testGeneratedGetElementFunctions() {
             val index = 40
             val expectedOrderContextId = "contextId.orders[$index]"
 
@@ -192,7 +192,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext with correct attributes")
         @Test
-        fun test_generated_change_element_functions() {
+        fun testGeneratedChangeElementFunctions() {
             val index = 30
             val newProduct = "newProduct"
             val newOrder = Order(id = "contextId", products = listOf("newProducts"), value = 30.00)
@@ -203,7 +203,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return a SetContext with correct attributes")
         @Test
-        fun test_generated_change_element_functions_bind() {
+        fun testGeneratedChangeElementFunctionsBind() {
             val index = 30
             val newProduct = expressionOf<String>("context.product")
             val newOrder = expressionOf<Order>("context.order")
@@ -219,7 +219,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should update context ids")
         @Test
-        fun test_normalize() {
+        fun testNormalize() {
             val expectedContactContextId = "global.${Global::contact.name}"
 
             Assertions.assertEquals(expectedContactContextId, global.contact.id)
@@ -227,7 +227,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return correct expressions")
         @Test
-        fun test_expression_properties() {
+        fun testExpressionProperties() {
             val expectedGlobalExpression: Bind.Expression<Global> = expressionOf("@{global}")
             val expectedNameExpression: Bind.Expression<String> = expressionOf("@{global.${Global::name.name}}")
 
@@ -237,7 +237,7 @@ internal class AnnotationProcessorTest {
 
         @DisplayName("Then should return correct SetContexts")
         @Test
-        fun text_change_functions() {
+        fun textChangeFunctions() {
             val newName = expressionOf<String>("context.name")
             val expectedSetContext = SetContext(contextId = "global", value = newName, path = "name")
 
