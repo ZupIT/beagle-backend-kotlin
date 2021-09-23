@@ -1,0 +1,31 @@
+import br.com.zup.beagle.Dependencies
+
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation Dependencies.GeneralLibraries.kotlinPoet
+
+    implementation project(Dependencies.Modules.commonAnnotation)
+    implementation Dependencies.GeneralLibraries.kotlinReflect
+    api project(Dependencies.Modules.framework)
+
+    implementation Dependencies.ProcessorLibraries.autoService
+
+    kapt Dependencies.ProcessorLibraries.autoService
+    kaptTest project(Dependencies.Modules.processor)
+
+    testRuntimeOnly Dependencies.TestLibraries.junit5Engine
+    testImplementation Dependencies.TestLibraries.junit5Api
+    testImplementation Dependencies.TestLibraries.kotlinTest
+    testImplementation Dependencies.TestLibraries.mockk
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets.main {
+    java.srcDirs("src/main/kotlin")
+}
+
+apply from: rootProject.file('maven-publish.gradle')

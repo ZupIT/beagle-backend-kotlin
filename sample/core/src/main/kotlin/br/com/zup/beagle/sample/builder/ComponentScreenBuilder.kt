@@ -30,6 +30,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_BUILDER_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_BUTTON_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_DSL_CONTEXT
 import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
@@ -96,6 +97,7 @@ object ComponentScreenBuilder : ScreenBuilder {
                 createMenu("Add Children", SCREEN_ACTION_ADD_CHILDREN),
                 createMenu("Pull to Refresh", SCREEN_PULL_TO_REFRESH),
                 createMenu("Pull to Refresh Simple", SCREEN_PULL_TO_REFRESH_SIMPLE),
+                createMenu("DSL Context", SCREEN_DSL_CONTEXT),
             )
         )
     )

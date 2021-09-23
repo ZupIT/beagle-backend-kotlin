@@ -19,6 +19,7 @@ package br.com.zup.beagle.serialization.components.widgets
 import br.com.zup.beagle.serialization.DefaultSerializerTest
 import br.com.zup.beagle.serialization.components.stubs.makeButtonJson
 import br.com.zup.beagle.serialization.components.stubs.makeContainerJson
+import br.com.zup.beagle.serialization.components.stubs.makeContainerWithCustomContextJson
 import br.com.zup.beagle.serialization.components.stubs.makeImageWithLocalPathJson
 import br.com.zup.beagle.serialization.components.stubs.makeImageWithRemotePathJson
 import br.com.zup.beagle.serialization.components.stubs.makeJsonGridView
@@ -26,6 +27,7 @@ import br.com.zup.beagle.serialization.components.stubs.makeLazyComponentJson
 import br.com.zup.beagle.serialization.components.stubs.makeListViewJson
 import br.com.zup.beagle.serialization.components.stubs.makeObjectButton
 import br.com.zup.beagle.serialization.components.stubs.makeObjectContainer
+import br.com.zup.beagle.serialization.components.stubs.makeObjectContainerWithCustomContext
 import br.com.zup.beagle.serialization.components.stubs.makeObjectGridView
 import br.com.zup.beagle.serialization.components.stubs.makeObjectImageWithLocalPath
 import br.com.zup.beagle.serialization.components.stubs.makeObjectImageWithRemotePath
@@ -83,5 +85,6 @@ internal class DefaultWidgetSerializerTest : DefaultSerializerTest<Widget>() {
         Arguments.of(makeWebViewWithExpressionJson(), makeObjectWebViewWithExpression()),
         Arguments.of(makePullToRefreshJson(), makePullToRefreshObject()),
         Arguments.of(makePullToRefreshWithoutExpressionJson(), makePullToRefreshWithoutExpressionObject()),
+        Arguments.of(makeContainerWithCustomContextJson(), makeObjectContainerWithCustomContext()),
     )
 }

@@ -19,14 +19,14 @@ package br.com.zup.beagle.widget.layout
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.context.ContextData
 
 /**
  *  The PageView component is a specialized container to hold pages (views) that will be displayed horizontally.
  *
  * @param children define a List of components (views) that are contained on this PageView. Consider the
- * @param context define the contextData that be set to pageView.
+ * @param context define the context that be set to pageView.
  * @param onPageChange List of actions that are performed when you are on the selected page.
  * @param currentPage Integer number that identifies that selected.
  * @param showArrow This attribute is specific to the web platform, with which it allows you to place the arrows
@@ -34,7 +34,7 @@ import br.com.zup.beagle.widget.context.ContextData
  */
 data class PageView(
     val children: List<ServerDrivenComponent>? = null,
-    override val context: ContextData? = null,
+    override val context: Context? = null,
     val onPageChange: List<Action>? = null,
     val currentPage: Bind<Int>? = null,
     val showArrow: Boolean? = null

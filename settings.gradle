@@ -21,5 +21,6 @@ include ":framework"
 include ":starters:spring"
 include ":starters:micronaut"
 include ":annotation"
+include ":processor"
 
 rootProject.name = "Beagle"

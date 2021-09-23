@@ -14,16 +14,10 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.annotation
 
-apply plugin: 'kotlin-kapt'
+import kotlin.reflect.KClass
 
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
-}
+@Retention(AnnotationRetention.SOURCE)
+@Target(AnnotationTarget.FIELD)
+annotation class ImplicitContext(val name: String = "", val inputClass: KClass<*> = String::class)

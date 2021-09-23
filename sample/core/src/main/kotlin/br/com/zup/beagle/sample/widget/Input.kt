@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.sample.widget
 
-apply plugin: 'kotlin-kapt'
+import br.com.zup.beagle.annotation.ImplicitContext
+import br.com.zup.beagle.annotation.RegisterWidget
+import br.com.zup.beagle.widget.Widget
+import br.com.zup.beagle.widget.action.Action
+import br.com.zup.beagle.widget.context.Bind
 
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
-}
+@RegisterWidget
+class Input(
+    val hint: Bind<String>,
+    @ImplicitContext
+    val onTextChange: List<Action>? = null
+) : Widget()
