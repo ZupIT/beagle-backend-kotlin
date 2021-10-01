@@ -44,12 +44,14 @@ class Dependencies : Plugin<Project> {
         const val micronautStarter = ":starters:micronaut"
 
         const val commonAnnotation = ":annotation"
+        const val processor = ":processor"
     }
 
     object Versions {
         const val kotlin = "1.5.10"
         const val kotlinPoet = "1.7.2"
         const val junit5 = "5.7.0"
+        const val googleAutoService = "1.0-rc7"
         const val mockk = "1.11.0"
         const val jacksonKotlin = "2.11.3"
         const val guava = "30.0-jre"
@@ -61,6 +63,10 @@ class Dependencies : Plugin<Project> {
     object BackendLibraries {
         const val guava = "com.google.guava:guava:${Versions.guava}"
         const val slf4jJUL = "org.slf4j:slf4j-jdk14:${Versions.slf4j}"
+    }
+
+    object ProcessorLibraries {
+        const val autoService = "com.google.auto.service:auto-service:${Versions.googleAutoService}"
     }
 
     object GeneralLibraries {

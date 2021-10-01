@@ -21,8 +21,8 @@ import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.context.Bind
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextComponent
-import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.constantNullable
 
 /**
@@ -110,7 +110,7 @@ data class NavigationBar(
  *                  define the child elements on this screen.
  *                  It could be any visual component that extends the ServerDrivenComponent.1
  * @param style enable a few visual options to be changed.
- * @param context define the contextData that be set to screen.
+ * @param context define the context that be set to screen.
  *
  */
 data class Screen(
@@ -119,5 +119,5 @@ data class Screen(
     val navigationBar: NavigationBar? = null,
     val child: ServerDrivenComponent,
     val style: Style? = null,
-    override val context: ContextData? = null
+    override val context: Context? = null
 ) : ContextComponent

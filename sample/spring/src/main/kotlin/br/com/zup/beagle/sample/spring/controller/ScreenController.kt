@@ -39,6 +39,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_BUTTON_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPONENTS_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_DSL_CONTEXT
 import br.com.zup.beagle.sample.constants.SCREEN_EXAMPLE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
@@ -60,6 +61,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_TOUCHABLE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_WEB_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.spring.service.AccessibilityService
 import br.com.zup.beagle.sample.spring.service.AddChildrenService
+import br.com.zup.beagle.sample.spring.service.DSLContextService
 import br.com.zup.beagle.sample.spring.service.SampleActionClickService
 import br.com.zup.beagle.sample.spring.service.SampleActionService
 import br.com.zup.beagle.sample.spring.service.SampleAnalyticsService
@@ -119,6 +121,8 @@ class ScreenController(
     private val sampleAddChildrenService: AddChildrenService,
     private val samplePullToRefreshService: SamplePullToRefreshService,
     private val sampleOperations: SampleOperationService,
+    private val dslContextService: DSLContextService
+
 ) {
     @GetMapping(ACCESSIBILITY_SCREEN_ENDPOINT)
     fun getAccessibilityView() = this.accessibilityService.createAccessibilityView()
@@ -239,4 +243,7 @@ class ScreenController(
 
     @GetMapping(OPERATIONS_ENDPOINT)
     fun getOperations() = this.sampleOperations.createOperations()
+
+    @GetMapping(SCREEN_DSL_CONTEXT)
+    fun getDSLContextScreen() = this.dslContextService.createDSLContextScreen()
 }

@@ -60,6 +60,8 @@ const val SCREEN_ACTION_ADD_CHILDREN = "/add-children"
 const val SCREEN_PULL_TO_REFRESH = "/pull-to-refresh"
 const val SCREEN_PULL_TO_REFRESH_SIMPLE = "/pull-to-refresh-simple"
 
+const val SCREEN_DSL_CONTEXT = "/dsl-context"
+
 const val CUSTOM_WIDGET_ENDPOINT = "/custom"
 
 const val PATH_SCREEN_DEEP_LINK_ENDPOINT = "screen-deep-link"

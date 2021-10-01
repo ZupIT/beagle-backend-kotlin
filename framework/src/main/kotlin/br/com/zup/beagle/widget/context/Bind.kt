@@ -69,3 +69,28 @@ fun <T : Any> constant(value: T) = Bind.constant(value)
  */
 fun <T : Any> constantNullable(value: T?) = Bind.constantNullable(value)
 
+/**
+ * Access elements of a list type expression with a given index
+ */
+operator fun <T, J> Bind.Expression<T>.get(i: Int): Bind.Expression<J> where T : List<J> {
+    val regularExpression = "(?<=\\@\\{).+?(?=\\})".toRegex()
+
+    regularExpression.find(this.value)?.value?.let {
+        return expressionOf("@{$it[$i]}")
+    }
+
+    return expressionOf(this.value)
+}
+
+/**
+ * Separates a given full context identification path into a contextId and a path
+ */
+fun splitContextId(input: String): Pair<String, String?> {
+    val contextIdRegex = ".*?(?=\\.)".toRegex()
+    val pathRegex = "(?<=\\.).*".toRegex()
+    val contextId = contextIdRegex.find(input)?.value
+    val path = pathRegex.find(input)?.value
+
+    return Pair(contextId ?: input, path)
+}
+

@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.processor.utils
 
-apply plugin: 'kotlin-kapt'
+import com.squareup.kotlinpoet.asTypeName
 
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
-}
+internal val LEAF_TYPES = arrayOf(
+    Any::class,
+    Boolean::class,
+    Byte::class,
+    Char::class,
+    Int::class,
+    Long::class,
+    Float::class,
+    Double::class,
+    String::class
+).map { it.javaObjectType.asTypeName() }

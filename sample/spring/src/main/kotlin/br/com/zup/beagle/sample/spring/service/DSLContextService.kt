@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.sample.spring.service
 
-apply plugin: 'kotlin-kapt'
+import br.com.zup.beagle.sample.builder.DSLContextScreenBuilder
+import org.springframework.stereotype.Service
 
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
+@Service
+class DSLContextService {
+    fun createDSLContextScreen() = DSLContextScreenBuilder
 }

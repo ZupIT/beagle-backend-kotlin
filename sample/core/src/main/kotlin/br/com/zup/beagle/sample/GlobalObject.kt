@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-import br.com.zup.beagle.Dependencies
+package br.com.zup.beagle.sample
 
-apply plugin: 'kotlin-kapt'
+import br.com.zup.beagle.annotation.GlobalContext
+import br.com.zup.beagle.sample.builder.Person
 
-dependencies {
-    api project(Dependencies.Modules.framework)
-    kapt project(Dependencies.Modules.processor)
-    implementation project(Dependencies.Modules.commonAnnotation)
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/kotlin")
-}
+@GlobalContext
+data class GlobalObject(
+    val street: String = "",
+    val person: Person = Person("")
+)

@@ -19,7 +19,9 @@ package br.com.zup.beagle.serialization.components.stubs
 import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.serialization.action.stubs.makeActionAlertJson
 import br.com.zup.beagle.serialization.action.stubs.makeActionAlertObject
+import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.SetContext
+import br.com.zup.beagle.widget.context.Context
 import br.com.zup.beagle.widget.context.ContextData
 import br.com.zup.beagle.widget.context.expressionOf
 import br.com.zup.beagle.widget.core.FlexDirection
@@ -91,6 +93,66 @@ fun makeContextWithPrimitiveValueJson() = """
     }
 """
 
+fun makeContainerWithCustomContextJson() = """
+     {
+       "_beagleComponent_":"beagle:container",
+       "children":[
+          
+       ],
+       "context":{
+          "id":"contextId",
+          "value":{
+             "inner":{
+                "myValue":true
+             },
+             "innerList":[
+                {
+                   "myValue":true
+                },
+                {
+                   "myValue":true
+                }
+             ],
+             "stringList":[
+                "hello1",
+                "hello2"
+             ]
+          }
+       },
+       "onInit":[
+          {
+             "_beagleAction_":"beagle:setContext",
+             "contextId":"test",
+             "path":"a",
+             "value":{
+                "myValue":true
+             }
+          }
+       ]
+    }
+ """
+
+fun makeContextWithCustomContextJson() = """
+     {
+        "id": "contextId",
+         "value": {
+             "inner": {
+                 "myValue": true
+             }
+             },
+             "innerList": [
+                 {
+                     "myValue": true
+                 },
+                 {
+                     "myValue": true
+                 }
+             ],
+             "stringList": ["hello1","hello2"]
+         }
+     }
+ """
+
 fun makeJsonGridView() = """
     {
       "_beagleComponent_": "beagle:gridView",
@@ -142,6 +204,40 @@ fun makeLazyComponentJson() = """
        "initialState": ${makeButtonJson()}
     }
 """
+
+fun makeObjectContainerWithCustomContext(): Container {
+    data class InnerContext(
+        override val id: String,
+        val myValue: Boolean
+    ) : Context
+
+    data class MyContext(
+        override val id: String,
+        val inner: InnerContext,
+        val innerList: List<InnerContext>,
+        val stringList: List<String>
+    ) : Context
+
+    return Container(
+        onInit = listOf(
+            SetContext(
+                contextId = "test",
+                path = "a",
+                value = InnerContext("", true)
+            )
+        ),
+        children = listOf(),
+        context = MyContext(
+            id = "contextId",
+            inner = InnerContext("contextId.myValue", true),
+            innerList = listOf(
+                InnerContext("contextId.myValue", true),
+                InnerContext("contextId.myValue", true)
+            ),
+            stringList = listOf("hello1", "hello2")
+        ),
+    )
+}
 
 fun makeObjectButton() = Button(
     text = "Test"
