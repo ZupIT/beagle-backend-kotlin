@@ -1,5 +1,5 @@
 #
-  # Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+  # Copyright 2020, 2021 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -14,22 +14,25 @@
   # limitations under the License.
 #
 
-name: License validation
+name: Header license check
+
 on:
   pull_request:
-    branches:
+    branches: 
       - main
       - release/*
 
+  workflow_dispatch:
 
 jobs:
-  license-validation:
-    name: License validation
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - uses: denoland/setup-deno@v1
+      - name: Check License and license year on Pull Requests
+        uses: ZupIT/header-license-checker@37c8ae54d54581f1bef0bdf1efefaaf854bda857
         with:
-          deno-version: "1.12.1"
-      - name: Check License Lines
-        run: bash fastlane/check-license.sh $(pwd)
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          FORCE_COLOR: 3
