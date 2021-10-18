@@ -36,6 +36,7 @@ import br.com.zup.beagle.widget.ui.Button
 import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.ListView
 import br.com.zup.beagle.widget.ui.Text
+import br.com.zup.beagle.widget.ui.Template
 
 object ListViewScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
@@ -68,17 +69,23 @@ object ListViewScreenBuilder : ScreenBuilder {
         ),
         dataSource = expressionOf("@{outsideContext}"),
         direction = ListDirection.VERTICAL,
-        template = Container(
-            children = listOf(
-                Text(text = expressionOf("@{item}")),
-                list
-            )
-        ).applyStyle(
-            Style(
-                size = Size(width = 100.unitPercent(), height = 600.unitReal())
+        templates = listOf(
+            Template(
+                case = null,
+                view = Container(
+                    children = listOf(
+                        Text(text = expressionOf("@{item}")),
+                        list
+                    )
+                )
             )
         )
+    ).applyStyle(
+        Style(
+            size = Size(width = 100.unitPercent(), height = 600.unitReal())
+        )
     )
+
 
     data class Person(
         val name: String,
@@ -158,24 +165,29 @@ object ListViewScreenBuilder : ScreenBuilder {
         key = "cpf",
         dataSource = expressionOf("@{insideContext}"),
         direction = ListDirection.HORIZONTAL,
-        template = Container(
-            children = listOf(
-                Button(
-                    text = expressionOf("@{item.name} - @{item.cpf}"),
-                    onPress = listOf(
-                        SetContext(
-                            contextId = "insideContext",
-                            path = "[0].name",
-                            value = "Updated John"
-                        )
+        templates = listOf(
+            Template(
+                case = null,
+                view = Container(
+                    children = listOf(
+                        Button(
+                            text = expressionOf("@{item.name} - @{item.cpf}"),
+                            onPress = listOf(
+                                SetContext(
+                                    contextId = "insideContext",
+                                    path = "[0].name",
+                                    value = "Updated John"
+                                )
+                            )
+                        ).applyStyle(
+                            Style(
+                                size = Size(width = 300.unitReal(), height = 80.unitReal())
+                            )
+                        ).setId("button")
                     )
-                ).applyStyle(
-                    Style(
-                        size = Size(width = 300.unitReal(), height = 80.unitReal())
-                    )
-                ).setId("button")
+                ).setId("container")
             )
-        ).setId("container")
+        )
     ).applyStyle(
         Style(
             backgroundColor = "#CCC"
