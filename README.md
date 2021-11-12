@@ -100,4 +100,4 @@ Please read the [**code of conduct**](https://github.com/ZupIT/beagle-backend-ko
 
 
 ## **Community**
-Do you have any question about Beagle? Let's chat in our [**forum**](https://forum.zup.com.br/). 
+Do you have any question about Beagle? Let's chat in our [**forum**](https://forum.zup.com.br/c/en/beagle/12). 
