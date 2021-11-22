@@ -1,18 +1,9 @@
-# [**Beagle**](https://usebeagle.io/) &middot; [![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt) [![maven version](https://img.shields.io/maven-central/v/br.com.zup.beagle/framework)](https://search.maven.org/artifact/br.com.zup.beagle/framework) [![CI/CD Status](https://github.com/ZupIT/beagle-android/actions/workflows/android-pr.yml/badge.svg?branch=main)](https://github.com/ZupIT/beagle-backend-kotlin/actions/workflows/backend-pr.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/CONTRIBUTING.md) [![Coverage Backend](https://sonarcloud.io/api/project_badges/measure?project=ZupIT_beagle_backend&metric=coverage)](https://sonarcloud.io/dashboard?id=ZupIT_beagle_backend) 
-<h3 align="center">
-  <a href="https://docs.usebeagle.io">Getting Started</a>
-  <span> · </span>
-  <a href="https://docs.usebeagle.io/get-started/using-beagle">Learn the Basics</a>
-  <span> · </span>
-  <a href="https://github.com/ZupIT/beagle/blob/main/CONTRIBUTING.md">Contribute</a>
-</h3>
-
-# **Beagle Backend Kotlin**
+# [**Beagle Backend Kotlin**](https://usebeagle.io/) &middot; [![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt) [![maven version](https://img.shields.io/maven-central/v/br.com.zup.beagle/framework)](https://search.maven.org/artifact/br.com.zup.beagle/framework) [![CI/CD Status](https://github.com/ZupIT/beagle-android/actions/workflows/android-pr.yml/badge.svg?branch=main)](https://github.com/ZupIT/beagle-backend-kotlin/actions/workflows/backend-pr.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/CONTRIBUTING.md) [![Coverage Backend](https://sonarcloud.io/api/project_badges/measure?project=ZupIT_beagle_backend&metric=coverage)](https://sonarcloud.io/dashboard?id=ZupIT_beagle_backend) 
 
 ## **Table of Contents**
 
 ### 1. [**About**](#about)
-### 2. [**Usage**](#-usage)
+### 2. [**Usage**](#usage)
 >#### 2.1. [**Requirements**](#requirements)
 >#### 2.2. [**Installation**](#installation)
 ### 3. [**Documentation**](#documentation)
@@ -96,7 +87,7 @@ Please read the [**code of conduct**](https://github.com/ZupIT/beagle-backend-ko
 
 ## **License**
 
-[**Apache License 2.0**]( https://github.com/ZupIT/beagle-ios/blob/main/LICENSE.txt).
+[**Apache License 2.0**](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt).
 
 
 ## **Community**

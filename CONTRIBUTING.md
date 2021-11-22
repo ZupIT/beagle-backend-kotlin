@@ -2,17 +2,17 @@
 This is Beagle's contributing guide. You will find here some resources to help you contribute.
 
 ## **Table of contents**
-### 1. [**Before you contribute**](#Before-you-contribute)
-> #### 1.1. [**Code of Conduct**](#Code-of-Conduct)
-> #### 1.2. [**Legal**](#Legal)
-### 2. [**Prerequisites**](#Prerequisites)
->#### 2.1. [**Pull Request title**](#Pull-Request-title)
-> #### 2.2. [**Developer Certificate of Origin**](#Developer-Certificate-of-Origin)
-### 3. [**How to contribute?**](#How-to-contribute?)
->#### 3.1. [**How can you contribute?**](#What-can-you-contribute?)
->#### 3.2. [**Contribution Guideline**](#Contribution-Guideline)
->#### 3.3. [**Pull Request's approval**](#Pull-Request's-approval)
-### 4. [**Community**](#Community)
+### 1. [**Before you contribute**](#before-you-contribute)
+> #### 1.1. [**Code of Conduct**](#code-of-Conduct)
+> #### 1.2. [**Legal**](#legal)
+### 2. [**Prerequisites**](#prerequisites)
+> #### 2.1. [**Pull Request title**](#pull-request-title)
+> #### 2.2. [**Developer Certificate of Origin**](#developer-certificate-of-origin)
+### 3. [**How to contribute?**](#how-to-contribute?)
+>#### 3.1. [**How can you contribute?**](#what-can-you-contribute?)
+>#### 3.2. [**Contribution Guideline**](#contribution-Guideline)
+>#### 3.3. [**Pull Request's approval**](#pull-Request's-approval)
+### 4. [**Community**](#community)
 
 
 ## **Before you contribute**
@@ -30,7 +30,7 @@ When you commit, use the ```**-s** ``` option to include the Signed-off-by line 
 Check out the requisites before contributing to Beagle:
 
 ### **Pull Request title**
-When opening a PR, add the title with a prefix of the type of change you are contributing, for example `feat:` for a new feature. You can see other types in the [**What can you contribute?**](#What-can-you-contribute?) section.
+When opening a PR, add the title with a prefix of the type of change you are contributing, for example `feat:` for a new feature. You can see other types in the [**How can you contribute?**](#how-can-you-contribute?) section.
 
 Your Pull Request should look like this:
 
@@ -70,7 +70,7 @@ You can also manually sign your commits during GitHub reviews and suggestions, f
 Signed-off-by: Name < e-mail address >
 ```
 
-For this method, your name and e-mail must be the same registered to your GitHub account.
+For this method, your name and e-mail must be the same registered on your GitHub account.
 
 ## **How to contribute?** 
 See the guidelines to submit your changes. 
@@ -128,9 +128,8 @@ After Beagle's team analyze your contribution, we may add some questions and sug
 
 ## **Community**
 
-- Do you have any question about Beagle? Let's chat in our [**forum**](https://forum.zup.com.br/c/en/beagle/12).
+- Do you have any question about Beagle? Let's chat in our [**forum**](https://forum.zup.com.br/).
 
 
 **Thank you for your contribution!**
 
-**Beagle Team** 😁
