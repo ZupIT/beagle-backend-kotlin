@@ -1,62 +1,94 @@
-# [Beagle](https://usebeagle.io/) &middot; [![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt) [![maven version](https://img.shields.io/maven-central/v/br.com.zup.beagle/framework)](https://search.maven.org/artifact/br.com.zup.beagle/framework) [![CI/CD Status](https://github.com/ZupIT/beagle-android/actions/workflows/android-pr.yml/badge.svg?branch=main)](https://github.com/ZupIT/beagle-backend-kotlin/actions/workflows/backend-pr.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/CONTRIBUTING.md) [![Coverage Backend](https://sonarcloud.io/api/project_badges/measure?project=ZupIT_beagle_backend&metric=coverage)](https://sonarcloud.io/dashboard?id=ZupIT_beagle_backend) 
-<h3 align="center">
-  <a href="https://docs.usebeagle.io">Getting Started</a>
-  <span> · </span>
-  <a href="https://docs.usebeagle.io/get-started/using-beagle">Learn the Basics</a>
-  <span> · </span>
-  <a href="https://github.com/ZupIT/beagle/blob/main/CONTRIBUTING.md">Contribute</a>
-</h3>
+# [**Beagle Backend Kotlin**](https://usebeagle.io/) &middot; [![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt) [![maven version](https://img.shields.io/maven-central/v/br.com.zup.beagle/framework)](https://search.maven.org/artifact/br.com.zup.beagle/framework) [![CI/CD Status](https://github.com/ZupIT/beagle-android/actions/workflows/android-pr.yml/badge.svg?branch=main)](https://github.com/ZupIT/beagle-backend-kotlin/actions/workflows/backend-pr.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/CONTRIBUTING.md) [![Coverage Backend](https://sonarcloud.io/api/project_badges/measure?project=ZupIT_beagle_backend&metric=coverage)](https://sonarcloud.io/dashboard?id=ZupIT_beagle_backend) [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5395/badge)](https://bestpractices.coreinfrastructure.org/projects/5395) 
 
+## **Table of Contents**
+
+### 1. [**About**](#about)
+### 2. [**Usage**](#usage)
+>#### 2.1. [**Requirements**](#requirements)
+>#### 2.2. [**Installation**](#installation)
+### 3. [**Documentation**](#documentation)
+### 4. [**Contributing**](#contributing)
+### 5. [**Code of Conduct**](#code-of-conduct)
+### 6. [**License**](#license)
+### 7. [**Community**](#community)
+
+## **About**
 Beagle is an **open source framework** for **cross-platform** development using the concept of Server-Driven UI.
 
 This framework allow teams to build and alter layouts and data directly through a backend but yet displaying its contents natively in a mobile application and / or through web.
 
 It is also possible to create, test and update native application components and screen paths without the need update the mobile application at the store (App Store or Play Store).
 
-## Contents
 
-- [Requirements](#-requirements)
-- [Building your first app using Beagle](#-building-your-first-app-using-beagle)
-- [Documentation](#-documentation)
-- [How to Contribute](#-how-to-contribute)
-- [Code of Conduct](#code-of-conduct)
-- [License](#-license)
-
-## Requirements
+## **Usage**
+### **Requirements**
 
 You may use Windows, macOS, or Linux as your development operating system.
 
-## Building your first app using Beagle
+### **Installation**
+Follow the [**Getting Started guide**](https://docs.usebeagle.io/get-started/installing-beagle). You can find short guides to install Beagle according to your project:
 
-Follow the [Getting Started guide](https://docs.usebeagle.io/get-started/installing-beagle). The recommended way to install Beagle depends on your project. Here you can find short guides for the most common scenarios:
-
-- [Creating a New Application][new-app]
-- [Adding Beagle to an Existing Application][existing]
+- [**Creating a New Application**][new-app]
+- [**Adding Beagle to an Existing Application**][existing]
 
 [new-app]: https://docs.usebeagle.io/get-started/new-project
 [existing]: https://docs.usebeagle.io/get-started/using-beagle
 
+## **Documentation**
 
-## How to Contribute
+You can find Beagle's documentation on our [**website**][site].
 
-The main purpose of this repository is to continue evolving Beagle core. We want to make contributing to this project as easy and transparent as possible, and we are grateful to the community for contributing bug fixes and improvements. Read below to learn how you can take part in improving Beagle.
+Beagle's documentation discusses components, APIs, and topics that are specific to [**Beagle documentation**][b-docs].
 
-### Contributing Guide
+[site]: https://usebeagle.io/
+[b-docs]: https://docs.usebeagle.io/
 
-Read our [**Contributing Guide**][contribute] to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Beagle.
+## **Contributing Guide**
 
-[contribute]: https://github.com/ZupIT/beagle/blob/main/CONTRIBUTING.md
+If you want to contribute to this module, access our [**Contributing Guide**][contribute] to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes to Beagle.
 
-### Code of Conduct
+[contribute]: https://github.com/ZupIT/beagle-ios/blob/main/CONTRIBUTING.md
 
-Beagle has adopted a Code of Conduct that we expect project participants to adhere to.
-Please read the [code] so that you can understand what actions will and will not be tolerated.
+### **Developer Certificate of Origin - DCO**
 
-[code]: https://github.com/ZupIT/beagle/blob/main/CODE_OF_CONDUCT.md
+ This is a security layer for the project and for the developers. It is mandatory.
+ 
+ Follow one of these two methods to add DCO to your commits:
+ 
+**1. Command line**
+ Follow the steps: 
+ **Step 1:** Configure your local git environment adding the same name and e-mail configured at your GitHub account. It helps to sign commits manually during reviews and suggestions.
+
+ ```
+git config --global user.name “Name”
+git config --global user.email “email@domain.com.br”
+```
+
+**Step 2:** Add the Signed-off-by line with the `'-s'` flag in the git commit command:
+
+```
+$ git commit -s -m "This is my commit message"
+```
+
+**2. GitHub website**
+You can also manually sign your commits during GitHub reviews and suggestions, follow the steps below: 
+
+**Step 1:** When the commit changes box opens, manually type or paste your signature in the comment box, see the example:
+
+```
+Signed-off-by: Name < e-mail address >
+```
+
+For this method, your name and e-mail must be the same registered on your GitHub account.
+
+## **Code of Conduct**
+
+Please read the [**code of conduct**](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/CODE_OF_CONDUCT.md).
+
+## **License**
+
+[**Apache License 2.0**](https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt).
 
 
-## License
-
-Beagle is Apache 2.0 licensed, as found in the [LICENSE][l] file.
-
-[l]: https://github.com/ZupIT/beagle-backend-kotlin/blob/main/LICENSE.txt
+## **Community**
+Do you have any question about Beagle? Let's chat in our [**forum**](https://forum.zup.com.br/c/en/beagle/12). 
