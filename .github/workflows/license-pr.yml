@@ -24,7 +24,8 @@ on:
     workflow_dispatch:
 
 jobs:
-    build:
+    license-validation:
+        name: License validation
         runs-on: ubuntu-latest
 
         steps:
