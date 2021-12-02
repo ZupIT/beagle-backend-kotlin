@@ -14,17 +14,10 @@
 # limitations under the License.
 #
 
-name: DCO GPG VALIDATOR
-on:
-    pull_request:
-        types: [opened, synchronize]
-        branches: [main, release/*]
-
-jobs:
-    dco-validation:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: ZupIT/zup-dco-validator@18c54faf1f183c4bffddf5d81900559355bdc20a #v1.0
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  VALIDATE_GPG: false
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
