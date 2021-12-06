@@ -26,6 +26,7 @@ on:
 jobs:
   danger-validation:
     runs-on: macos-latest
+    if: github.repository_owner == 'zupTest'
     steps:
       - uses: actions/checkout@v2
       - name: Read secrets from AWS Secrets Manager into environment variables
