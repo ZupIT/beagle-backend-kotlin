@@ -22,7 +22,6 @@ on:
             - main
             - horusec
             - release/*
-
 jobs:
     horusec-validation:
         name: Horusec Validation
@@ -31,17 +30,7 @@ jobs:
             - name: Check out code
               uses: actions/checkout@v2
 
-            - name: Read secrets from AWS Secrets Manager into environment variables
-              uses: abhilash1in/aws-secrets-manager-action@v1.0.1
-              with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: us-east-1
-                  secrets: |
-                      beagle/core/security
-                  parse-json: true
-
             - name: Running Horusec
               run: |
-                  curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash -s latest
+                  curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
                   horusec start -p . -e true -u "https://api-horusec.zup.com.br" -G true -n "${GITHUB_REPOSITORY}_${GITHUB_REF##*/}"
