@@ -28,7 +28,7 @@ on:
 jobs:
   pr-validation:
     name: PR validation
-    if: secrets.AWS_ACCESS_KEY_ID != null
+    if: github.repository_owner == 'zupIt'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
