@@ -53,4 +53,4 @@ jobs:
                     key: ${{ runner.os }}-build-${{ env.gradle-cache-key }}-${{ hashFiles('buildSrc/**') }}
                     restore-keys: ${{ runner.os }}-build-${{ env.gradle-cache-key }}
             -   name: Run pr check
-                run: bundle exec fastlane backend pull_request_verification || echo "Skipping Sonar for external contributors"
+                run: bundle exec fastlane backend pull_request_verification
