@@ -28,7 +28,7 @@ on:
 jobs:
   pr-validation:
     name: PR validation
-    if: ${{secrets.TEST && secrets.TEST_ID}}
+    if: ${{secrets.AWS_ACCESS_KEY_ID}}
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
