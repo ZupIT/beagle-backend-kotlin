@@ -106,7 +106,13 @@ end
      \nChanges:
      \n#{changelog}"
   end
-  
+
+
+  private_lane :sonarqube_token_available? do
+    sonarqube = ENV["SONAR_TOKEN"]
+    !(sonarqube.nil? || sonarqube.empty?)
+  end
+
   private_lane :danger_token_available? do
     danger = ENV["GITHUB_TOKEN"]
     !(danger.nil? || danger.empty?)
@@ -153,7 +159,9 @@ end
   private_lane :publish_sonarcloud_gradle do |params|
      # Setup java 11
      ENV["JAVA_HOME"] = ENV["JAVA_HOME_11_X64"]
-     gradle(task: "sonarqube")
+     if sonarqube_token_available?
+        gradle(task: "sonarqube")
+     end
      # Rollback to java 8
      ENV["JAVA_HOME"] = ENV["JAVA_HOME_8_X64"]
   end
