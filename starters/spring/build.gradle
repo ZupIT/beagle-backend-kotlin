@@ -22,6 +22,8 @@ dependencies {
     implementation Dependencies.SpringLibraries.autoconfigure
 
     api Dependencies.SpringLibraries.webStarter
+    api Dependencies.BackendLibraries.log4jApi
+    api Dependencies.BackendLibraries.log4jCore
     api project(Dependencies.Modules.framework)
 
     annotationProcessor Dependencies.SpringLibraries.autoconfigureProcessor
