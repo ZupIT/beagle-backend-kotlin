@@ -68,7 +68,7 @@ class Dependencies : Plugin<Project> {
         const val springBoot = "2.3.5.RELEASE"
         const val micronaut = "2.1.3"
         const val incap = "0.3"
-        const val log4j = "2.16.0"
+        const val log4j = "2.17.0"
     }
 
     object BackendLibraries {
