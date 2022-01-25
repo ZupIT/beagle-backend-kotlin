@@ -37,12 +37,12 @@ object SampleViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "First",
                     image = Local.justMobile("delete"),
-                    action = Navigate.PopToView(PATH_SAMPLE_VIEW_ENDPOINT)
+                    onPress = listOf(Navigate.PopToView(PATH_SAMPLE_VIEW_ENDPOINT))
                 ),
                 NavigationBarItem(
                     text = "Second",
                     image = Local.justMobile("question"),
-                    action = Navigate.PopView()
+                    onPress = listOf(Navigate.PopView())
                 )
             )
         ),

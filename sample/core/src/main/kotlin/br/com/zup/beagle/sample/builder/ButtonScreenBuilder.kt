@@ -46,11 +46,13 @@ object ButtonScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Button",
-                        message = "This is a widget that will define a button natively using the server " +
-                            "driven information received through Beagle.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Button",
+                            message = "This is a widget that will define a button natively using the server " +
+                                "driven information received through Beagle.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

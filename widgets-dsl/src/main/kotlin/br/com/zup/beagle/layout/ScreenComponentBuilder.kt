@@ -87,12 +87,12 @@ fun navigationBarItem(block: NavigationBarItemBuilder.() -> Unit)
 class NavigationBarItemBuilder : BeagleBuilder<NavigationBarItem> {
     var text: String by Delegates.notNull()
     var image: ImagePath.Local? = null
-    var action: Action by Delegates.notNull()
+    var onPress: List<Action> by Delegates.notNull()
     var accessibility: Accessibility? = null
 
     fun text(text: String) = this.apply { this.text = text }
     fun image(image: ImagePath.Local?) = this.apply { this.image = image }
-    fun action(action: Action) = this.apply { this.action = action }
+    fun onPress(onPress: List<Action>) = this.apply { this.onPress = onPress }
     fun accessibility(accessibility: Accessibility?) = this.apply { this.accessibility = accessibility }
 
     fun text(block: () -> String) {
@@ -104,7 +104,7 @@ class NavigationBarItemBuilder : BeagleBuilder<NavigationBarItem> {
     }
 
     fun action(block: () -> Action) {
-        action(block.invoke())
+        onPress.map { block.invoke() }
     }
 
     fun accessibility(block: AccessibilityBuilder.() -> Unit) {
@@ -114,7 +114,7 @@ class NavigationBarItemBuilder : BeagleBuilder<NavigationBarItem> {
     override fun build() = NavigationBarItem(
         text = text,
         image = image,
-        action = action,
+        onPress = onPress,
         accessibility = accessibility
     )
 }

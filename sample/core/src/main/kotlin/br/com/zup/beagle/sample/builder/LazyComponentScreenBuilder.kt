@@ -39,10 +39,12 @@ object LazyComponentScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Lazy Component",
-                        message = "A widget that implements loading.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Lazy Component",
+                            message = "A widget that implements loading.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

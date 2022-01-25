@@ -69,10 +69,12 @@ class SampleNavigationTypeService {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Navigation Type",
-                        message = "Decide the type of navigation.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Navigation Type",
+                            message = "Decide the type of navigation.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

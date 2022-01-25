@@ -53,10 +53,12 @@ object FormScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Form",
-                        message = "A formSubmit component will define a submit handler in a form.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Form",
+                            message = "A formSubmit component will define a submit handler in a form.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

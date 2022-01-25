@@ -40,11 +40,13 @@ object ScrollViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "ScrollView",
-                        message = "This component is a specialized container that will display its " +
-                            "components in a Scroll like view.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "ScrollView",
+                            message = "This component is a specialized container that will display its " +
+                                "components in a Scroll like view.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

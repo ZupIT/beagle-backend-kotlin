@@ -45,10 +45,12 @@ object AccessibilityScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Accessibility Screen",
-                        message = "This method applies accessibility in a widget",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Accessibility Screen",
+                            message = "This method applies accessibility in a widget",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

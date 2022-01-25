@@ -45,11 +45,13 @@ object PageViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "PageView",
-                        message = "This component is a specialized container " +
-                            "to hold pages (views) that may be swiped.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "PageView",
+                            message = "This component is a specialized container " +
+                                "to hold pages (views) that may be swiped.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

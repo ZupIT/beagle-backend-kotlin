@@ -41,11 +41,13 @@ object TextInputBuilder: ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = ImagePath.Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Text Input",
-                        message = "This widget will define a Text Input view natively using the server driven " +
-                            "information received through Beagle.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Text Input",
+                            message = "This widget will define a Text Input view natively using the server driven " +
+                                "information received through Beagle.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

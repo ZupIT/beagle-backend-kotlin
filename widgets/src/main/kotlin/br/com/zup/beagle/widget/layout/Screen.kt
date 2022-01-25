@@ -53,7 +53,7 @@ data class SafeArea(
  *
  * @param text define the Title on the navigation bar
  * @param image defines an image for your navigation bar
- * @param action defines an action to be called when the item is clicked on.
+ * @param onPress defines a List of actions to be called when the item is clicked on.
  * @param accessibility define Accessibility details for the item
  *
  */
@@ -61,7 +61,7 @@ data class SafeArea(
 data class NavigationBarItem(
     val text: String,
     val image: ImagePath.Local? = null,
-    val action: Action,
+    val onPress: List<Action>,
     val accessibility: Accessibility? = null
 ) : IdentifierComponent {
     override var id: String? = null

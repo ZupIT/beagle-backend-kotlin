@@ -41,10 +41,12 @@ object SimpleFormScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "SimpleForm",
-                        message = "A SubmitForm action will define a submit handler in a form.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "SimpleForm",
+                            message = "A SubmitForm action will define a submit handler in a form.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

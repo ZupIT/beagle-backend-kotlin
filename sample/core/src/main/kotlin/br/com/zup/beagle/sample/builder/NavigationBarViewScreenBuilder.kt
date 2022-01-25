@@ -53,10 +53,12 @@ object NavigationBarViewScreenBuilder : ScreenBuilder {
                     text = "Ajuda",
                     accessibility = Accessibility(accessibilityLabel = "Content Description"),
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "NavigationBar",
-                        message = "This component that allows to place titles and button action.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "NavigationBar",
+                            message = "This component that allows to place titles and button action.",
+                            labelOk = "OK"
+                        )
                     )
                 ).setId("nbiInformation")
             )

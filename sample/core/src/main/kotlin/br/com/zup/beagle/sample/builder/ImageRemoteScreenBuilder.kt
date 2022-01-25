@@ -48,10 +48,12 @@ class ImageRemoteScreenBuilder(private val imagePath: String) : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = Local.justMobile("informationImage"),
-                    action = Alert(
-                        title = "Image Remote",
-                        message = "It is a widget that implements an image with a URL.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Image Remote",
+                            message = "It is a widget that implements an image with a URL.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )
