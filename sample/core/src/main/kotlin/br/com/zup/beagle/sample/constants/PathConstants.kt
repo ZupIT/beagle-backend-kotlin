@@ -16,9 +16,6 @@
 
 package br.com.zup.beagle.sample.constants
 
-
-const val SUBMIT_FORM_ENDPOINT = "/form"
-
 const val PAGE_VIEW_ENDPOINT = "/page-view"
 const val SCROLL_VIEW_ENDPOINT = "/scroll-view"
 
@@ -36,7 +33,6 @@ const val SCREEN_LIST_VIEW_ENDPOINT = "/list-view"
 const val SCREEN_SCROLL_VIEW_ENDPOINT = "/scroll-view-screen"
 const val SCREEN_PAGE_VIEW_ENDPOINT = "/page-view-screen"
 const val SCREEN_ACTION_ENDPOINT = "/action"
-const val SCREEN_FORM_ENDPOINT = "/sample/form"
 const val SCREEN_LAZY_COMPONENT_ENDPOINT = "/lazy-component"
 const val SCREEN_NAVIGATION_BAR_ENDPOINT = "/navigation/bar"
 const val REPRESENTATION_NAVIGATION_BAR_ENDPOINT = "/navigationbar"
@@ -60,10 +56,11 @@ const val SCREEN_SAFE_AREA_TRUE_ENDPOINT = "/safe-area/true"
 const val SCREEN_SAFE_AREA_FALSE_ENDPOINT = "/safe-area/false"
 const val SCREEN_TEXT_INPUT_ENDPOINT = "/text-input"
 const val SCREEN_SIMPLE_FORM_ENDPOINT = "/simple-form"
-const val DSL_BUILDER_ENDPOINT = "/dsl-builder"
 const val SCREEN_ACTION_ADD_CHILDREN = "/add-children"
 const val SCREEN_PULL_TO_REFRESH = "/pull-to-refresh"
 const val SCREEN_PULL_TO_REFRESH_SIMPLE = "/pull-to-refresh-simple"
+
+const val SCREEN_DSL_CONTEXT = "/dsl-context"
 
 const val CUSTOM_WIDGET_ENDPOINT = "/custom"
 
@@ -78,3 +75,5 @@ const val PATH_SAMPLE_VIEW_ENDPOINT = "http://localhost:8080/sample"
 const val PATH_URL_WEB_VIEW_ENDPOINT = "https://zup.com.br"
 
 const val DATA_STRING_LIST = "/generate-string-list"
+
+const val OPERATIONS_ENDPOINT = "/operations"

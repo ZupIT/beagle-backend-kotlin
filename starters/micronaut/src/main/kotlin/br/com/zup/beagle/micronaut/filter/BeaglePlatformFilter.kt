@@ -43,6 +43,7 @@ class BeaglePlatformFilter(private val objectMapper: ObjectMapper) : OncePerRequ
             }
     }
 
+    @Suppress("UNCHECKED_CAST")
     private fun treatResponse(wrappedResponse: MutableHttpResponse<*>, currentPlatform: String?) {
         wrappedResponse.body.ifPresent {
             if (it !is NettySystemFileCustomizableResponseType && it !is String) {

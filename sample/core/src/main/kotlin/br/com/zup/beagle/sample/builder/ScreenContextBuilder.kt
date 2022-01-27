@@ -17,22 +17,21 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.core.CornerRadius
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyFlex
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitPercent
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setFlex
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.Confirm
 import br.com.zup.beagle.widget.action.RequestActionMethod
 import br.com.zup.beagle.widget.action.SendRequest
 import br.com.zup.beagle.widget.action.SetContext
 import br.com.zup.beagle.widget.context.ContextData
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.Size
 import br.com.zup.beagle.widget.core.TextInputType
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.Screen
@@ -54,14 +53,13 @@ data class Data(
     val complement: String
 )
 
+private val MARGIN = EdgeValue(
+    top = UnitValue.real(10),
+    left = UnitValue.real(25),
+    right = UnitValue.real(25),
+)
+
 object ScreenContextBuilder : ScreenBuilder {
-    var styleMargin = Style(
-        margin = EdgeValue(
-            top = 10.unitReal(),
-            left = 25.unitReal(),
-            right = 25.unitReal()
-        )
-    )
 
     override fun build() = Screen(
         navigationBar = NavigationBar(
@@ -75,14 +73,15 @@ object ScreenContextBuilder : ScreenBuilder {
                         Text(
                             text = "Fill the form",
                             styleId = "DesignSystem.Text.helloWord"
-                        ).applyStyle(
-                            Style(
-                                margin = EdgeValue(top = 20.unitReal(), bottom = 20.unitReal()),
-                                flex = Flex(
-                                    alignSelf = AlignSelf.CENTER
-                                )
+                        ).setStyle {
+                            margin = EdgeValue(
+                                top = UnitValue.real(20),
+                                bottom = UnitValue.real(20)
                             )
-                        ),
+                            flex = Flex(
+                                alignSelf = AlignSelf.CENTER
+                            )
+                        },
                         createZip(),
                         createTextInput(),
                         createButton()
@@ -103,7 +102,7 @@ object ScreenContextBuilder : ScreenBuilder {
                     )
                 )
             )
-        ).applyFlex(Flex(grow = 1.0))
+        ).setFlex { grow = 1.0 }
     )
 
     private fun createTextInput() = Container(
@@ -175,7 +174,7 @@ object ScreenContextBuilder : ScreenBuilder {
                 )
             )
         )
-    ).applyStyle(styleMargin)
+    ).setStyle { margin = MARGIN }
 
 
     private fun createButton() = Button(
@@ -191,10 +190,10 @@ object ScreenContextBuilder : ScreenBuilder {
                     "City: @{address.data.city}\n" +
                     "State: @{address.data.state}\n" +
                     "Complement: @{address.data.complement}",
-                onPressOk = Alert(
+                onPressOk = listOf(Alert(
                     title = "Address form",
                     message = "The form was successfully!",
-                    onPressOk = SetContext(
+                    onPressOk = listOf(SetContext(
                         contextId = "address",
                         path = "data",
                         value =
@@ -207,23 +206,21 @@ object ScreenContextBuilder : ScreenBuilder {
                             state = "",
                             complement = ""
                         )
-                    )
-                )
+                    ))
+                ))
             )
         )
-    ).applyStyle(
-        Style(
-            backgroundColor = "#808080",
-            cornerRadius = CornerRadius(8.0),
-            size = Size(width = 50.unitPercent()),
-            margin = EdgeValue(
-                top = 30.unitReal()
-            ),
-            flex = Flex(
-                alignSelf = AlignSelf.CENTER
-            )
+    ).setStyle {
+        backgroundColor = constant("#808080")
+        cornerRadius = CornerRadius(constant(8.0))
+        size = Size(width = UnitValue.percent(50))
+        margin = EdgeValue(
+            top = UnitValue.real(30)
         )
-    )
+        flex = Flex(
+            alignSelf = AlignSelf.CENTER
+        )
+    }
 
     private fun createTextInput(
         textInputPlaceholder: String,
@@ -242,5 +239,5 @@ object ScreenContextBuilder : ScreenBuilder {
                 value = "@{onChange.value}"
             )
         )
-    ).applyStyle(styleMargin)
+    ).setStyle { margin = MARGIN }
 }
