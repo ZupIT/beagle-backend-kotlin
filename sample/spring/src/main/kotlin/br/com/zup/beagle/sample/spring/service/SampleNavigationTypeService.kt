@@ -17,9 +17,7 @@
 package br.com.zup.beagle.sample.spring.service
 
 import br.com.zup.beagle.core.CornerRadius
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.BUTTON_STYLE_APPEARANCE
 import br.com.zup.beagle.sample.constants.CYAN_BLUE
 import br.com.zup.beagle.sample.constants.CYAN_GREEN
@@ -35,14 +33,15 @@ import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.context.ContextData
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.context.expressionOf
 import br.com.zup.beagle.widget.core.EdgeValue
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import org.springframework.stereotype.Service
 
 @Service
@@ -68,7 +67,7 @@ class SampleNavigationTypeService {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Navigation Type",
                         message = "Decide the type of navigation.",
@@ -173,15 +172,13 @@ class SampleNavigationTypeService {
             text = text,
             styleId = BUTTON_STYLE_APPEARANCE,
             onPress = listOf(navigate)
-        ).applyStyle(
-            Style(
-                backgroundColor = backgroundColor,
-                cornerRadius = CornerRadius(radius = 10.0),
-                margin = EdgeValue(
-                    left = 30.unitReal(),
-                    right = 30.unitReal(),
-                    top = 15.unitReal()
-                )
+        ).setStyle {
+            this.backgroundColor = constant(backgroundColor)
+            cornerRadius = CornerRadius(radius = constant(10.0))
+            margin = EdgeValue(
+                left = UnitValue.real(30),
+                right = UnitValue.real(30),
+                top = UnitValue.real(15)
             )
-        )
+        }
 }

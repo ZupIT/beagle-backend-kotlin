@@ -16,6 +16,14 @@
 
 import br.com.zup.beagle.Dependencies
 
+apply plugin: 'kotlin-kapt'
+
 dependencies {
     api project(Dependencies.Modules.framework)
+    kapt project(Dependencies.Modules.processor)
+    implementation project(Dependencies.Modules.commonAnnotation)
+}
+
+sourceSets.main {
+    java.srcDirs("src/main/kotlin")
 }

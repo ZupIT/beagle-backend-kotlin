@@ -30,11 +30,8 @@ captures/
 
 # Intellij
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/dictionaries
-.idea/libraries
+.idea/*
+!.idea/copyright
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -91,9 +88,6 @@ obj/
 *.iws
 /out/
 
-# User-specific configurations
-.idea*
-
 # OS-specific files
 .DS_Store
 .DS_Store?
@@ -125,56 +119,13 @@ hs_err_pid*
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Mongo Explorer plugin
-.idea/mongoSettings.xml
-
-
-# User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-
-# Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-
-# Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
-
 # CMake
 cmake-build-debug/
-
-# Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
-
-## File-based project format:
-
-## Plugin-specific files:
-
-# IntelliJ
-
-# mpeltonen/sbt-idea plugin
-
-# JIRA plugin
-
-# Cursive Clojure plugin
-.idea/replstate.xml
 
 # Ruby plugin and RubyMine
 /.rakeTasks
 
-# Sonarlint plugin
-.idea/sonarlint
-
 ### Java ###
-# Compiled class file
-
-# Log file
 
 # BlueJ files
 *.ctxt

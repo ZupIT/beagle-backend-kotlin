@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,10 +34,7 @@ class Dependencies : Plugin<Project> {
     }
 
     object Modules {
-        const val widgets = ":widgets"
-        const val processor = ":processor"
         const val framework = ":framework"
-        const val widgetsDsl = ":widgets-dsl"
 
         const val sampleCore = ":sample:core"
         const val sampleSpring = ":sample:spring"
@@ -46,14 +43,8 @@ class Dependencies : Plugin<Project> {
         const val springStarter = ":starters:spring"
         const val micronautStarter = ":starters:micronaut"
 
-        const val schemaKotlinCore = ":kotlin-core"
-
         const val commonAnnotation = ":annotation"
-        const val commonProcessorUtils = ":processor-utils"
-    }
-
-    object Releases {
-        const val beagleVersionName = "0.0.1-SNAPSHOT"
+        const val processor = ":processor"
     }
 
     object Versions {
@@ -67,7 +58,6 @@ class Dependencies : Plugin<Project> {
         const val slf4j = "1.7.30"
         const val springBoot = "2.3.5.RELEASE"
         const val micronaut = "2.1.3"
-        const val incap = "0.3"
         const val log4j = "2.17.1"
     }
 
@@ -80,8 +70,6 @@ class Dependencies : Plugin<Project> {
 
     object ProcessorLibraries {
         const val autoService = "com.google.auto.service:auto-service:${Versions.googleAutoService}"
-        const val incap = "net.ltgt.gradle.incap:incap:${Versions.incap}"
-        const val incapPrcessor = "net.ltgt.gradle.incap:incap-processor:${Versions.incap}"
     }
 
     object GeneralLibraries {
