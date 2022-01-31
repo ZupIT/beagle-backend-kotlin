@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,9 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.ext.applyFlex
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.sample.constants.TEXT_FONT_MAX
 import br.com.zup.beagle.widget.core.AlignItems
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
@@ -43,9 +42,7 @@ class NavigationBarScreenBuilder(
     )
 
     private fun createBeagleText(text: String) = Text(text = text, styleId = TEXT_FONT_MAX)
-        .applyFlex(
-            flex = Flex(
-                alignItems = AlignItems.CENTER
-            )
-        )
+        .setFlex {
+            alignItems = AlignItems.CENTER
+        }
 }

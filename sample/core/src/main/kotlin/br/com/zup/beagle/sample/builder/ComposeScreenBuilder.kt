@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,12 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.sample.compose.CustomComposeComponent
+import br.com.zup.beagle.widget.action.Alert
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 
 object ComposeScreenBuilder : ScreenBuilder {
     override fun build() = Screen(
@@ -32,7 +31,7 @@ object ComposeScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Compose Component",
                         message = "Creates components to call in different places.",

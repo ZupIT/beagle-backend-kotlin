@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.platform.BeaglePlatform
-import br.com.zup.beagle.platform.forPlatform
+import br.com.zup.beagle.platform.setPlatform
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.Screen
@@ -29,13 +29,13 @@ object PlatformBuilder : ScreenBuilder {
         navigationBar = NavigationBar(
             title = "Beagle Tab View",
             showBackButton = true
-            ),
+        ),
         child = Container(
             listOf(
-                Button(text = "mobile only text").forPlatform(BeaglePlatform.MOBILE),
-                Button(text = "web only text").forPlatform(BeaglePlatform.WEB),
-                Button(text = "ios only text").forPlatform(BeaglePlatform.IOS),
-                Button(text = "android only text").forPlatform(BeaglePlatform.ANDROID),
+                Button(text = "mobile only text").setPlatform(BeaglePlatform.MOBILE),
+                Button(text = "web only text").setPlatform(BeaglePlatform.WEB),
+                Button(text = "ios only text").setPlatform(BeaglePlatform.IOS),
+                Button(text = "android only text").setPlatform(BeaglePlatform.ANDROID),
                 Button(text = "text free for all")
             )
         )

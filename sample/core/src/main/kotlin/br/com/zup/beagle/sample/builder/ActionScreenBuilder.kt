@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.ext.applyFlex
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.sample.constants.NAVIGATION_BAR_STYLE_DEFAULT
 import br.com.zup.beagle.sample.constants.PATH_SCREEN_DEEP_LINK_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
@@ -26,7 +26,6 @@ import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.action.SendRequest
 import br.com.zup.beagle.widget.core.AlignSelf
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
@@ -35,7 +34,6 @@ import br.com.zup.beagle.widget.layout.ScreenBuilder
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.navigation.Touchable
 import br.com.zup.beagle.widget.ui.Button
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.Text
 
 object ActionScreenBuilder : ScreenBuilder {
@@ -47,7 +45,7 @@ object ActionScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Action",
                         message = "This class handles transition actions between screens in the application. ",
@@ -75,11 +73,9 @@ object ActionScreenBuilder : ScreenBuilder {
             Text("Action dialog"),
             Touchable(
                 onPress = listOf(createAlert("Some")),
-                child = Text("Click me!").applyFlex(
-                    Flex(
-                        alignSelf = AlignSelf.CENTER
-                    )
-                )
+                child = Text("Click me!").setFlex {
+                    alignSelf = AlignSelf.CENTER
+                }
             )
         )
     )
@@ -182,8 +178,8 @@ object ActionScreenBuilder : ScreenBuilder {
                     message = "Action",
                     labelOk = "OK",
                     labelCancel = "Cancel",
-                    onPressCancel = createAlert("Cancel"),
-                    onPressOk = createAlert("Finish")
+                    onPressCancel = listOf(createAlert("Cancel")),
+                    onPressOk = listOf(createAlert("Finish"))
                 )),
                 text = "Click me!"
             )

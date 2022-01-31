@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.ui.ImagePath
+import java.util.*
 import kotlin.reflect.KClass
 
 internal fun getClass(
@@ -30,7 +31,7 @@ internal fun getClass(
 ) = Class.forName(clazz.qualifiedName, false, classLoader)
 
 internal fun getBeagleType(beanClass: Class<out Any>, classLoader: ClassLoader) =
-    beanClass.simpleName?.decapitalize()?.let {
+    beanClass.simpleName.replaceFirstChar { it.lowercase(Locale.getDefault()) }.let {
         when {
             isSubclass(beanClass, Action::class, classLoader) ->
                 ACTION_TYPE to getBeagleTypeWithNamespace(
@@ -58,8 +59,8 @@ private fun isSubclass(
     classLoader: ClassLoader
 ) = getClass(kClass, classLoader).isAssignableFrom(beanClass)
 
+@Suppress("UNCHECKED_CAST")
 private fun getBeagleTypeWithNamespace(beanClass: Class<out Any>, name: String, annotation: Class<*>) =
     if ((annotation as? Class<out Annotation>)?.let { beanClass.isAnnotationPresent(it) } == true)
         "$CUSTOM_BEAGLE_NAMESPACE:$name"
     else "$BEAGLE_NAMESPACE:$name"
-

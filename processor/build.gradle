@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,21 +22,26 @@ dependencies {
     implementation Dependencies.GeneralLibraries.kotlinPoet
 
     implementation project(Dependencies.Modules.commonAnnotation)
-    implementation project(Dependencies.Modules.commonProcessorUtils)
-    implementation project(Dependencies.Modules.widgets)
-    implementation project(Dependencies.Modules.schemaKotlinCore)
+    implementation Dependencies.GeneralLibraries.kotlinReflect
+    api project(Dependencies.Modules.framework)
 
     implementation Dependencies.ProcessorLibraries.autoService
-    implementation Dependencies.ProcessorLibraries.incap
 
     kapt Dependencies.ProcessorLibraries.autoService
-    kapt Dependencies.ProcessorLibraries.incapPrcessor
     kaptTest project(Dependencies.Modules.processor)
 
     testRuntimeOnly Dependencies.TestLibraries.junit5Engine
     testImplementation Dependencies.TestLibraries.junit5Api
     testImplementation Dependencies.TestLibraries.kotlinTest
     testImplementation Dependencies.TestLibraries.mockk
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets.main {
+    java.srcDirs("src/main/kotlin")
 }
 
 apply from: rootProject.file('maven-publish.gradle')

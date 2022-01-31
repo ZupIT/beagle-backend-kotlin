@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 
 package br.com.zup.beagle.sample.compose
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.LIGHT_GREY
+import br.com.zup.beagle.widget.context.constant
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.ScrollAxis
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.ComposeComponent
 import br.com.zup.beagle.widget.layout.ScrollView
 import br.com.zup.beagle.widget.ui.Text
@@ -31,11 +31,12 @@ object ComposeScrollView : ComposeComponent {
         scrollBarEnabled = false,
         scrollDirection = ScrollAxis.HORIZONTAL,
         children = listOf(
-            createText().applyStyle(Style(backgroundColor = LIGHT_GREY,
+            createText().setStyle {
+                backgroundColor = constant(LIGHT_GREY)
                 margin = EdgeValue(
-                    left = 30.unitReal()
-                ))
-            )
+                    left = UnitValue.real(30)
+                )
+            }
         ) + List(20) { createText() }
     )
 

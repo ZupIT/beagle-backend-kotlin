@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,14 @@
 package br.com.zup.beagle.sample.compose
 
 import br.com.zup.beagle.core.ServerDrivenComponent
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyFlex
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setFlex
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.LOGO_BEAGLE
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.core.AlignItems
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.ComposeComponent
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.ui.Image
@@ -39,26 +38,23 @@ class CustomComposeComponent : ComposeComponent {
                 buildTextBeagle(),
                 buildImageBeagle()
             )
-        ).applyFlex(
-            flex = Flex(
-                alignItems = AlignItems.CENTER
-            )
-        )
+        ).setFlex {
+            alignItems = AlignItems.CENTER
+        }
     }
 
     private fun buildTextBeagle(): Widget {
         return Text("Beagle framework")
-            .applyStyle(
-                Style(
-                    flex = Flex(
-                        alignItems = AlignItems.CENTER
-                    ),
-                    margin = EdgeValue(
-                        top = 16.unitReal(),
-                        bottom = 16.unitReal()
-                    )
+            .setStyle {
+                flex = Flex(
+                    alignItems = AlignItems.CENTER
                 )
-            )
+                margin = EdgeValue(
+                    top = UnitValue.real(16),
+                    bottom = UnitValue.real(16)
+                )
+
+            }
     }
 
     private fun buildImageBeagle() = Image(Local.justMobile(LOGO_BEAGLE))

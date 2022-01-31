@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,31 +16,21 @@
 
 package br.com.zup.beagle.sample.compose
 
-import br.com.zup.beagle.ext.applyFlex
-import br.com.zup.beagle.sample.constants.BLACK
-import br.com.zup.beagle.sample.constants.LIGHT_GREY
+import br.com.zup.beagle.ext.setFlex
 import br.com.zup.beagle.widget.core.AlignSelf
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beagle.widget.core.TextAlignment
 import br.com.zup.beagle.widget.layout.ComposeComponent
 import br.com.zup.beagle.widget.layout.PageView
-import br.com.zup.beagle.widget.pager.PageIndicator
 import br.com.zup.beagle.widget.ui.Text
 
 object ComposePageView : ComposeComponent {
     override fun build() = PageView(
-        pageIndicator = PageIndicator(
-            selectedColor = BLACK,
-            unselectedColor = LIGHT_GREY
-        ),
         children = (1..3).map(this::createText)
     )
 
     private fun createText(i: Int) = Text("Page $i", alignment = TextAlignment.CENTER)
-        .applyFlex(
-            Flex(
-                alignSelf = AlignSelf.CENTER,
-                grow = 1.0
-            )
-        )
+        .setFlex {
+            alignSelf = AlignSelf.CENTER
+            grow = 1.0
+        }
 }

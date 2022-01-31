@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ class BeaglePlatformFilter(private val objectMapper: ObjectMapper) : OncePerRequ
             }
     }
 
+    @Suppress("UNCHECKED_CAST")
     private fun treatResponse(wrappedResponse: MutableHttpResponse<*>, currentPlatform: String?) {
         wrappedResponse.body.ifPresent {
             if (it !is NettySystemFileCustomizableResponseType && it !is String) {

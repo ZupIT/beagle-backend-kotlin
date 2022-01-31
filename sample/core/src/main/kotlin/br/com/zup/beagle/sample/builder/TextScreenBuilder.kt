@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,19 +16,18 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
+import br.com.zup.beagle.ext.setStyle
 import br.com.zup.beagle.sample.constants.SCREEN_TEXT_STYLE
 import br.com.zup.beagle.sample.constants.STEEL_BLUE
 import br.com.zup.beagle.widget.action.Alert
+import br.com.zup.beagle.widget.context.constantNullable
 import br.com.zup.beagle.widget.core.EdgeValue
+import br.com.zup.beagle.widget.core.UnitValue
 import br.com.zup.beagle.widget.layout.Container
 import br.com.zup.beagle.widget.layout.NavigationBar
 import br.com.zup.beagle.widget.layout.NavigationBarItem
 import br.com.zup.beagle.widget.layout.Screen
 import br.com.zup.beagle.widget.layout.ScreenBuilder
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import br.com.zup.beagle.widget.ui.Text
 
 object TextScreenBuilder : ScreenBuilder {
@@ -39,7 +38,7 @@ object TextScreenBuilder : ScreenBuilder {
             navigationBarItems = listOf(
                 NavigationBarItem(
                     text = "",
-                    image = Local.justMobile("informationImage"),
+                    image = "informationImage",
                     action = Alert(
                         title = "Text",
                         message = "This widget will define a text view natively using the server driven " +
@@ -69,13 +68,12 @@ object TextScreenBuilder : ScreenBuilder {
         appearanceColor: String? = null
     ) =
         Text(text = text, styleId = styleId)
-            .applyStyle(Style(
-                backgroundColor = appearanceColor,
+            .setStyle {
+                backgroundColor = constantNullable(appearanceColor)
                 margin = EdgeValue(
-                    top = 16.unitReal(),
-                    left = 16.unitReal(),
-                    right = 16.unitReal()
+                    top = UnitValue.real(16),
+                    left = UnitValue.real(16),
+                    right = UnitValue.real(16)
                 )
-            )
-            )
+            }
 }

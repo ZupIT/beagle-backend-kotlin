@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,6 @@
 package br.com.zup.beagle.sample.builder
 
 import br.com.zup.beagle.widget.action.Alert
-import br.com.zup.beagle.analytics.ClickEvent
-import br.com.zup.beagle.analytics.ScreenEvent
 import br.com.zup.beagle.core.ServerDrivenComponent
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.layout.Container
@@ -41,9 +39,6 @@ object AnalyticsScreenBuilder : ScreenBuilder {
                 createButton(),
                 createTouchable()
             )
-        ),
-        screenAnalyticsEvent = ScreenEvent(
-            screenName = "AnalyticsScreen"
         )
     )
 
@@ -52,17 +47,14 @@ object AnalyticsScreenBuilder : ScreenBuilder {
             text = "Touchable with Click Analytics Event"
         )
         return Touchable(
-            onPress = listOf(Alert(
-                title = "title",
-                message = "message",
-                labelOk = "Close"
-            )),
+            onPress = listOf(
+                Alert(
+                    title = "title",
+                    message = "message",
+                    labelOk = "Close"
+                )
+            ),
             child = text,
-            clickAnalyticsEvent = ClickEvent(
-                category = "touchable",
-                label = "label-touchable",
-                value = "value-touchable"
-            )
         )
     }
 
@@ -72,13 +64,8 @@ object AnalyticsScreenBuilder : ScreenBuilder {
             onPress = listOf(Alert(
                 title = "title",
                 message = "message",
-               labelOk = "Close"
-            )),
-            clickAnalyticsEvent = ClickEvent(
-                category = "button",
-                label = "label-button",
-                value = "value-button"
-            )
+                labelOk = "Close"
+            ))
         )
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, 2021 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ sonarqube {
         property "sonar.projectName", "ZupIT_beagle_backend"
         property "sonar.organization", "t64zgssdey"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.exclusions", "sample/**, test/**, annotation/**, widgets-dsl/**"
+        property "sonar.exclusions", "sample/**, test/**, annotation/**"
         property "detekt.sonar.kotlin.config.path", "$rootDir/../config/detekt-default-config.yml"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.buildDir}/reports/jacoco/report.xml"

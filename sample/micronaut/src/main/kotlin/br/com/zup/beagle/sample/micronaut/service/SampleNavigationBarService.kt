@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.layout.NavigationBarItem
-import br.com.zup.beagle.widget.ui.ImagePath.Local
 import javax.inject.Singleton
 
 @Singleton
@@ -59,7 +58,7 @@ class SampleNavigationBarService {
         navigationBarItems = listOf(
             NavigationBarItem(
                 text = "",
-                image = Local.justMobile(LOGO_BEAGLE),
+                image = LOGO_BEAGLE,
                 action = Navigate.PushView(Route.Remote(SCREEN_ACTION_CLICK_ENDPOINT))
             )
         )
