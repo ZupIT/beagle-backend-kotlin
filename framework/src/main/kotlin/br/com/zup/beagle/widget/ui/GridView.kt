@@ -38,6 +38,9 @@ import br.com.zup.beagle.widget.ui.GridViewDirection.VERTICAL
  * used as a suffix in the component ids within the Widget.
  * @param spanCount The number of columns or rows in the grid.
  * @param direction define the grid direction.
+ * @param itemAspectRatio only valid for Flutter. This sets the aspect ratio of the items in the grid. If left in
+ * blank, the items will be squares (itemAspectRatio = 1). The Flutter GridView doesn't accept items with arbitrary
+ * size.
  */
 data class GridView constructor(
     override val context: Context? = null,
@@ -51,6 +54,7 @@ data class GridView constructor(
     val key: String? = null,
     val spanCount: Int? = null,
     val direction: GridViewDirection? = VERTICAL,
+    val itemAspectRatio: Double? = null,
 ) : Widget(), ContextComponent
 
 /**
