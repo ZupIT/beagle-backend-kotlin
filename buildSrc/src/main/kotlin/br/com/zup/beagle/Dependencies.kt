@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
+ * Copyright 2020, 2022 ZUP IT SERVICOS EM TECNOLOGIA E INOVACAO SA
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,11 +68,14 @@ class Dependencies : Plugin<Project> {
         const val springBoot = "2.3.5.RELEASE"
         const val micronaut = "2.1.3"
         const val incap = "0.3"
+        const val log4j = "2.17.1"
     }
 
     object BackendLibraries {
         const val guava = "com.google.guava:guava:${Versions.guava}"
         const val slf4jJUL = "org.slf4j:slf4j-jdk14:${Versions.slf4j}"
+        const val log4jApi = "org.apache.logging.log4j:log4j-api:${Versions.log4j}"
+        const val log4jCore = "org.apache.logging.log4j:log4j-core:${Versions.log4j}"
     }
 
     object ProcessorLibraries {
