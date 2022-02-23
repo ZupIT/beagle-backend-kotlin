@@ -49,7 +49,7 @@ object AnalyticsScreenBuilder : ScreenBuilder {
 
     private fun createTouchable(): ServerDrivenComponent {
         val text = Text(
-            text = "Touchable with Click Analytics Event"
+            text = "Touchable with Click Analytics Event "
         )
         return Touchable(
             onPress = listOf(Alert(
