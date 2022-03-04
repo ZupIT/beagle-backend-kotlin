@@ -68,11 +68,13 @@ object ImageLocalScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = expressionOf("@{context.informationImage}"),
-                    action = Alert(
-                        title = "Image",
-                        message = "This widget will define a image view natively using the server driven " +
-                            "information received through Beagle.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Image",
+                            message = "This widget will define a image view natively using the server driven " +
+                                "information received through Beagle.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

@@ -51,7 +51,7 @@ data class SafeArea(
  *
  * @param text defines the description for the item
  * @param image defines the local image for the item
- * @param action defines an action to be called when the item is clicked on
+ * @param onPress defines an action list to be called when the item is clicked on
  * @param accessibility defines the accessibility details for the item
  *
  */
@@ -59,15 +59,15 @@ data class SafeArea(
 data class NavigationBarItem(
     val text: String,
     val image: Bind<String>?,
-    val action: Action,
+    val onPress: List<Action>,
     val accessibility: Accessibility? = null
 ) {
     constructor(
         text: String,
         image: String? = null,
-        action: Action,
+        onPress: List<Action>,
         accessibility: Accessibility? = null,
-    ) : this(text, constantNullable(image), action, accessibility)
+    ) : this(text, constantNullable(image), onPress, accessibility)
 }
 
 /**

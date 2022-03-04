@@ -39,11 +39,13 @@ object TextScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Text",
-                        message = "This widget will define a text view natively using the server driven " +
-                            "information received through Beagle.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Text",
+                            message = "This widget will define a text view natively using the server driven " +
+                                "information received through Beagle.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

@@ -32,10 +32,12 @@ object ComposeScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Compose Component",
-                        message = "Creates components to call in different places.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Compose Component",
+                            message = "Creates components to call in different places.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

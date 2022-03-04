@@ -35,12 +35,12 @@ object SampleViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "First",
                     image = "delete",
-                    action = Navigate.PopToView(PATH_SAMPLE_VIEW_ENDPOINT)
+                    onPress = listOf(Navigate.PopToView(PATH_SAMPLE_VIEW_ENDPOINT))
                 ),
                 NavigationBarItem(
                     text = "Second",
                     image = "question",
-                    action = Navigate.PopView()
+                    onPress = listOf(Navigate.PopView())
                 )
             )
         ),
