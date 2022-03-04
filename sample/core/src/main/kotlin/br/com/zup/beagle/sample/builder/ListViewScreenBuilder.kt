@@ -45,11 +45,13 @@ object ListViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "ListView",
-                        message = "Is a Layout component that will define a list of views natively. " +
-                            "These views could be any Server Driven Component.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "ListView",
+                            message = "Is a Layout component that will define a list of views natively. " +
+                                "These views could be any Server Driven Component.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

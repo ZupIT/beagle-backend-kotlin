@@ -55,10 +55,12 @@ object TouchableScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Touchable",
-                        message = "Applies click action on widgets that have no action.",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Touchable",
+                            message = "Applies click action on widgets that have no action.",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

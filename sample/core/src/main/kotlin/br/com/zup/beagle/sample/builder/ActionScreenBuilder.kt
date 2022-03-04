@@ -46,10 +46,12 @@ object ActionScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Action",
-                        message = "This class handles transition actions between screens in the application. ",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Action",
+                            message = "This class handles transition actions between screens in the application. ",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

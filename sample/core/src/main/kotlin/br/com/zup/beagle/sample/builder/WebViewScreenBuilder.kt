@@ -34,11 +34,13 @@ object WebViewScreenBuilder : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Web View",
-                        message = "The Web View component is responsible for defining a web view natively " +
-                            "using server driven information",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Web View",
+                            message = "The Web View component is responsible for defining a web view natively " +
+                                "using server driven information",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )

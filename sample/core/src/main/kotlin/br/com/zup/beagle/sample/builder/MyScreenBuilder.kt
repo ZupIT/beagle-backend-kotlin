@@ -32,10 +32,12 @@ class MyScreenBuilder(private val title: String) : ScreenBuilder {
                 NavigationBarItem(
                     text = "",
                     image = "informationImage",
-                    action = Alert(
-                        title = "Screen",
-                        message = "This component description and attribute details",
-                        labelOk = "OK"
+                    onPress = listOf(
+                        Alert(
+                            title = "Screen",
+                            message = "This component description and attribute details",
+                            labelOk = "OK"
+                        )
                     )
                 )
             )
