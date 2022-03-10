@@ -13,6 +13,10 @@ jobs:
               with:
                   fetch-depth: '0'
                   ref: 'main'
+            - uses: actions/setup-java@v2
+              with:
+                  distribution: 'temurin'
+                  java-version: '11'
             - name: Read secrets from AWS Secrets Manager into environment variables
               uses: abhilash1in/aws-secrets-manager-action@v1.0.1
               with:
