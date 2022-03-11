@@ -1,0 +1,77 @@
+name: Deploy Sample BFF to AWS
+
+on:
+    push:
+        tags:
+            - '[0-9]+.[0-9]+.[0-9]+' # 1.0.0
+            - '[0-9]+.[0-9]+.[0-9]+-[a-z0-9]+' # 1.0.0-rc1 or 1.0.0-beta1
+            - '[a-z0-9]+.[a-z0-9]+.[a-z0-9]+-bff' # 1.0.0-bff
+env:
+    IMAGE: beagle-scaffold-bff
+
+jobs:
+    ecr-publish:
+        name: ECR Publish
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - uses: actions/setup-java@v2
+              with:
+                  distribution: 'temurin'
+                  java-version: '11'
+            - name: Read secrets from AWS Secrets Manager into environment variables
+              uses: abhilash1in/aws-secrets-manager-action@v1.0.1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: us-east-1
+                  secrets: |
+                      beagle/helpers/*
+                      beagle/core/*
+                      beagle/core/artifact
+                  parse-json: true
+
+            - name: Cache gradle dependences
+              uses: actions/cache@v2
+              env:
+                  gradle-cache-key: gradle-cache-backend
+                  gradle-path: ~/.gradle
+              with:
+                  path: ${{ env.gradle-path }}
+                  key: ${{ runner.os }}-build-${{ env.gradle-cache-key }}-${{ hashFiles('buildSrc/**') }}
+                  restore-keys: ${{ runner.os }}-build-${{ env.gradle-cache-key }}
+
+            - id: version
+              run: echo "::set-output name=release_tag::$(echo $GITHUB_REF | sed 's/refs\/tags\///g' )"
+              shell: bash
+
+            - name: Build Image
+              run: ./gradlew sample:spring:bootBuildImage --imageName="temp"
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: sa-east-1
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Publish
+              env:
+                  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  VERSION: ${{ steps.version.outputs.release_tag }}
+              run: docker tag "temp" "$ECR_REGISTRY/$IMAGE:$VERSION" && docker push "$ECR_REGISTRY/$IMAGE:$VERSION"
+
+            - name: Update kubeconfig
+              run: aws eks update-kubeconfig --name ${{ env.BEAGLE_HELPERS_AWS_AWS_CLUSTER_NAME }}
+
+            - name: deploy to k8s
+              env:
+                  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  VERSION: ${{ steps.version.outputs.release_tag }}
+              run: sed "s/IMAGE/$ECR_REGISTRY\/$IMAGE:$VERSION/" sample/k8s.yml | kubectl -n ${{ env.BEAGLE_HELPERS_AWS_AWS_CLUSTER_NAMESPACE }} apply -f -
+                
