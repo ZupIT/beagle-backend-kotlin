@@ -3,9 +3,7 @@ name: Deploy Sample BFF to AWS
 on:
     push:
         tags:
-            - '[0-9]+.[0-9]+.[0-9]+' # 1.0.0
-            - '[0-9]+.[0-9]+.[0-9]+-[a-z0-9]+' # 1.0.0-rc1 or 1.0.0-beta1
-            - '[a-z0-9]+.[a-z0-9]+.[a-z0-9]+-bff' # 1.0.0-bff
+            - 'v[a-z0-9]+.[a-z0-9]+.[a-z0-9]+-bff'  # v1.0.0-bff
 env:
     IMAGE: beagle-scaffold-bff
 
