@@ -12,7 +12,7 @@ platform :backend do
       gradle(task: "jacocoDebugTestReport")
       gradle(task: "jacocoRootReport")
       gradle(task: "assemble")
-    #   gradle(task: "sonarqube")
+      gradle(task: "sonarqube")
     end
 
     desc "Deploy current code to stage"
