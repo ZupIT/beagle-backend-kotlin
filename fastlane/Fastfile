@@ -6,12 +6,12 @@
 
 platform :backend do
 
-    private_lane :sonarqube_token_available? do
-      sonarqube = ENV["SONAR_TOKEN"]
-      !(sonarqube.nil? || sonarqube.empty?)
-    end
+  private_lane :sonarqube_token_available? do
+    sonarqube = ENV["SONAR_TOKEN"]
+    !(sonarqube.nil? || sonarqube.empty?)
+  end
 
-    desc "Pull Request verification"
+  desc "Pull Request verification"
     lane :pull_request_verification do
       gradle(task: "clean")
       gradle(task: "detekt")
@@ -21,13 +21,13 @@ platform :backend do
       publish_sonarcloud_gradle
     end
 
-    desc "Deploy current code to stage"
+  desc "Deploy current code to stage"
     lane :deploy_to_stage do
       gradle(task: "assemble")
       gradle(task: "uploadArchives --no-daemon --no-parallel")
     end
   
-    desc "Deploy current code to production"
+  desc "Deploy current code to production"
     lane :deploy_to_production do
       sh "bash ./release/maven_signing.sh"
       deploy_to_stage
@@ -35,7 +35,7 @@ platform :backend do
 end
 
   
-  desc "Publish new release based on last two tags"
+desc "Publish new release based on last two tags"
   lane :deploy do
     sh "git fetch"
   
@@ -74,7 +74,7 @@ end
   ###  Release Notes
   ###
   
-  desc "Generate release notes"
+desc "Generate release notes"
   private_lane :release_notes do |params|
     get_previous_tag = lastExpectedVersion(newVersion:params[:versionDeploy])
     tagHashes = sh "git show-ref -s #{get_previous_tag} || git show-ref -s #{params[:versionDeploy]}"
@@ -102,31 +102,31 @@ end
      \n#{changelog}"
   end
   
-  private_lane :danger_token_available? do
-    danger = ENV["GITHUB_TOKEN"]
-    !(danger.nil? || danger.empty?)
-  end
+private_lane :danger_token_available? do
+  danger = ENV["GITHUB_TOKEN"]
+  !(danger.nil? || danger.empty?)
+end
   
-  after_all do |lane, options|
-    if lane == :pull_request_verification
-      if danger_token_available?
-        run_danger
-      end
+after_all do |lane, options|
+  if lane == :pull_request_verification
+    if danger_token_available?
+      run_danger
     end
   end
+end
   
-  error do |lane, exception, options|
-    if lane == :pull_request_verification
-      if danger_token_available?
-        run_danger
-      end
+error do |lane, exception, options|
+  if lane == :pull_request_verification
+    if danger_token_available?
+      run_danger
     end
   end
+end
   
-  # input: 1.2.0; output: 1.1.0
-  # input: 1.2.2; output: 1.2.1
-  # input: 3.0.0; output: 2.0.0
-  lane :lastExpectedVersion do |params|
+# input: 1.2.0; output: 1.1.0
+# input: 1.2.2; output: 1.2.1
+# input: 3.0.0; output: 2.0.0
+lane :lastExpectedVersion do |params|
     releaseNumberArray = params[:newVersion].split(".")
     lastVersion = ""
     calculated = false
@@ -145,12 +145,12 @@ end
   end
 
 desc "Publishing Sonarcloud reports via gradle"
-private_lane :publish_sonarcloud_gradle do |params|
-   # Setup java 11
-   ENV["JAVA_HOME"] = ENV["JAVA_HOME_11_X64"]
-   if sonarqube_token_available?
-      gradle(task: "sonarqube")
-   end
-   # Rollback to java 8
-   ENV["JAVA_HOME"] = ENV["JAVA_HOME_8_X64"]
+  private_lane :publish_sonarcloud_gradle do |params|
+    # Setup java 11
+    ENV["JAVA_HOME"] = ENV["JAVA_HOME_11_X64"]
+    if sonarqube_token_available?
+        gradle(task: "sonarqube")
+    end
+    # Rollback to java 8
+    ENV["JAVA_HOME"] = ENV["JAVA_HOME_8_X64"]
 end
