@@ -5,6 +5,12 @@
 ###
 
 platform :backend do
+
+    private_lane :sonarqube_token_available? do
+      sonarqube = ENV["SONAR_TOKEN"]
+      !(sonarqube.nil? || sonarqube.empty?)
+    end
+
     desc "Pull Request verification"
     lane :pull_request_verification do
       gradle(task: "clean")
@@ -12,7 +18,7 @@ platform :backend do
       gradle(task: "jacocoDebugTestReport")
       gradle(task: "jacocoRootReport")
       gradle(task: "assemble")
-      gradle(task: "sonarqube")
+      publish_sonarcloud_gradle
     end
 
     desc "Deploy current code to stage"
@@ -137,3 +143,14 @@ end
     version = lastVersion
     "#{version}"
   end
+
+desc "Publishing Sonarcloud reports via gradle"
+private_lane :publish_sonarcloud_gradle do |params|
+   # Setup java 11
+   ENV["JAVA_HOME"] = ENV["JAVA_HOME_11_X64"]
+   if sonarqube_token_available?
+      gradle(task: "sonarqube")
+   end
+   # Rollback to java 8
+   ENV["JAVA_HOME"] = ENV["JAVA_HOME_8_X64"]
+end
