@@ -45,6 +45,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_CONTEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
@@ -74,6 +75,7 @@ import br.com.zup.beagle.sample.micronaut.service.SampleImageRemoteService
 import br.com.zup.beagle.sample.micronaut.service.SampleLazyComponentService
 import br.com.zup.beagle.sample.micronaut.service.SampleListViewService
 import br.com.zup.beagle.sample.micronaut.service.SampleNavigationBarService
+import br.com.zup.beagle.sample.micronaut.service.SampleNavigationContextService
 import br.com.zup.beagle.sample.micronaut.service.SampleNavigationTypeService
 import br.com.zup.beagle.sample.micronaut.service.SampleOperationService
 import br.com.zup.beagle.sample.micronaut.service.SamplePageViewService
@@ -107,6 +109,7 @@ class ScreenController(
     private val sampleActionService: SampleActionService,
     private val sampleLazyComponentService: SampleLazyComponentService,
     private val sampleNavigationBarService: SampleNavigationBarService,
+    private val sampleNavigationContextService: SampleNavigationContextService,
     private val sampleNavigationTypeService: SampleNavigationTypeService,
     private val sampleComposeComponentService: SampleComposeComponentService,
     private val sampleNetworkImageService: SampleImageRemoteService,
@@ -164,6 +167,9 @@ class ScreenController(
 
     @Get(SCREEN_NAVIGATION_BAR_ENDPOINT)
     fun getSampleNavigationBarController() = this.sampleNavigationBarService.createNavigationBarView()
+
+    @Get(SCREEN_NAVIGATION_CONTEXT_ENDPOINT)
+    fun getSampleNavigationContextController() = this.sampleNavigationContextService.createNavigationContextSample()
 
     @Get(REPRESENTATION_NAVIGATION_BAR_ENDPOINT)
     fun getSampleNavigationBar() = this.sampleNavigationBarService.navigationBar()

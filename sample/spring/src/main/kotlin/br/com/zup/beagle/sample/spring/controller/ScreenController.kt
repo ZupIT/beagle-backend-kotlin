@@ -45,6 +45,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_CONTEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
@@ -74,6 +75,7 @@ import br.com.zup.beagle.sample.spring.service.SampleImageRemoteService
 import br.com.zup.beagle.sample.spring.service.SampleLazyComponentService
 import br.com.zup.beagle.sample.spring.service.SampleListViewService
 import br.com.zup.beagle.sample.spring.service.SampleNavigationBarService
+import br.com.zup.beagle.sample.spring.service.SampleNavigationContextService
 import br.com.zup.beagle.sample.spring.service.SampleNavigationTypeService
 import br.com.zup.beagle.sample.spring.service.SampleOperationService
 import br.com.zup.beagle.sample.spring.service.SamplePageViewService
@@ -105,6 +107,7 @@ class ScreenController(
     private val sampleScrollViewService: SampleScrollViewService,
     private val samplePageViewService: SamplePageViewService,
     private val sampleActionService: SampleActionService,
+    private val sampleNavigationContextService: SampleNavigationContextService,
     private val sampleLazyComponentService: SampleLazyComponentService,
     private val sampleNavigationBarService: SampleNavigationBarService,
     private val sampleNavigationTypeService: SampleNavigationTypeService,
@@ -207,6 +210,9 @@ class ScreenController(
 
     @GetMapping(SCREEN_EXAMPLE_ENDPOINT)
     fun getNavigationExample() = this.sampleActionService.getNavigateExample()
+
+    @GetMapping(SCREEN_NAVIGATION_CONTEXT_ENDPOINT)
+    fun getSampleNavigationContextController() = this.sampleNavigationContextService.createNavigationContextSample()
 
     @GetMapping(SCREEN_ANALYTICS_ENDPOINT)
     fun getAnalyticsExample() = this.sampleAnalyticsService.getAnalyticsExample()
