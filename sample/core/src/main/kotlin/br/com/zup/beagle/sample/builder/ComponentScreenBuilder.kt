@@ -35,6 +35,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
+import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_CONTEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
@@ -82,6 +83,7 @@ object ComponentScreenBuilder : ScreenBuilder {
                 createMenu("ScreenBuilder", SCREEN_BUILDER_ENDPOINT),
                 createMenu("LazyComponent", SCREEN_LAZY_COMPONENT_ENDPOINT),
                 createMenu("NavigationBar", SCREEN_NAVIGATION_BAR_ENDPOINT),
+                createMenu("NavigationContext", SCREEN_NAVIGATION_CONTEXT_ENDPOINT),
                 createMenu("NavigationType", NAVIGATION_TYPE_ENDPOINT),
                 createMenu("Accessibility Screen", ACCESSIBILITY_SCREEN_ENDPOINT),
                 createMenu("Compose Component", SCREEN_COMPOSE_COMPONENT_ENDPOINT),
