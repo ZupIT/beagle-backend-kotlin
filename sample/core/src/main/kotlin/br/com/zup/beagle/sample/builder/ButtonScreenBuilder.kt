@@ -16,8 +16,6 @@
 
 package br.com.zup.beagle.sample.builder
 
-import br.com.zup.beagle.analytics.ActionAnalyticsConfig
-import br.com.zup.beagle.analytics.ActionAnalyticsProperties
 import br.com.zup.beagle.annotation.ContextObject
 import br.com.zup.beagle.core.Accessibility
 import br.com.zup.beagle.core.CornerRadius
@@ -90,9 +88,7 @@ object ButtonScreenBuilder : ScreenBuilder {
                             title = "Button",
                             message = "This is a widget that will define a button natively using the server " +
                                 "driven information received through Beagle.",
-                            labelOk = "OK",
-                            analytics = ActionAnalyticsConfig.Enabled(
-                                ActionAnalyticsProperties(listOf("message"), hashMapOf("key" to "value")))
+                            labelOk = "OK"
                         )
                     )
                 )
@@ -111,7 +107,7 @@ object ButtonScreenBuilder : ScreenBuilder {
             styleId = BUTTON_STYLE_APPEARANCE
         )
 
-    ) + createAnalyticsExample() + createExpressionButtonSample() +
+    ) + createExpressionButtonSample() +
         createPositionExamples() +
         createSizeExamples() +
         createPaddingExamples() +
@@ -178,21 +174,6 @@ object ButtonScreenBuilder : ScreenBuilder {
                 sizeWidth = 450.0
             )
         )), text = "CHANGE SIZE")
-    }
-
-    private fun createAnalyticsExample(): List<Widget> {
-        return listOf(Button(
-            text = "Test",
-            onPress = listOf(
-                SetContext(
-                    contextId = "contextId",
-                    value = "value",
-                    analytics = ActionAnalyticsConfig.Enabled(
-                        ActionAnalyticsProperties(listOf("contextId"), hashMapOf("key" to "value")))
-                    )
-                )
-            )
-        )
     }
 
     private fun createExpressionButton(onPress: List<Action> = listOf(), text: String = ""): List<Widget> {
