@@ -35,6 +35,11 @@ class SetContextObjectSerializer : BaseContextObjectSerializer<SetContext>() {
         if (value.path != null) {
             gen.writeStringField(SetContext::path.name, value.path)
         }
+
+        if (value.analytics != null) {
+            gen.writeObjectField(SetContext::analytics.name, value.analytics)
+        }
+
         if (value.value::class.java.getAnnotation(GlobalContext::class.java) != null || value.value is Context) {
             gen.writeFieldName(SetContext::value.name)
             writeContext(value.value, gen)
