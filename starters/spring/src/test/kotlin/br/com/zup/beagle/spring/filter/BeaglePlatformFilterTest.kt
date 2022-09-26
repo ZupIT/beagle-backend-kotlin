@@ -83,19 +83,19 @@ internal class BeaglePlatformFilterTest {
 
     @Test
     fun `doFilter when request is null`() =
-        this.testPlatformFilterIsNoOp(null, mockk(), mockk())
+        this.testPlatformFilterIsNoOp(null, mockk(), mockk(relaxUnitFun = true))
 
     @Test
     fun `doFilter when request is not HTTPServletRequest`() =
-        this.testPlatformFilterIsNoOp(mockk(), mockk<HttpServletResponse>(), mockk())
+        this.testPlatformFilterIsNoOp(mockk(), mockk<HttpServletResponse>(), mockk(relaxUnitFun = true))
 
     @Test
     fun `doFilter when response is null`() =
-        this.testPlatformFilterIsNoOp(mockk(), null, mockk())
+        this.testPlatformFilterIsNoOp(mockk(), null, mockk(relaxUnitFun = true))
 
     @Test
     fun `doFilter when response is not HTTPServletResponse`() =
-        this.testPlatformFilterIsNoOp(mockk<HttpServletRequest>(), mockk(), mockk())
+        this.testPlatformFilterIsNoOp(mockk<HttpServletRequest>(), mockk(), mockk(relaxUnitFun = true))
 
     @Test
     fun `doFilter when chain is null`() =
