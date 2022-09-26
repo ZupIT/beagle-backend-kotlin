@@ -29,20 +29,29 @@ import javax.servlet.http.HttpServletResponse
 
 class BeaglePlatformFilter(private val objectMapper: ObjectMapper) : Filter {
 
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        if (chain != null && request is HttpServletRequest && response is HttpServletResponse) {
-            request.setAttribute(
-                BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER,
-                request.getHeader(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER)
-            )
-            val responseWrapper = ContentCachingResponseWrapper(response)
+    override fun doFilter(
+        request: ServletRequest?,
+        response: ServletResponse?,
+        chain: FilterChain?
+    ) {
+        val httpServletResponse = response as? HttpServletResponse
+        val httpServletRequest = request as? HttpServletRequest
+        val platformHeader = httpServletRequest?.getHeader(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER)
+        val isServletRequestResponse = request is HttpServletRequest && response is HttpServletResponse
+
+        if (chain != null && isServletRequestResponse && platformHeader != null) {
+            request.setAttribute(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER, platformHeader)
+            val responseWrapper = ContentCachingResponseWrapper(httpServletResponse)
             chain.doFilter(request, responseWrapper)
-            treatResponse(responseWrapper, request.getHeader(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER))
+            treatResponse(responseWrapper, platformHeader)
             responseWrapper.copyBodyToResponse()
         }
     }
 
-    private fun treatResponse(responseWrapper: ContentCachingResponseWrapper, currentPlatform: String?) {
+    private fun treatResponse(
+        responseWrapper: ContentCachingResponseWrapper,
+        currentPlatform: String?
+    ) {
         if (responseWrapper.contentType == MediaType.APPLICATION_JSON_VALUE) {
             val jsonData = this.objectMapper.readTree(responseWrapper.contentAsByteArray).also {
                 BeaglePlatformUtil.treatBeaglePlatform(currentPlatform, it)
