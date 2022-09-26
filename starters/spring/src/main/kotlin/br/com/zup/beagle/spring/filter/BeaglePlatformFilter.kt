@@ -34,13 +34,16 @@ class BeaglePlatformFilter(private val objectMapper: ObjectMapper) : Filter {
         response: ServletResponse?,
         chain: FilterChain?
     ) {
+        val isServletRequestResponse = request is HttpServletRequest && response is HttpServletResponse
         val httpServletResponse = response as? HttpServletResponse
         val httpServletRequest = request as? HttpServletRequest
-        val platformHeader = httpServletRequest?.getHeader(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER)
-        val isServletRequestResponse = request is HttpServletRequest && response is HttpServletResponse
+        val platformHeader =
+            if (isServletRequestResponse)
+                httpServletRequest?.getHeader(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER)
+            else null
 
         if (chain != null && isServletRequestResponse && platformHeader != null) {
-            request.setAttribute(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER, platformHeader)
+            request?.setAttribute(BeaglePlatformUtil.BEAGLE_PLATFORM_HEADER, platformHeader)
             val responseWrapper = ContentCachingResponseWrapper(httpServletResponse)
             chain.doFilter(request, responseWrapper)
             treatResponse(responseWrapper, platformHeader)
