@@ -27,5 +27,5 @@ fun testFilterIsNoOp(filter: Filter, request: ServletRequest?, response: Servlet
     filter.doFilter(request, response, chain)
     if (request != null) verify { request wasNot Called }
     if (response != null) verify { response wasNot Called }
-    if (chain != null) verify { chain wasNot Called }
+    if (chain != null) verify { chain.doFilter(request, response) }
 }

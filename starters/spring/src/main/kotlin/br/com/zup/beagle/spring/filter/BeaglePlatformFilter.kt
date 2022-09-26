@@ -48,6 +48,8 @@ class BeaglePlatformFilter(private val objectMapper: ObjectMapper) : Filter {
             chain.doFilter(request, responseWrapper)
             treatResponse(responseWrapper, platformHeader)
             responseWrapper.copyBodyToResponse()
+        } else {
+            chain?.doFilter(request, response)
         }
     }
 
