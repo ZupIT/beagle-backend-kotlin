@@ -18,78 +18,8 @@
 
 package br.com.zup.beagle.sample.micronaut.controller
 
-import br.com.zup.beagle.sample.constants.ACCESSIBILITY_SCREEN_ENDPOINT
-import br.com.zup.beagle.sample.constants.NAVIGATION_TYPE_ENDPOINT
-import br.com.zup.beagle.sample.constants.OPERATIONS_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_IMAGE_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_STYLE_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_BAR_TEXT_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_TYPE_STEP2_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_NAVIGATION_TYPE_STEP3_ENDPOINT
-import br.com.zup.beagle.sample.constants.REPRESENTATION_PRESENT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SAMPLE_VIEW_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_ACTION_ADD_CHILDREN
-import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_ACTION_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_ANALYTICS_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_BFF_NETWORK_IMAGE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_BUILDER_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_BUTTON_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_COMPONENTS_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_COMPOSE_COMPONENT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_CONTEXT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_DSL_CONTEXT
-import br.com.zup.beagle.sample.constants.SCREEN_EXAMPLE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_IMAGE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_LAZY_COMPONENT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_LIST_VIEW_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_BAR_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_NAVIGATION_CONTEXT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_NETWORK_IMAGE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_PAGE_VIEW_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH
-import br.com.zup.beagle.sample.constants.SCREEN_PULL_TO_REFRESH_SIMPLE
-import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_FALSE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_SAFE_AREA_TRUE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_SCROLL_VIEW_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_SIMPLE_FORM_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_TAB_BAR_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_TEXT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_TEXT_INPUT_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_TOUCHABLE_ENDPOINT
-import br.com.zup.beagle.sample.constants.SCREEN_WEB_VIEW_ENDPOINT
-import br.com.zup.beagle.sample.micronaut.service.AccessibilityService
-import br.com.zup.beagle.sample.micronaut.service.AddChildrenService
-import br.com.zup.beagle.sample.micronaut.service.DSLContextService
-import br.com.zup.beagle.sample.micronaut.service.SampleActionClickService
-import br.com.zup.beagle.sample.micronaut.service.SampleActionService
-import br.com.zup.beagle.sample.micronaut.service.SampleAnalyticsService
-import br.com.zup.beagle.sample.micronaut.service.SampleButtonService
-import br.com.zup.beagle.sample.micronaut.service.SampleComponentsService
-import br.com.zup.beagle.sample.micronaut.service.SampleComposeComponentService
-import br.com.zup.beagle.sample.micronaut.service.SampleContextService
-import br.com.zup.beagle.sample.micronaut.service.SampleImageLocalService
-import br.com.zup.beagle.sample.micronaut.service.SampleImageRemoteService
-import br.com.zup.beagle.sample.micronaut.service.SampleLazyComponentService
-import br.com.zup.beagle.sample.micronaut.service.SampleListViewService
-import br.com.zup.beagle.sample.micronaut.service.SampleNavigationBarService
-import br.com.zup.beagle.sample.micronaut.service.SampleNavigationContextService
-import br.com.zup.beagle.sample.micronaut.service.SampleNavigationTypeService
-import br.com.zup.beagle.sample.micronaut.service.SampleOperationService
-import br.com.zup.beagle.sample.micronaut.service.SamplePageViewService
-import br.com.zup.beagle.sample.micronaut.service.SamplePullToRefreshService
-import br.com.zup.beagle.sample.micronaut.service.SampleSafeAreaService
-import br.com.zup.beagle.sample.micronaut.service.SampleScreenBuilderService
-import br.com.zup.beagle.sample.micronaut.service.SampleScrollViewService
-import br.com.zup.beagle.sample.micronaut.service.SampleSimpleFormService
-import br.com.zup.beagle.sample.micronaut.service.SampleTabBarService
-import br.com.zup.beagle.sample.micronaut.service.SampleTextService
-import br.com.zup.beagle.sample.micronaut.service.SampleTouchableService
-import br.com.zup.beagle.sample.micronaut.service.SampleViewService
-import br.com.zup.beagle.sample.micronaut.service.SampleWebViewService
-import br.com.zup.beagle.sample.micronaut.service.TextInputService
+import br.com.zup.beagle.sample.constants.*
+import br.com.zup.beagle.sample.micronaut.service.*
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 
@@ -100,6 +30,7 @@ class ScreenController(
     private val sampleScreenBuilderService: SampleScreenBuilderService,
     private val sampleComponentsService: SampleComponentsService,
     private val sampleButtonService: SampleButtonService,
+    private val sampleComposeService: SampleComposeService,
     private val sampleTextService: SampleTextService,
     private val sampleImageService: SampleImageLocalService,
     private val sampleTabBarService: SampleTabBarService,
@@ -140,6 +71,9 @@ class ScreenController(
 
     @Get(SCREEN_BUTTON_ENDPOINT)
     fun getSampleButtonView() = this.sampleButtonService.createButtonView()
+
+    @Get(SCREEN_COMPOSE_ENDPOINT)
+    fun getSampleComposeView() = this.sampleComposeService.createComposeView()
 
     @Get(SCREEN_TEXT_ENDPOINT)
     fun getSampleTextView() = this.sampleTextService.createTextView()

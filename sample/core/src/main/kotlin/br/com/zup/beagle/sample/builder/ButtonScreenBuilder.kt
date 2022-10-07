@@ -109,8 +109,7 @@ object ButtonScreenBuilder : ScreenBuilder {
             styleId = BUTTON_STYLE_APPEARANCE
         )
 
-    ) + ComposeText("Click me", onClick = listOf(Alert(message = "You have clicked!"))) +
-            createExpressionButtonSample() +
+    ) + createExpressionButtonSample() +
         createPositionExamples() +
         createSizeExamples() +
         createPaddingExamples() +
