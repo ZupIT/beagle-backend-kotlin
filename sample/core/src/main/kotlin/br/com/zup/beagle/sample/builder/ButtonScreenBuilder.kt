@@ -28,6 +28,8 @@ import br.com.zup.beagle.sample.constants.CYAN_BLUE
 import br.com.zup.beagle.sample.constants.LIGHT_ORANGE
 import br.com.zup.beagle.sample.constants.RED
 import br.com.zup.beagle.sample.constants.SCREEN_ACTION_CLICK_ENDPOINT
+import br.com.zup.beagle.sample.widget.ChannelCard
+import br.com.zup.beagle.sample.widget.ComposeText
 import br.com.zup.beagle.widget.Widget
 import br.com.zup.beagle.widget.action.Action
 import br.com.zup.beagle.widget.action.Alert
@@ -107,7 +109,8 @@ object ButtonScreenBuilder : ScreenBuilder {
             styleId = BUTTON_STYLE_APPEARANCE
         )
 
-    ) + createExpressionButtonSample() +
+    ) + ComposeText("Click me", onClick = listOf(Alert(message = "You have clicked!"))) +
+            createExpressionButtonSample() +
         createPositionExamples() +
         createSizeExamples() +
         createPaddingExamples() +
