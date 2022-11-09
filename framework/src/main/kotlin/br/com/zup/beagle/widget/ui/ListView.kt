@@ -47,6 +47,7 @@ data class ListView(
     val onScrollEnd: List<Action>? = null,
     val scrollEndThreshold: Int? = null,
     val iteratorName: String = "item",
+    val indexName: String = "index",
     val isScrollIndicatorVisible: Boolean = false,
     val key: String? = null,
     val useParentScroll: Boolean? = null,
