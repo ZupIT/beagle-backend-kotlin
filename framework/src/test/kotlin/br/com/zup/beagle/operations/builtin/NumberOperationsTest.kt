@@ -34,7 +34,7 @@ internal class NumberOperationTest {
         @DisplayName("Then should return correct expression")
         fun checkSumExpression() {
             // GIVEN
-            val expected = Bind.Expression<Number>(value = "@{sum(1,2)}")
+            val expected = Bind.Expression<Any>(value = "@{sum(1,2)}")
 
             // WHEN
             val result = sum(constant(1), constant(2))
@@ -47,7 +47,7 @@ internal class NumberOperationTest {
         @DisplayName("Then should return correct expression")
         fun checkSumDoubleExpression() {
             // GIVEN
-            val expected = Bind.Expression<Number>(value = "@{sum(2.5,2.5)}")
+            val expected = Bind.Expression<Any>(value = "@{sum(2.5,2.5)}")
 
             // WHEN
             val result = sum(constant(2.5), constant(2.5))
@@ -65,7 +65,7 @@ internal class NumberOperationTest {
         @DisplayName("Then should return correct expression")
         fun checkSubtractExpression() {
             // GIVEN
-            val expected = Bind.Expression<Number>(value = "@{subtract(10,5)}")
+            val expected = Bind.Expression<Any>(value = "@{subtract(10,5)}")
 
             // WHEN
             val result = subtract(constant(10), constant(5))
@@ -78,7 +78,7 @@ internal class NumberOperationTest {
         @DisplayName("Then should return correct expression")
         fun checkSubtractDoubleExpression() {
             // GIVEN
-            val expected = Bind.Expression<Number>(value = "@{subtract(10.5,5.5)}")
+            val expected = Bind.Expression<Any>(value = "@{subtract(10.5,5.5)}")
 
             // WHEN
             val result = subtract(constant(10.5), constant(5.5))
@@ -95,7 +95,7 @@ internal class NumberOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkMultiplyExpression() {
                 // GIVEN
-                val expected = Bind.Expression<Number>(value = "@{multiply(2,2)}")
+                val expected = Bind.Expression<Any>(value = "@{multiply(2,2)}")
 
                 // WHEN
                 val result = multiply(constant(2), constant(2))
@@ -108,7 +108,7 @@ internal class NumberOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkMultiplyDoubleExpression() {
                 // GIVEN
-                val expected = Bind.Expression<Number>(value = "@{multiply(2.5,2.5)}")
+                val expected = Bind.Expression<Any>(value = "@{multiply(2.5,2.5)}")
 
                 // WHEN
                 val result = multiply(constant(2.5), constant(2.5))
@@ -125,7 +125,7 @@ internal class NumberOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkDivideExpression() {
                 // GIVEN
-                val expected = Bind.Expression<Number>(value = "@{divide(10,5)}")
+                val expected = Bind.Expression<Any>(value = "@{divide(10,5)}")
 
                 // WHEN
                 val result = divide(constant(10), constant(5))
@@ -138,7 +138,7 @@ internal class NumberOperationTest {
             @DisplayName("Then should return correct expression")
             fun checkDivideDoubleExpression() {
                 // GIVEN
-                val expected = Bind.Expression<Number>(value = "@{divide(10.5,5.25)}")
+                val expected = Bind.Expression<Any>(value = "@{divide(10.5,5.25)}")
 
                 // WHEN
                 val result = divide(constant(10.5), constant(5.25))
