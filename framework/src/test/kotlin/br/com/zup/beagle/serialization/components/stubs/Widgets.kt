@@ -169,6 +169,7 @@ fun makeJsonGridView() = """
       "scrollEndThreshold": 80,
       "isScrollIndicatorVisible": true,
       "iteratorName": "listItem",
+      "indexName": "index",
       "key": "listKey",
       "spanCount": 2,
       "direction": "HORIZONTAL"
@@ -280,6 +281,7 @@ fun makeObjectGridView() = GridView(
     scrollEndThreshold = 80,
     isScrollIndicatorVisible = true,
     iteratorName = "listItem",
+    indexName = "index",
     key = "listKey",
     spanCount = 2,
     direction = GridViewDirection.HORIZONTAL
@@ -315,6 +317,7 @@ fun makeListViewJson() = """
        "onScrollEnd": [${makeActionAlertJson()}],
        "scrollEndThreshold": 80,
        "iteratorName": "itemTest",
+       "indexName": "index",
        "isScrollIndicatorVisible": false,
        "key": "key",
        "templates":[
@@ -335,6 +338,7 @@ fun makeObjectListView() = ListView(
     scrollEndThreshold = 80,
     isScrollIndicatorVisible = false,
     iteratorName = "itemTest",
+    indexName = "index",
     key = "key",
     templates = listOf(
         Template(
