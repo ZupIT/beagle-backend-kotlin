@@ -49,6 +49,7 @@ import br.com.zup.beagle.sample.constants.SCREEN_TEXT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TEXT_INPUT_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_TOUCHABLE_ENDPOINT
 import br.com.zup.beagle.sample.constants.SCREEN_WEB_VIEW_ENDPOINT
+import br.com.zup.beagle.sample.constants.OPERATIONS_ENDPOINT
 import br.com.zup.beagle.widget.action.Navigate
 import br.com.zup.beagle.widget.action.Route
 import br.com.zup.beagle.widget.core.EdgeValue
@@ -80,6 +81,7 @@ object ComponentScreenBuilder : ScreenBuilder {
                 createMenu("ScrollView", SCREEN_SCROLL_VIEW_ENDPOINT),
                 createMenu("PageView", SCREEN_PAGE_VIEW_ENDPOINT),
                 createMenu("Action", SCREEN_ACTION_ENDPOINT),
+                createMenu("Operations", OPERATIONS_ENDPOINT),
                 createMenu("ScreenBuilder", SCREEN_BUILDER_ENDPOINT),
                 createMenu("LazyComponent", SCREEN_LAZY_COMPONENT_ENDPOINT),
                 createMenu("NavigationBar", SCREEN_NAVIGATION_BAR_ENDPOINT),
