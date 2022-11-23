@@ -23,10 +23,10 @@ import br.com.zup.beagle.widget.context.expressionOf
 const val REMOVE_AT_SIGN_AND_OPEN_KEYS = 2
 const val REMOVE_KEYS_END = 1
 /** Number **/
-fun sum(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("sum", params)
-fun subtract(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("subtract", params)
-fun divide(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("divide", params)
-fun multiply(vararg params: Bind<Number>): Bind.Expression<Number> = createOperation("multiply", params)
+fun sum(vararg params: Bind<Any>): Bind.Expression<Any> = createOperation("sum", params)
+fun subtract(vararg params: Bind<Any>): Bind.Expression<Any> = createOperation("subtract", params)
+fun divide(vararg params: Bind<Any>): Bind.Expression<Any> = createOperation("divide", params)
+fun multiply(vararg params: Bind<Any>): Bind.Expression<Any> = createOperation("multiply", params)
 
 /** String **/
 fun capitalize(param: Bind<String>): Bind.Expression<String> = createOperation("capitalize", arrayOf(param))
@@ -46,19 +46,19 @@ fun substring(param: Bind<String>, startIndex: Bind<Int>, endIndex: Bind<Int>? =
     createOperation("substr", arrayOf(param, startIndex, endIndex))
 
 /** comparison **/
-fun <I> eq(firstParam: Bind<I>, secondParam: Bind<I>): Bind.Expression<Boolean> =
+fun eq(firstParam: Bind<Any>, secondParam: Bind<Any>): Bind.Expression<Boolean> =
     createOperation("eq", arrayOf(firstParam, secondParam))
 
-fun gt(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+fun gt(firstParam: Bind<Any>, secondParam: Bind<Any>): Bind.Expression<Boolean> =
     createOperation("gt", arrayOf(firstParam, secondParam))
 
-fun gte(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+fun gte(firstParam: Bind<Any>, secondParam: Bind<Any>): Bind.Expression<Boolean> =
     createOperation("gte", arrayOf(firstParam, secondParam))
 
-fun lt(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+fun lt(firstParam: Bind<Any>, secondParam: Bind<Any>): Bind.Expression<Boolean> =
     createOperation("lt", arrayOf(firstParam, secondParam))
 
-fun lte(firstParam: Bind<Number>, secondParam: Bind<Number>): Bind.Expression<Boolean> =
+fun lte(firstParam: Bind<Any>, secondParam: Bind<Any>): Bind.Expression<Boolean> =
     createOperation("lte", arrayOf(firstParam, secondParam))
 
 /** logic **/
@@ -90,6 +90,9 @@ fun <I> union(firstArray: Bind<Array<I>>, secondArray: Bind<Array<I>>): Bind.Exp
 fun isEmpty(param: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isEmpty", arrayOf(param))
 fun isNull(param: Bind<Boolean>): Bind.Expression<Boolean> = createOperation("isNull", arrayOf(param))
 fun length(param: Bind<Array<*>>): Bind.Expression<Int> = createOperation("length", arrayOf(param))
+fun int(param: Bind<Any>): Bind.Expression<Int> = createOperation("int", arrayOf(param))
+fun double(param: Bind<Any>): Bind.Expression<Double> = createOperation("double", arrayOf(param))
+fun string(param: Bind<Any>): Bind.Expression<String> = createOperation("string", arrayOf(param))
 
 fun <O> createOperation(operationType: String, params: Array<out Any?>): Bind.Expression<O> {
     val values = params.filterNotNull().map {
